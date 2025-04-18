@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phylogenetic Tree - Plant Families Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&family=open+sans:wght@400;600&family=playfair+display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .node circle {
+            fill: #fff;
+            stroke: steelblue;
+            stroke-width: 3px;
+        }
+        .node text {
+            font: 12px sans-serif;
+            cursor: pointer; 
+        }
+        .node text.highlighted {
+             fill: #ff9900; 
+             font-weight: bold;
+        }
+        .node--internal circle {
+            fill: #555;
+        }
+        .node--leaf circle {
+             fill: steelblue; 
+        }
+        .node--leaf text {
+            text-anchor: start;
+        }
+        .node--internal text {
+            text-anchor: end;
+        }
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 2px;
+        }
+        .tree-visualization {
+            overflow: hidden; 
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+    <div class="incomplete-list-banner">
+        <div class="container">
+            <p><strong>Note:</strong> While this visualization represents a large selection of plant families, it does not include every known family. This is a ture effort to make phylogenetic information more accessable to anyone, and exists as a critique of the open tree of life. All information is accurate to the best of my knowledge. My goal with this project is to open it up to a system of community edits</p>
+        </div>
+    </div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="Plant Families Explorer Logo">
+                    <span>Plant Families Explorer</span>
+                </a>
+            </div>
+            <nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="phylogenetic-tree.html" class="active">Phylogenetic Tree</a></li>
+                    <li><a href="families.html">Plant Families</a></li>
+                    <li><a href="identification.html">Field Identification</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search plant families..." aria-label="Search plant families">
+                <button type="submit" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Phylogenetic Tree Explorer</h1>
+                <p>Explore the evolutionary relationships between plant families in this interactive visualization. The tree is organized according to the latest APG IV classification system, showing how plant families are related through their evolutionary history. Click nodes to expand or collapse branches. Use search to find specific families.</p>
+            </div>
+        </section>
+
+        <section class="phylogenetic-tree-controls">
+            <div class="container">
+                <div class="search-controls">
+                    <label for="family-search">Find a family:</label>
+                    <input type="text" id="family-search" placeholder="Type family name (min 3 chars)..." aria-label="Find a plant family in the tree">
+                    <button id="reset-search" class="btn btn-small btn-secondary" style="margin-left: 10px;">Reset Search</button>
+                </div>
+                </div>
+        </section>
+
+        <section class="phylogenetic-tree-container">
+            <div class="container">
+                <div id="phylogenetic-tree" class="tree-visualization">
+                    <svg width="1000" height="1500"></svg> </div>
+            </div>
+        </section>
+
+        <section class="tree-information">
+            <div class="container">
+                <h2>Understanding Plant Phylogeny</h2>
+                <p>Plant phylogeny represents the evolutionary relationships between different plant groups. Modern plant classification is based on these evolutionary relationships, as determined through molecular, morphological, and developmental studies.</p>
+
+                <div class="info-columns">
+                    <div class="info-column">
+                        <h3>APG IV Classification</h3>
+                        <p>The Angiosperm Phylogeny Group (APG) IV classification is the current standard for flowering plant taxonomy. Published in 2016, it represents the most up-to-date understanding of plant evolutionary relationships based on molecular data. This tree follows the APG IV system for flowering plants, incorporating other classification systems for non-flowering plants.</p>
+                    </div>
+
+                    <div class="info-column">
+                        <h3>Major Plant Groups</h3>
+                        <p>The plant kingdom is divided into several major groups, visualized in the tree:</p>
+                        <ul>
+                            <li><strong>Bryophytes</strong>: Non-vascular plants (mosses, liverworts, hornworts)</li>
+                            <li><strong>Pteridophytes</strong>: Vascular seedless plants (ferns, horsetails, club mosses)</li>
+                            <li><strong>Gymnosperms</strong>: Seed plants with "naked" seeds (conifers, cycads, ginkgo)</li>
+                            <li><strong>Angiosperms</strong>: Flowering plants with seeds enclosed in fruits</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-column">
+                        <h3>Using This Tree</h3>
+                        <p>This interactive phylogenetic tree allows you to:</p>
+                        <ul>
+                            <li>Zoom and pan to explore different parts of the tree</li>
+                            <li>Click on nodes <span class="internal-node"></span> to expand or collapse branches</li>
+                            <li>Search for specific plant families using the search bar</li>
+                            <li>Click on linked family names <span class="leaf-node"></span> to view detailed information pages</li>
+                            <li>Hover over nodes to see full names (if truncated)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Plant Families Explorer</h4>
+                    <p>A comprehensive guide to plant families in phylogenetic order with identification features for botanists, students, and nature enthusiasts.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                        <li><a href="families.html">Plant Families</a></li>
+                        <li><a href="identification.html">Field Identification</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="about.html#apg">APG IV System</a></li>
+                        <li><a href="about.html#references">References</a></li>
+                        <li><a href="about.html#glossary">Botanical Glossary</a></li>
+                        <li><a href="about.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plant Families Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/phylogenetic-tree.js"></script>
+</body>
+</html>

@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home - Plant Families Explorer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&family=open+sans:wght@400;600&family=playfair+display:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+    </head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="Plant Families Explorer Logo">
+                    <span>Plant Families Explorer</span>
+                </a>
+            </div>
+            <nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                    <li><a href="families.html" class="active">Plant Families</a></li>
+                    <li><a href="identification.html">Field Identification</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <form class="search-bar" onsubmit="event.preventDefault(); performSearch(document.querySelector('.search-bar input').value.trim().toLowerCase());">
+                <input type="text" placeholder="Search families...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Plant Families Directory</h1>
+                <p>Browse through our expanded collection of plant families organized phylogenetically or alphabetically. Each family page includes detailed characteristics, identification features, and examples.</p>
+            </div>
+        </section>
+
+        <section class="family-browse-controls">
+             <div class="container">
+                  <div class="browse-options">
+                        <div class="browse-option active" data-view="phylogenetic">Phylogenetic Order</div>
+                        <div class="browse-option" data-view="alphabetical">Alphabetical</div>
+                  </div>
+                  <div class="filter-dropdown">
+                        <label for="group-filter">Filter by group:</label>
+                        <select id="group-filter">
+                            <option value="all">All Plant Groups</option>
+                            <option value="bryophytes">Bryophytes (All)</option>
+                            <option value="Marchantiophyta">   ↳ Liverworts</option>
+                            <option value="Bryophyta">   ↳ Mosses</option>
+                            <option value="Anthocerotophyta">   ↳ Hornworts</option>
+                            <option value="lycophytes">Lycophytes</option>
+                            <option value="monilophytes">Monilophytes (Ferns & Allies)</option>
+                            <option value="gymnosperms">Gymnosperms</option>
+                            <option value="angiosperms">Angiosperms (All)</option>
+                            <option value="basal_angiosperms">   ↳ Basal Angiosperms</option>
+                            <option value="magnoliids">   ↳ Magnoliids</option>
+                            <option value="monocots">   ↳ Monocots</option>
+                            <option value="eudicots">   ↳ Eudicots</option>
+                        </select>
+                  </div>
+             </div>
+        </section>
+
+        <section class="families-list-container">
+            <div class="container">
+                 <p>Loading families...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Plant Families Explorer</h4>
+                    <p>A comprehensive guide to plant families in phylogenetic order with identification features for botanists, students, and nature enthusiasts.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                        <li><a href="families.html">Plant Families</a></li>
+                        <li><a href="identification.html">Field Identification</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="about.html#apg">APG IV System</a></li>
+                        <li><a href="about.html#references">References</a></li>
+                        <li><a href="about.html#glossary">Botanical Glossary</a></li>
+                        <li><a href="about.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plant Families Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for the HTML document to be fully loaded and parsed
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Plant Data Structure (ENHANCED) ---
+            const enhancedPlantData = {
+    // =========================================================================
+    // Non-Vascular Plants (Bryophytes sensu lato - Paraphyletic Group)
+    // =========================================================================
+    "bryophytes": {
+        name: "Non-Vascular Plants (Bryophytes s.l.)",
+        note: "Bryophytes are a paraphyletic group consisting of three distinct divisions.",
+        subgroups: {
+            // -----------------------------------------------------------------
+            // Division: Marchantiophyta (Liverworts)
+            // Classification largely follows Söderström et al. 2016 & Crandall-Stotler et al. 2009
+            // -----------------------------------------------------------------
+            "Marchantiophyta": {
+                name: "Marchantiophyta (Liverworts)",
+                subgroups: {
+                    "Haplomitriopsida": {
+                        name: "Class: Haplomitriopsida",
+                        subgroups: {
+                            "Haplomitriales": { name: "Order: Haplomitriales", families: ["Haplomitriaceae"] },
+                            "Treubiales": { name: "Order: Treubiales", families: ["Treubiaceae"] }
+                        }
+                    },
+                    "Marchantiopsida": {
+                        name: "Class: Marchantiopsida",
+                        subgroups: {
+                            "Blasiales": { name: "Order: Blasiales", families: ["Blasiaceae"] },
+                            "Sphaerocarpales": {
+                                name: "Order: Sphaerocarpales",
+                                families: ["Sphaerocarpaceae", "Riellaceae", "Monocarpaceae"] // Monocarpaceae sometimes included in Sphaerocarpaceae
+                            },
+                            "Marchantiales": {
+                                name: "Order: Marchantiales",
+                                families: [
+                                    "Marchantiaceae", "Aytoniaceae", "Cleveaceae", "Conocephalaceae",
+                                    "Lunulariaceae", "Wiesnerellaceae", "Dumortieraceae", "Monosoleniaceae",
+                                    "Oxymitraceae", "Ricciaceae", "Targioniaceae", "Cyathodiaceae",
+                                    "Exormothecaceae", "Corsiniaceae" // Position of some families debated
+                                ]
+                            },
+                             "Neohodgsoniales": { name: "Order: Neohodgsoniales", families: ["Neohodgsoniaceae"] } // Sometimes included in Marchantiales
+                        }
+                    },
+                    "Jungermanniopsida": {
+                        name: "Class: Jungermanniopsida",
+                        subgroups: {
+                            "Pelliales": { name: "Order: Pelliales", families: ["Pelliaceae", "Noterocladaceae"] },
+                            "Fossombroniales": { name: "Order: Fossombroniales", families: ["Fossombroniaceae", "Allisoniaceae", "Calypogeiaceae", "Makinoaceae"] }, // Calypogeiaceae sometimes placed elsewhere
+                            "Metzgeriales": { name: "Order: Metzgeriales", families: ["Metzgeriaceae", "Aneuraceae", "Mizutaniaceae", "Vandiemeniaceae"] },
+                            "Pleuroziales": { name: "Order: Pleuroziales", families: ["Pleuroziaceae"] },
+                            "Jungermanniales": {
+                                name: "Order: Jungermanniales",
+                                families: [
+                                    // Suborder Perssoniellineae
+                                    "Schistochilaceae", "Perssoniellaceae",
+                                    // Suborder Lophocoleineae
+                                    "Lophocoleaceae", "Plagiochilaceae", "Lepidoziaceae", "Pseudolepicoleaceae",
+                                    "Trichocoleaceae", "Blepharostomataceae", "Brevianthaceae", "Chonecoleaceae",
+                                    "Geocalycaceae", "Herbertaceae", "Lepicoleaceae", "Mastigophoraceae",
+                                    "Adelanthaceae", "Cephaloziaceae", "Cephaloziellaceae", "Jackiellaceae",
+                                    "Scapaniaceae", "Lophoziaceae", "Acrobolbaceae", "Antheliaceae",
+                                    "Arnelliaceae", "Calypogeiaceae", // Also listed under Fossombroniales, position debated
+                                    "Gymnomitriaceae", "Jungermanniaceae", "Mesoptychiaceae", "Myliaceae",
+                                    "Stephaniellaceae", "Trichotemnomataceae"
+                                    // Many families, circumscription varies
+                                ]
+                            },
+                            "Porellales": {
+                                name: "Order: Porellales",
+                                families: [
+                                    "Porellaceae", "Goebeliellaceae", "Lepidolaenaceae"
+                                ]
+                            },
+                            "Radulales": { name: "Order: Radulales", families: ["Radulaceae"] },
+                            "Jubulales": { // Often included within Porellales
+                                name: "Order: Jubulales",
+                                families: ["Frullaniaceae", "Jubulaceae", "Lejeuneaceae"]
+                            }
+                        }
+                    }
+                }
+            },
+            // -----------------------------------------------------------------
+            // Division: Bryophyta (Mosses)
+            // Classification largely follows Goffinet et al. 2009 & subsequent updates
+            // -----------------------------------------------------------------
+            "Bryophyta": {
+                name: "Bryophyta (Mosses)",
+                subgroups: {
+                    // --- Basal Lineages ---
+                    "Takakiopsida": { name: "Class: Takakiopsida", subgroups: { "Takakiales": { name: "Order: Takakiales", families: ["Takakiaceae"] } } },
+                    "Sphagnopsida": { name: "Class: Sphagnopsida", subgroups: { "Sphagnales": { name: "Order: Sphagnales", families: ["Sphagnaceae", "Ambuchananiaceae", "Flatbergiaceae"] } } },
+                    "Andreaeopsida": { name: "Class: Andreaeopsida", subgroups: { "Andreaeales": { name: "Order: Andreaeales", families: ["Andreaeaceae"] } } },
+                    "Andreaeobryopsida": { name: "Class: Andreaeobryopsida", subgroups: { "Andreaeobryales": { name: "Order: Andreaeobryales", families: ["Andreaeobryaceae"] } } },
+                    "Oedipodiopsida": { name: "Class: Oedipodiopsida", subgroups: { "Oedipodiales": { name: "Order: Oedipodiales", families: ["Oedipodiaceae"] } } },
+                    "Polytrichopsida": { name: "Class: Polytrichopsida", subgroups: { "Polytrichales": { name: "Order: Polytrichales", families: ["Polytrichaceae"] } } },
+                    "Tetraphidopsida": { name: "Class: Tetraphidopsida", subgroups: { "Tetraphidales": { name: "Order: Tetraphidales", families: ["Tetraphidaceae"] } } }, // Pseudoditrichaceae sometimes included here or Bryopsida
+                    // --- Bryopsida (Largest Class) ---
+                    "Bryopsida": {
+                        name: "Class: Bryopsida",
+                        subgroups: {
+                            // Subclass Diphysciidae
+                            "Diphysciales": { name: "Order: Diphysciales", families: ["Diphysciaceae"] },
+                             // Subclass Funariidae
+                            "Funariales": { name: "Order: Funariales", families: ["Funariaceae", "Disceliaceae"] },
+                            "Encalyptales": { name: "Order: Encalyptales", families: ["Encalyptaceae"] },
+                            "Gigaspermales": { name: "Order: Gigaspermales", families: ["Gigaspermaceae"] }, // Position sometimes debated
+                            // Subclass Dicranidae
+                            "Catoscopiales": { name: "Order: Catoscopiales", families: ["Catoscopiaceae"] },
+                            "Scouleriales": { name: "Order: Scouleriales", families: ["Scouleriaceae", "Drummondiaceae"] },
+                            "Bryoxiphiales": { name: "Order: Bryoxiphiales", families: ["Bryoxiphiaceae"] },
+                            "Grimmiales": { name: "Order: Grimmiales", families: ["Grimmiaceae", "Ptychomitriaceae", "Seligeriaceae"] }, // Saelaniaceae often in Seligeriaceae
+                            "Archidiales": { name: "Order: Archidiales", families: ["Archidiaceae"] },
+                            "Mitteniales": { name: "Order: Mitteniales", families: ["Mitteniaceae"] },
+                            "Dicranales": { name: "Order: Dicranales", families: ["Dicranaceae", "Sorapillaceae", "Bruchiaceae", "Calymperaceae", "Dicranellaceae", "Ditrichaceae", "Erpodiaceae", "Eustichiaceae", "Fissidentaceae", "Leucobryaceae", "Micromitriaceae", "Rhabdoweisiaceae", "Rhachitheciaceae", "Schistostegaceae", "Viridivelleraceae", "Wardiaceae"] }, // Many families, circumscription varies
+                            "Pottiales": { name: "Order: Pottiales", families: ["Pottiaceae", "Pleurophascaceae", "Serpotortellaceae", "Hypodontiaceae"] }, // Cinclidotaceae often in Pottiaceae
+                            // Subclass Bryidae
+                            // Superorder Bryanae
+                            "Splachnales": { name: "Order: Splachnales", families: ["Splachnaceae", "Meesiaceae"] },
+                            "Hedwigiales": { name: "Order: Hedwigiales", families: ["Hedwigiaceae", "Bryowijkiaceae", "Rhacocarpaceae"] },
+                            "Bartramiales": { name: "Order: Bartramiales", families: ["Bartramiaceae"] },
+                            "Bryales": { name: "Order: Bryales", families: ["Bryaceae", "Mniaceae", "Leptostomataceae", "Phyllodrepaniaceae", "Pseudoditrichaceae", "Pulchrinodaceae"] }, // Aulacomniaceae sometimes here or Rhizogoniales
+                            "Orthodontiales": { name: "Order: Orthodontiales", families: ["Orthodontiaceae"] },
+                            "Orthotrichales": { name: "Order: Orthotrichales", families: ["Orthotrichaceae"] },
+                            "Rhizogoniales": { name: "Order: Rhizogoniales", families: ["Rhizogoniaceae", "Aulacomniaceae", "Calomniaceae"] },
+                            "Hypnodendrales": { name: "Order: Hypnodendrales", families: ["Hypnodendraceae", "Braithwaiteaceae", "Pterobryellaceae", "Racopilaceae"] }, // Racopilaceae sometimes separate order
+                             // Superorder Hypnanae
+                            "Hypopterygiales": { name: "Order: Hypopterygiales", families: ["Hypopterygiaceae"] },
+                            "Hookeriales": { name: "Order: Hookeriales", families: ["Hookeriaceae", "Symphyodontaceae", "Daltoniaceae", "Schimperobryaceae", "Pilotrichaceae", "Leucomiaceae"] },
+                            "Hypnales": {
+                                name: "Order: Hypnales", families: [
+                                    "Amblystegiaceae", "Anomodontaceae", "Brachytheciaceae", "Calliergonaceae",
+                                    "Catagoniaceae", "Climaciaceae", "Cryphaeaceae", "Echinodiaceae",
+                                    "Entodontaceae", "Fabroniaceae", "Fontinalaceae", "Helodiaceae",
+                                    "Hylocomiaceae", "Hypnaceae", "Lembophyllaceae",
+                                    "Lepyrodontaceae", "Leskeaceae", "Leucodontaceae", "Meteoriaceae",
+                                    "Microtheciellaceae", "Myriniaceae", "Myuriaceae", "Neckeraceae",
+                                    "Orthorrhynchiaceae", "Phyllogoniaceae", "Plagiotheciaceae", "Prionodontaceae",
+                                    "Pseudoleskeaceae", "Pseudoleskeellaceae", "Pterigynandraceae", "Pterobryaceae",
+                                    "Pylaisiadelphaceae", "Regmatodontaceae", "Rhytidiaceae", "Rutenbergiaceae",
+                                    "Sematophyllaceae", "Stereophyllaceae",
+                                    "Theliaceae", "Thuidiaceae", "Trachylomataceae"
+                                    // This is a huge order, family circumscriptions and placements are complex and debated.
+                                ]
+                            },
+                            "Ptychomniales": { name: "Order: Ptychomniales", families: ["Ptychomniaceae"] }
+                            // Note: Isobryales, Leucodontales, Thuidiales etc. from the original list are generally subsumed within Hypnales or related orders in newer classifications.
+                        }
+                    }
+                }
+            },
+            // -----------------------------------------------------------------
+            // Division: Anthocerotophyta (Hornworts)
+            // Classification follows Renzaglia et al. 2009, Villarreal & Renzaglia 2015
+            // -----------------------------------------------------------------
+            "Anthocerotophyta": {
+                name: "Anthocerotophyta (Hornworts)",
+                 subgroups: {
+                    "Leiosporocerotales": { name: "Order: Leiosporocerotales", families: ["Leiosporocerotaceae"] },
+                    "Anthocerotales": { name: "Order: Anthocerotales", families: ["Anthocerotaceae"] },
+                    "Notothyladales": { name: "Order: Notothyladales", families: ["Notothyladaceae"] },
+                    "Phymatocerotales": { name: "Order: Phymatocerotales", families: ["Phymatocerotaceae"] },
+                    "Dendrocerotales": { name: "Order: Dendrocerotales", families: ["Dendrocerotaceae"] }
+                 }
+            }
+        }
+    },
+    // =========================================================================
+    // Vascular Plants (Tracheophytes)
+    // =========================================================================
+    "vascular_plants": {
+        name: "Vascular Plants (Tracheophytes)",
+        subgroups: {
+            // -----------------------------------------------------------------
+            // Division: Lycopodiophyta (Lycophytes)
+            // Classification follows PPG I (Pteridophyte Phylogeny Group I, 2016)
+            // -----------------------------------------------------------------
+            "lycophytes": {
+                name: "Lycopodiophyta (Lycophytes)",
+                subgroups: {
+                    "Lycopodiales": {
+                        name: "Order: Lycopodiales",
+                        families: ["Lycopodiaceae"] // Sometimes split into Lycopodiaceae, Huperziaceae, Lycopodiellaceae
+                    },
+                    "Isoetales": { name: "Order: Isoetales", families: ["Isoetaceae"] },
+                    "Selaginellales": { name: "Order: Selaginellales", families: ["Selaginellaceae"] }
+                }
+            },
+            // -----------------------------------------------------------------
+            // Division: Polypodiophyta / Monilophyta (Ferns & Allies)
+            // Classification follows PPG I (Pteridophyte Phylogeny Group I, 2016)
+            // -----------------------------------------------------------------
+            "monilophytes": {
+                name: "Polypodiophyta (Ferns & Allies - Monilophytes)",
+                subgroups: {
+                    "Equisetopsida": {
+                        name: "Class: Equisetopsida",
+                        subgroups: {
+                            "Equisetales": { name: "Order: Equisetales", families: ["Equisetaceae"] }
+                        }
+                    },
+                    "Psilotopsida": {
+                        name: "Class: Psilotopsida",
+                        subgroups: {
+                            "Ophioglossales": { name: "Order: Ophioglossales", families: ["Ophioglossaceae"] },
+                            "Psilotales": { name: "Order: Psilotales", families: ["Psilotaceae"] }
+                        }
+                    },
+                    "Marattiopsida": { // Added missing class
+                        name: "Class: Marattiopsida",
+                        subgroups: {
+                            "Marattiales": { name: "Order: Marattiales", families: ["Marattiaceae"] }
+                        }
+                    },
+                    "Polypodiopsida": {
+                        name: "Class: Polypodiopsida (Leptosporangiate Ferns)",
+                        subgroups: { // Added Orders and expanded families significantly
+                            "Osmundales": { name: "Order: Osmundales", families: ["Osmundaceae"] },
+                            "Hymenophyllales": { name: "Order: Hymenophyllales", families: ["Hymenophyllaceae"] },
+                            "Gleicheniales": { name: "Order: Gleicheniales", families: ["Gleicheniaceae", "Dipteridaceae", "Matoniaceae"] },
+                            "Schizaeales": { name: "Order: Schizaeales", families: ["Schizaeaceae", "Anemiaceae", "Lygodiaceae"] },
+                            "Salviniales": { name: "Order: Salviniales (Heterosporous Ferns)", families: ["Salviniaceae", "Marsileaceae"] }, // Azollaceae often merged into Salviniaceae
+                            "Cyatheales": {
+                                name: "Order: Cyatheales (Tree Ferns & relatives)", families: [
+                                    "Cyatheaceae", "Thyrsopteridaceae", "Loxsomataceae", "Culcitaceae",
+                                    "Plagiogyriaceae", "Metaxyaceae", "Dicksoniaceae", "Cibotiaceae" // Cibotiaceae sometimes in Dicksoniaceae
+                                ]
+                            },
+                            "Polypodiales": {
+                                name: "Order: Polypodiales (Largest fern order)", families: [
+                                    // Suborder Saccolomatineae
+                                    "Saccolomataceae",
+                                    // Suborder Lindsaeineae
+                                    "Lindsaeaceae", "Cystodiaceae", "Lonchitidaceae",
+                                    // Suborder Pteridineae
+                                    "Pteridaceae", // Includes former Adiantaceae, Parkeriaceae, Vittariaceae, Cryptogrammaceae, Cheilanthaceae etc. Very large.
+                                    // Suborder Dennstaedtiineae
+                                    "Dennstaedtiaceae", // Includes former Hypolepidaceae, Monachosoraceae, Pteridiaceae
+                                    // Suborder Aspleniineae (eupolypods II)
+                                    "Aspleniaceae", "Athyriaceae", "Blechnaceae", "Cystopteridaceae",
+                                    "Diplaziopsidaceae", "Dryopteridaceae", "Desmophlebiaceae", "Hemidictyaceae",
+                                    "Lomariopsidaceae", "Nephrolepidaceae", "Onocleaceae", "Rhachidosoraceae",
+                                    "Tectariaceae", "Thelypteridaceae", "Woodsiaceae", // Circumscriptions vary, e.g., Athyriaceae, Woodsiaceae often split/lumped differently
+                                    // Suborder Polypodiineae (eupolypods I)
+                                    "Polypodiaceae", // Includes former Drynariaceae, Grammitidaceae, Loxogrammaceae, Platyceriaceae etc. Very large.
+                                    "Davalliaceae", "Didymochlaenaceae", "Hypodematiaceae", "Oleandraceae"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            // -----------------------------------------------------------------
+            // Spermatophytes (Seed Plants)
+            // -----------------------------------------------------------------
+            "spermatophytes": {
+                name: "Spermatophytes (Seed Plants)",
+                subgroups: {
+                    // ---------------------------------------------------------
+                    // Division: Gymnosperms (Acrogymnospermae - Paraphyletic or Polyphyletic depending on definition)
+                    // ---------------------------------------------------------
+                    "gymnosperms": {
+                        name: "Gymnosperms",
+                        note: "Extant gymnosperms comprise four distinct groups/orders.",
+                        subgroups: {
+                            "Cycadales": { name: "Order: Cycadales (Cycads)", families: ["Cycadaceae", "Zamiaceae", "Stangeriaceae"] }, // Stangeriaceae often included in Zamiaceae
+                            "Ginkgoales": { name: "Order: Ginkgoales (Ginkgo)", families: ["Ginkgoaceae"] },
+                            "Gnetales": { name: "Order: Gnetales", families: ["Gnetaceae", "Welwitschiaceae", "Ephedraceae"] },
+                            "Pinales": { name: "Order: Pinales (Conifers)", families: ["Pinaceae", "Araucariaceae", "Podocarpaceae", "Sciadopityaceae", "Cupressaceae", "Taxaceae"] } // Taxaceae often included within Cupressaceae s.l.
+                        }
+                    },
+                    // ---------------------------------------------------------
+                    // Division: Angiosperms (Flowering Plants - Magnoliophyta)
+                    // Classification follows APG IV (Angiosperm Phylogeny Group IV, 2016)
+                    // ---------------------------------------------------------
+                    "angiosperms": {
+                        name: "Angiosperms (Flowering Plants)",
+                        subgroups: {
+                            // --- Basal Angiosperms (ANA Grade - Paraphyletic) ---
+                            "basal_angiosperms": {
+                                name: "Basal Angiosperms (ANA Grade)",
+                                subgroups: {
+                                    "Amborellales": { name: "Order: Amborellales", families: ["Amborellaceae"] },
+                                    "Nymphaeales": { name: "Order: Nymphaeales (Water Lilies)", families: ["Nymphaeaceae", "Cabombaceae", "Hydatellaceae"] },
+                                    "Austrobaileyales": { name: "Order: Austrobaileyales", families: ["Austrobaileyaceae", "Schisandraceae", "Trimeniaceae"] } // Schisandraceae includes Illiciaceae
+                                }
+                            },
+                            // --- Mesangiospermae ---
+                            "mesangiospermae": {
+                                name: "Mesangiospermae",
+                                subgroups: {
+                                    "Chloranthales": { name: "Order: Chloranthales", families: ["Chloranthaceae"] }, // Position relative to Magnoliids/Monocots/Eudicots debated
+                                    "Ceratophyllales": { name: "Order: Ceratophyllales", families: ["Ceratophyllaceae"] }, // Position uncertain, often sister to Eudicots
+                                    // --- Magnoliids ---
+                                    "magnoliids": {
+                                        name: "Magnoliids",
+                                        subgroups: {
+                                            "Magnoliales": { name: "Order: Magnoliales", families: ["Magnoliaceae", "Annonaceae", "Myristicaceae", "Degeneriaceae", "Eupomatiaceae", "Himantandraceae"] },
+                                            "Laurales": { name: "Order: Laurales", families: ["Lauraceae", "Calycanthaceae", "Monimiaceae", "Atherospermataceae", "Gomortegaceae", "Hernandiaceae", "Siparunaceae"] },
+                                            "Piperales": { name: "Order: Piperales", families: ["Piperaceae", "Aristolochiaceae", "Saururaceae", "Hydnoraceae"] }, // Hydnoraceae sometimes included in Aristolochiaceae
+                                            "Canellales": { name: "Order: Canellales", families: ["Canellaceae", "Winteraceae"] }
+                                        }
+                                    },
+                                    // --- Monocots ---
+                                    "monocots": {
+                                        name: "Monocots",
+                                        subgroups: {
+                                            "Acorales": { name: "Order: Acorales", families: ["Acoraceae"] },
+                                            "Alismatales": { name: "Order: Alismatales", families: ["Alismataceae", "Araceae", "Potamogetonaceae", "Hydrocharitaceae", "Juncaginaceae", "Butomaceae", "Aponogetonaceae", "Scheuchzeriaceae", "Posidoniaceae", "Ruppiaceae", "Cymodoceaceae", "Zosteraceae", "Tofieldiaceae", "Maundiaceae"] }, // Araceae includes Lemnaceae
+                                            "Petrosaviales": { name: "Order: Petrosaviales", families: ["Petrosaviaceae"] },
+                                            "Dioscoreales": { name: "Order: Dioscoreales", families: ["Dioscoreaceae", "Burmanniaceae", "Nartheciaceae"] },
+                                            "Pandanales": { name: "Order: Pandanales", families: ["Pandanaceae", "Cyclanthaceae", "Stemonaceae", "Triuridaceae", "Velloziaceae"] },
+                                            "Liliales": { name: "Order: Liliales", families: ["Liliaceae", "Colchicaceae", "Melanthiaceae", "Smilacaceae", "Alstroemeriaceae", "Campynemataceae", "Corsiaceae", "Petermanniaceae", "Philesiaceae", "Ripogonaceae"] },
+                                            "Asparagales": { name: "Order: Asparagales", families: ["Asparagaceae", "Amaryllidaceae", "Iridaceae", "Orchidaceae", "Asphodelaceae", "Asteliaceae", "Blandfordiaceae", "Boryaceae", "Doryanthaceae", "Hypoxidaceae", "Ixioliriaceae", "Lanariaceae", "Tecophilaeaceae", "Xeronemataceae"] }, // Asparagaceae, Amaryllidaceae, Asphodelaceae are very broadly defined in APG IV, subsuming many former families (Agavaceae, Hyacinthaceae, Xanthorrhoeaceae, Alliaceae etc.)
+                                            // Commelinids
+                                            "Arecales": { name: "Order: Arecales (Palms)", families: ["Arecaceae", "Dasypogonaceae"] }, // Dasypogonaceae sometimes placed in its own order Dasypogonales
+                                            "Poales": { name: "Order: Poales (Grasses, Sedges, Rushes, etc.)", families: ["Poaceae", "Cyperaceae", "Juncaceae", "Bromeliaceae", "Typhaceae", "Eriocaulaceae", "Xyridaceae", "Rapateaceae", "Thurniaceae", "Mayacaceae", "Ecdeiocoleaceae", "Joinvilleaceae", "Restionaceae", "Flagellariaceae", "Centrolepidaceae", "Anarthriaceae"] }, // Typhaceae includes Sparganiaceae; Restionaceae includes Anarthriaceae and Centrolepidaceae in some views
+                                            "Commelinales": { name: "Order: Commelinales", families: ["Commelinaceae", "Haemodoraceae", "Pontederiaceae", "Hanguanaceae", "Philydraceae"] },
+                                            "Zingiberales": { name: "Order: Zingiberales", families: ["Zingiberaceae", "Musaceae", "Marantaceae", "Cannaceae", "Heliconiaceae", "Strelitziaceae", "Lowiaceae", "Costaceae"] }
+                                            // Dasypogonales sometimes recognized separately for Dasypogonaceae
+                                        }
+                                    },
+                                    // --- Eudicots ---
+                                    "eudicots": {
+                                        name: "Eudicots",
+                                        subgroups: {
+                                            // --- Basal Eudicots (Paraphyletic grade) ---
+                                            "Ranunculales": { name: "Order: Ranunculales", families: ["Ranunculaceae", "Berberidaceae", "Papaveraceae", "Menispermaceae", "Lardizabalaceae", "Eupteleaceae", "Circaeasteraceae"] }, // Papaveraceae includes Fumariaceae, Pteridophyllaceae
+                                            "Proteales": { name: "Order: Proteales", families: ["Proteaceae", "Platanaceae", "Nelumbonaceae"] },
+                                            "Sabiaceae": { name: "Family: Sabiaceae", families: ["Sabiaceae"], note: "Unplaced to order, sister to Proteales or rest of Core Eudicots", families: ["Sabiaceae"] }, // Added families array for consistency
+                                            "Trochodendrales": { name: "Order: Trochodendrales", families: ["Trochodendraceae"] }, // Includes Tetracentraceae
+                                            "Buxales": { name: "Order: Buxales", families: ["Buxaceae", "Haptanthaceae"] }, // Haptanthaceae sometimes included in Buxaceae
+                                            // --- Core Eudicots ---
+                                            "core_eudicots": {
+                                                name: "Core Eudicots",
+                                                subgroups: {
+                                                    "Gunnerales": { name: "Order: Gunnerales", families: ["Gunneraceae", "Myrothamnaceae"] },
+                                                    "Dilleniales": { name: "Order: Dilleniales", families: ["Dilleniaceae"] },
+                                                    // --- Superrosids ---
+                                                    "superrosids": {
+                                                        name: "Superrosids",
+                                                        subgroups: {
+                                                            "Saxifragales": { name: "Order: Saxifragales", families: ["Saxifragaceae", "Crassulaceae", "Grossulariaceae", "Hamamelidaceae", "Paeoniaceae", "Altingiaceae", "Cercidiphyllaceae", "Iteaceae", "Haloragaceae", "Aphanopetalaceae", "Daphniphyllaceae", "Cynomoriaceae", "Penthoraceae", "Tetracarpaeaceae", "Peridiscaceae"] }, // Peridiscaceae position debated
+                                                            "Vitales": { name: "Order: Vitales", families: ["Vitaceae"] },
+                                                            // --- Rosids ---
+                                                            "rosids": {
+                                                                name: "Rosids",
+                                                                subgroups: {
+                                                                    // Fabids (Nitrogen-fixing clade)
+                                                                    "Fabales": { name: "Order: Fabales", families: ["Fabaceae", "Polygalaceae", "Surianaceae", "Quillajaceae"] }, // Fabaceae includes Caesalpiniaceae, Mimosaceae
+                                                                    "Rosales": { name: "Order: Rosales", families: ["Rosaceae", "Moraceae", "Urticaceae", "Cannabaceae", "Ulmaceae", "Rhamnaceae", "Elaeagnaceae", "Barbeyaceae", "Dirachmaceae"] }, // Urticaceae includes Cecropiaceae
+                                                                    "Fagales": { name: "Order: Fagales", families: ["Fagaceae", "Betulaceae", "Juglandaceae", "Myricaceae", "Casuarinaceae", "Ticodendraceae", "Nothofagaceae"] },
+                                                                    "Cucurbitales": { name: "Order: Cucurbitales", families: ["Cucurbitaceae", "Begoniaceae", "Datiscaceae", "Anisophylleaceae", "Coriariaceae", "Corynocarpaceae", "Tetramelaceae", "Apodanthaceae"] }, // Apodanthaceae position debated
+                                                                    // COM Clade (Celastrales, Oxalidales, Malpighiales)
+                                                                    "Celastrales": { name: "Order: Celastrales", families: ["Celastraceae", "Lepidobotryaceae"] }, // Celastraceae includes Hippocrateaceae, Parnassiaceae, Pottingeriaceae
+                                                                    "Oxalidales": { name: "Order: Oxalidales", families: ["Oxalidaceae", "Connaraceae", "Cunoniaceae", "Elaeocarpaceae", "Cephalotaceae", "Brunelliaceae", "Huaceae"] },
+                                                                    "Malpighiales": { name: "Order: Malpighiales", families: ["Euphorbiaceae", "Salicaceae", "Violaceae", "Passifloraceae", "Rhizophoraceae", "Hypericaceae", "Clusiaceae", "Linaceae", "Malpighiaceae", "Phyllanthaceae", "Picrodendraceae", "Achariaceae", "Calophyllaceae", "Erythroxylaceae", "Podostemaceae", "Bonnetiaceae", "Chrysobalanaceae", "Ctenolophonaceae", "Dichapetalaceae", "Elatinaceae", "Euphroniaceae", "Goupiaceae", "Humiriaceae", "Ixonanthaceae", "Lacistemataceae", "Lophopyxidaceae", "Ochnaceae", "Pandaceae", "Peraceae", "Putranjivaceae", "Rafflesiaceae", "Trigoniaceae", "Centroplacaceae", "Irvingiaceae", "Balanopaceae", "Caryocaraceae", "Malesherbiaceae", "Turneraceae", "Samydaceae"] }, // Extremely large and diverse; Passifloraceae includes Malesherbiaceae, Turneraceae; Salicaceae includes Flacourtiaceae p.p.; Euphorbiaceae s.s.; Phyllanthaceae, Picrodendraceae, Peraceae, Putranjivaceae split from Euphorbiaceae s.l.; Hypericaceae often split from Clusiaceae; Ochnaceae includes Medusagynaceae, Quiinaceae; Chrysobalanaceae sometimes in own order. Rafflesiaceae position debated.
+                                                                    // Malvids
+                                                                    "Geraniales": { name: "Order: Geraniales", families: ["Geraniaceae", "Francoaceae", "Melianthaceae"] }, // Francoaceae includes Ledocarpaceae; Melianthaceae sometimes included in Francoaceae
+                                                                    "Myrtales": { name: "Order: Myrtales", families: ["Myrtaceae", "Onagraceae", "Lythraceae", "Melastomataceae", "Combretaceae", "Vochysiaceae", "Penaeaceae", "Crypteroniaceae", "Alzateaceae", "Oliniaceae", "Rhynchocalycaceae", "Psiloxylaceae", "Heteropyxidaceae"] }, // Melastomataceae includes Memecylaceae; Penaeaceae includes Oliniaceae, Rhynchocalycaceae; Myrtaceae includes Psiloxylaceae, Heteropyxidaceae; Lythraceae includes Punicaceae, Sonneratiaceae, Trapaceae
+                                                                    "Crossosomatales": { name: "Order: Crossosomatales", families: ["Crossosomataceae", "Staphyleaceae", "Strasburgeriaceae", "Guamatelaceae", "Aphloiaceae", "Geissolomataceae", "Ixerbaceae"] }, // Strasburgeriaceae includes Ixerbaceae
+                                                                    "Picramniales": { name: "Order: Picramniales", families: ["Picramniaceae"] },
+                                                                    "Huerteales": { name: "Order: Huerteales", families: ["Dipentodontaceae", "Tapisciaceae", "Gerrardinaceae", "Petenaeaceae"] },
+                                                                    "Brassicales": { name: "Order: Brassicales", families: ["Brassicaceae", "Cleomaceae", "Capparaceae", "Resedaceae", "Bataceae", "Caricaceae", "Moringaceae", "Tropaeolaceae", "Akaniaceae", "Emblingiaceae", "Gyrostemonaceae", "Koeberliniaceae", "Limnanthaceae", "Pentadiplandraceae", "Salvadoraceae", "Setchellanthaceae", "Tovariaceae"] }, // Brassicaceae includes Cleomaceae p.p.; Akaniaceae includes Bretschneideraceae
+                                                                    "Malvales": { name: "Order: Malvales", families: ["Malvaceae", "Thymelaeaceae", "Cistaceae", "Dipterocarpaceae", "Bixaceae", "Neuradaceae", "Sarcolaenaceae", "Sphaerosepalaceae", "Muntingiaceae", "Cytinaceae"] }, // Malvaceae s.l. includes Bombacaceae, Sterculiaceae, Tiliaceae; Bixaceae includes Cochlospermaceae, Diegodendraceae; Thymelaeaceae includes Gonystylaceae
+                                                                    "Sapindales": { name: "Order: Sapindales", families: ["Sapindaceae", "Rutaceae", "Anacardiaceae", "Meliaceae", "Simaroubaceae", "Burseraceae", "Kirkiaceae", "Biebersteiniaceae", "Nitrariaceae"] } // Sapindaceae includes Aceraceae, Hippocastanaceae; Nitrariaceae includes Peganaceae, Tetradiclidaceae
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    // --- Superasterids ---
+                                                    "superasterids": {
+                                                        name: "Superasterids",
+                                                        subgroups: {
+                                                            "Berberidopsidales": { name: "Order: Berberidopsidales", families: ["Berberidopsidaceae", "Aextoxicaceae"] },
+                                                            "Santalales": { name: "Order: Santalales", families: ["Santalaceae", "Balanophoraceae", "Misodendraceae", "Opiliaceae", "Loranthaceae", "Schoepfiaceae", "Erythropalaceae", "Strombosiaceae", "Coulaceae", "Ximeniaceae", "Aptandraceae", "Olacaceae", "Comandraceae", "Viscaceae", "Amphorogynaceae", "Thesiaceae"] }, // Santalaceae s.l. includes Viscaceae, Eremolepidaceae etc.; Olacaceae s.l. now split into multiple families
+                                                            "Caryophyllales": { name: "Order: Caryophyllales", families: ["Caryophyllaceae", "Amaranthaceae", "Cactaceae", "Aizoaceae", "Portulacaceae", "Basellaceae", "Nyctaginaceae", "Phytolaccaceae", "Polygonaceae", "Plumbaginaceae", "Droseraceae", "Nepenthaceae", "Drosophyllaceae", "Frankeniaceae", "Tamaricaceae", "Simmondsiaceae", "Achatocarpaceae", "Anacampserotaceae", "Ancistrocladaceae", "Asteropeiaceae", "Barbeuiaceae", "Didiereaceae", "Dioncophyllaceae", "Gisekiaceae", "Halophytaceae", "Kewaceae", "Limeaceae", "Lophiocarpaceae", "Macarthuriaceae", "Microteaceae", "Molluginaceae", "Montiaceae", "Physenaceae", "Petiveriaceae", "Rhabdodendraceae", "Sarcobataceae", "Stegnospermataceae", "Talinaceae", "Agdestidaceae", "Illecebraceae", "Petrosimoniaceae"] }, // Very large and complex, includes carnivorous plants; Amaranthaceae includes Chenopodiaceae; Portulacaceae s.s.; Montiaceae split from Portulacaceae s.l.; Petiveriaceae, Riviniaceae, Agdestidaceae often included in Phytolaccaceae s.l.
+                                                            // --- Asterids ---
+                                                            "asterids": {
+                                                                name: "Asterids",
+                                                                subgroups: {
+                                                                    "Cornales": { name: "Order: Cornales", families: ["Cornaceae", "Hydrangeaceae", "Loasaceae", "Nyssaceae", "Curtisiaceae", "Grubbiaceae", "Hydrostachyaceae"] }, // Cornaceae includes Alangiaceae; Nyssaceae sometimes in Cornaceae
+                                                                    "Ericales": { name: "Order: Ericales", families: ["Ericaceae", "Primulaceae", "Sapotaceae", "Ebenaceae", "Theaceae", "Actinidiaceae", "Balsaminaceae", "Polemoniaceae", "Lecythidaceae", "Styracaceae", "Sarraceniaceae", "Roridulaceae", "Clethraceae", "Cyrillaceae", "Diapensiaceae", "Fouquieriaceae", "Marcgraviaceae", "Mitrastemonaceae", "Pentaphylacaceae", "Sladeniaceae", "Symplocaceae", "Tetrameristaceae"] }, // Ericaceae includes Empetraceae, Epacridaceae, Monotropaceae, Pyrolaceae; Primulaceae s.l. includes Myrsinaceae, Theophrastaceae, Maesaceae; Theaceae includes Ternstroemiaceae, Pentaphylacaceae p.p.; Polemoniaceae includes Cobaeaceae
+                                                                    // --- Lamiids (Euasterids I) ---
+                                                                    "lamiids": {
+                                                                        name: "Lamiids (Euasterids I)",
+                                                                        subgroups: {
+                                                                            "Icacinales": { name: "Order: Icacinales", families: ["Icacinaceae", "Oncothecaceae"] }, // Icacinaceae s.s. after splitting
+                                                                            "Metteniusales": { name: "Order: Metteniusales", families: ["Metteniusaceae"] },
+                                                                            "Garryales": { name: "Order: Garryales", families: ["Garryaceae", "Eucommiaceae"] }, // Garryaceae includes Aucubaceae
+                                                                            "Gentianales": { name: "Order: Gentianales", families: ["Gentianaceae", "Rubiaceae", "Apocynaceae", "Loganiaceae", "Gelsemiaceae", "Strychnaceae"] }, // Apocynaceae includes Asclepiadaceae; Loganiaceae s.s., several families split off (Gelsemiaceae, Strychnaceae etc.)
+                                                                            "Boraginales": { name: "Order: Boraginales", families: ["Boraginaceae", "Codonaceae", "Cordiaceae", "Ehretiaceae", "Heliotropiaceae", "Hydrophyllaceae", "Lennoaceae", "Wellstediaceae", "Namaceae"] }, // Often treated as single family Boraginaceae s.l. or split as listed. Namaceae sometimes in Hydrophyllaceae.
+                                                                            "Vahliales": { name: "Order: Vahliales", families: ["Vahliaceae"] },
+                                                                            "Solanales": { name: "Order: Solanales", families: ["Solanaceae", "Convolvulaceae", "Montiniaceae", "Sphenocleaceae", "Hydroleaceae"] }, // Convolvulaceae includes Cuscutaceae; Hydroleaceae sometimes in Boraginales
+                                                                            "Lamiales": { name: "Order: Lamiales", families: ["Lamiaceae", "Verbenaceae", "Oleaceae", "Scrophulariaceae", "Plantaginaceae", "Orobanchaceae", "Acanthaceae", "Bignoniaceae", "Gesneriaceae", "Pedaliaceae", "Lentibulariaceae", "Calceolariaceae", "Byblidaceae", "Carlemanniaceae", "Linderniaceae", "Martyniaceae", "Mazaceae", "Paulowniaceae", "Phrymaceae", "Plocospermataceae", "Schlegeliaceae", "Stilbaceae", "Tetrachondraceae", "Thomandersiaceae", "Wightiaceae"] }, // Very large order; Lamiaceae includes many former Verbenaceae; Plantaginaceae s.l. includes Callitrichaceae, Globulariaceae, Hippuridaceae; Scrophulariaceae s.s. after many genera moved to Plantaginaceae, Orobanchaceae, etc.; Orobanchaceae includes parasitic genera formerly in Scrophulariaceae; Phrymaceae includes Mimulaceae p.p.
+                                                                            // Family unplaced to order within Lamiids - Removed Boraginaceae s.s. as Boraginales is now its own Order
+                                                                        }
+                                                                    },
+                                                                    // --- Campanulids (Euasterids II) ---
+                                                                    "campanulids": {
+                                                                        name: "Campanulids (Euasterids II)",
+                                                                        subgroups: {
+                                                                            "Aquifoliales": { name: "Order: Aquifoliales", families: ["Aquifoliaceae", "Cardiopteridaceae", "Stemonuraceae", "Phyllonomaceae", "Helwingiaceae"] }, // Cardiopteridaceae includes Leptaulaceae
+                                                                            "Asterales": { name: "Order: Asterales", families: ["Asteraceae", "Campanulaceae", "Menyanthaceae", "Goodeniaceae", "Calyceraceae", "Stylidiaceae", "Alseuosmiaceae", "Argophyllaceae", "Phellinaceae", "Rousseaceae", "Pentaphragmataceae"] }, // Asteraceae (Compositae) is huge; Campanulaceae includes Lobeliaceae; Stylidiaceae includes Donatiaceae
+                                                                            "Escalloniales": { name: "Order: Escalloniales", families: ["Escalloniaceae", "Polyosmaceae"] }, // Polyosmaceae sometimes included in Escalloniaceae
+                                                                            "Bruniales": { name: "Order: Bruniales", families: ["Bruniaceae", "Columelliaceae"] }, // Columelliaceae includes Desfontainia
+                                                                            "Paracryphiales": { name: "Order: Paracryphiales", families: ["Paracryphiaceae", "Quintiniaceae", "Sphenostemonaceae"] }, // Paracryphiaceae includes Quintiniaceae, Sphenostemonaceae
+                                                                            "Dipsacales": { name: "Order: Dipsacales", families: ["Caprifoliaceae", "Adoxaceae"] }, // Caprifoliaceae s.l. includes Diervillaceae, Dipsacaceae, Linnaeaceae, Morinaceae, Valerianaceae; Adoxaceae includes Sambucaceae, Viburnaceae
+                                                                            "Apiales": { name: "Order: Apiales", families: ["Apiaceae", "Araliaceae", "Pittosporaceae", "Griseliniaceae", "Torricelliaceae", "Pennantiaceae", "Myodocarpaceae"] } // Apiaceae (Umbelliferae) includes Hydrocotyle p.p.; Araliaceae includes Hydrocotyle p.p.
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+            // --- DOM Elements ---
+            const listContainer = document.querySelector('.families-list-container .container');
+            const browseOptions = document.querySelectorAll('.browse-option');
+            const groupFilter = document.getElementById('group-filter');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            const loadingIndicator = listContainer ? listContainer.querySelector('p') : null;
+
+            // --- State ---
+            let currentView = 'phylogenetic';
+            let familyCardCache = {}; // Cache: { cacheKey: element }
+
+            // --- Functions ---
+
+            /**
+             * Creates a DOM element for a single family card.
+             * Caches the created card for performance.
+             * @param {string} familyName - The name of the family (may include annotations).
+             * @param {string} filterGroupKey - The key used for filtering (e.g., 'eudicots', 'lycophytes').
+             * @returns {HTMLElement|null} The created card element or null if invalid input.
+             */
+             function createFamilyCard(familyName, filterGroupKey) {
+                 if (typeof familyName !== 'string' || !familyName.trim()) {
+                     console.warn("Invalid familyName in createFamilyCard:", familyName);
+                     return null;
+                 }
+
+                 const cleanFamilyName = familyName.split(' (')[0].trim(); // Name used for IDs, URLs, cache key
+                 const cacheKey = `${filterGroupKey}-${cleanFamilyName}`; // Unique cache key
+
+                 if (familyCardCache[cacheKey]) {
+                     return familyCardCache[cacheKey].cloneNode(true); // Return clone from cache
+                 }
+
+                 const card = document.createElement('div');
+                 card.className = 'family-card';
+                 // Use the FILTER key (e.g., 'eudicots') for filtering dataset
+                 card.dataset.familyGroup = filterGroupKey.toLowerCase();
+                 card.dataset.familyName = cleanFamilyName; // Store clean name for sorting
+
+                 const imageName = cleanFamilyName.replace(/ /g, '_').toLowerCase(); // Lowercase filename
+                 const imagePath = `img/here/${imageName}.png`;
+                 const fallbackImagePath = 'img/default-placeholder.png'; // MAKE SURE THIS EXISTS
+                 const altText = `example of ${cleanFamilyName.toLowerCase()}`;
+                 const displayName = familyName.toLowerCase(); // Display full name lowercase
+                 const familyUrl = `families/${cleanFamilyName.toLowerCase()}.html`; // URL uses lowercase clean name
+
+                 card.innerHTML = `
+                     <div class="family-image">
+                         <img src="${imagePath}" alt="${altText}" loading="lazy" onerror="this.onerror=null; this.src='${fallbackImagePath}';">
+                     </div>
+                     <div class="family-content">
+                         <h4>${displayName}</h4>
+                         <a href="${familyUrl}" class="btn btn-small">learn more</a>
+                     </div>
+                 `;
+
+                 familyCardCache[cacheKey] = card.cloneNode(true); // Cache the card
+                 return card;
+             }
+
+
+            /**
+             * Recursively renders phylogenetic levels (orders, classes, etc.) and family cards.
+             * @param {HTMLElement} parentElement - The DOM element to append content to.
+             * @param {object|array} data - The current data node (either subgroups object or families array).
+             * @param {string} filterGroupKey - The key for filtering (passed down unchanged).
+             * @param {number} level - The current heading level (e.g., 3 for H3).
+             */
+             function renderPhylogeneticHierarchy(parentElement, data, filterGroupKey, level) {
+                 // Case 1: Data is the final 'families' array
+                 if (Array.isArray(data)) {
+                     let cardsAdded = 0;
+                     const uniqueFamilies = new Set();
+                     const processedFamilies = processFamilies(data);
+                     processedFamilies.forEach(familyName => {
+                         const card = createFamilyCard(familyName, filterGroupKey);
+                         if (card) {
+                             parentElement.appendChild(card);
+                             cardsAdded++;
+                         }
+                     });
+                     // console.log(`  [L${level}] Added ${cardsAdded} cards from array for filter group ${filterGroupKey}.`); // DEBUG
+                 }
+                 // Case 2: Data is an object containing named subgroups
+                 else if (typeof data === 'object' && data !== null) {
+                     for (const key in data) {
+                         const item = data[key];
+                         if (!item || typeof item !== 'object') {
+                             // console.warn(`    Skipping invalid item for key '${key}' at L${level}`); // DEBUG
+                             continue;
+                         }
+
+                         const container = document.createElement('div');
+                         container.className = `phylogenetic-level-${level}`;
+                         container.dataset.group = filterGroupKey; // Associate with filter group
+
+                         const headerTag = `h${level > 6 ? 6 : level}`; // Max H6
+                         const header = document.createElement(headerTag);
+                         header.textContent = (item.name || key.replace(/_/g, ' ')).toLowerCase();
+                         container.appendChild(header);
+
+                         // Optionally add notes if they exist
+                         if (item.note) {
+                             const notePara = document.createElement('p');
+                             notePara.className = 'phylogenetic-note';
+                             notePara.textContent = item.note.toLowerCase();
+                             container.appendChild(notePara);
+                         }
+
+                         const cardsContainer = document.createElement('div');
+                         cardsContainer.className = 'family-cards'; // Container for cards at this level
+
+                         let nextData = null;
+                         if (item.subgroups && typeof item.subgroups === 'object') {
+                             nextData = item.subgroups;
+                         } else if (item.families && Array.isArray(item.families)) {
+                             nextData = item.families;
+                         }
+
+                         if (nextData) {
+                             renderPhylogeneticHierarchy(cardsContainer, nextData, filterGroupKey, level + 1);
+                         } else {
+                              // console.log(`    [L${level}] No further subgroups or families under '${key}'.`); // DEBUG
+                         }
+
+                         // Only append if cards were actually added within this hierarchy level
+                         if (cardsContainer.hasChildNodes()) {
+                             container.appendChild(cardsContainer);
+                             parentElement.appendChild(container);
+                         } else {
+                             // If no cards, but there was a note, we might still want to show the header+note
+                             if (!item.note) {
+                                // If no cards AND no note, don't add the empty container/header
+                                // console.log(`    Skipping empty container for '${header.textContent}'`); // DEBUG
+                             } else {
+                                 parentElement.appendChild(container); // Append if there's a note
+                             }
+                         }
+                     } // End for...in loop over subgroups
+                 } else {
+                     console.warn(`[L${level}] Unexpected data type for filter group ${filterGroupKey}:`, data);
+                 }
+             } // End renderPhylogeneticHierarchy
+
+
+            /**
+             * Finds the specific data node corresponding to a filter key (e.g., 'eudicots').
+             * Searches within the enhancedPlantData structure.
+             * @param {string} keyToFind - The filter key (e.g., 'lycophytes', 'eudicots').
+             * @param {object} data - The data object to search within (starts with enhancedPlantData).
+             * @returns {object|null} The data node if found, otherwise null.
+             */
+            function findDataNodeByKey(keyToFind, data) {
+                if (!data || typeof data !== 'object') return null;
+
+                // Direct match at the current level? (e.g., 'bryophytes')
+                if (data[keyToFind]) {
+                    return data[keyToFind];
+                }
+
+                // Search within subgroups
+                for (const key in data) {
+                    const item = data[key];
+                    if (item && typeof item === 'object' && item.subgroups) {
+                        const found = findDataNodeByKey(keyToFind, item.subgroups);
+                        if (found) return found;
+                    }
+                }
+                return null; // Not found
+            }
+
+            /** Renders the families list in phylogenetic order */
+             function renderPhylogeneticView() {
+                 console.log('Rendering Phylogenetic View...');
+                 if (!listContainer) {
+                     console.error("List container not found for phylogenetic view.");
+                     return;
+                 }
+                 listContainer.innerHTML = ''; // Clear previous content
+                 familyCardCache = {}; // Reset cache for phylogenetic view
+
+                 if (!enhancedPlantData || typeof enhancedPlantData !== 'object') {
+                     console.error("FATAL: enhancedPlantData is missing or invalid!");
+                     listContainer.innerHTML = '<p style="color: red; font-weight: bold;">error: plant data missing.</p>';
+                     return;
+                 }
+
+                 // Keys correspond to the filter dropdown values (excluding 'all')
+                 const filterKeys = [
+                     'bryophytes', 'Marchantiophyta', 'Bryophyta', 'Anthocerotophyta', // Bryophyte groups
+                     'lycophytes', 'monilophytes', 'gymnosperms', // Other major groups
+                     'angiosperms', 'basal_angiosperms', 'magnoliids', 'monocots', 'eudicots' // Angiosperm groups
+                 ];
+
+                 let groupsRendered = 0;
+
+                 filterKeys.forEach(filterKey => {
+                     let dataNode = null;
+                     let topLevelNodeForDisplay = null; // The node whose name we display as H2
+
+                     // Special handling for bryophyte divisions - find within 'bryophytes' subgroups
+                     if (filterKey === 'Marchantiophyta' || filterKey === 'Bryophyta' || filterKey === 'Anthocerotophyta') {
+                         dataNode = findDataNodeByKey(filterKey, enhancedPlantData.bryophytes?.subgroups);
+                         topLevelNodeForDisplay = dataNode; // Display the Division name
+                     }
+                     // Special handling for angiosperm groups - find within 'angiosperms' subgroups (or deeper)
+                     else if (filterKey === 'basal_angiosperms' || filterKey === 'magnoliids' || filterKey === 'monocots' || filterKey === 'eudicots') {
+                         dataNode = findDataNodeByKey(filterKey, enhancedPlantData.vascular_plants?.subgroups?.spermatophytes?.subgroups?.angiosperms?.subgroups);
+                         topLevelNodeForDisplay = dataNode; // Display the specific group name
+                         // Add special case for top-level angiosperms if needed for filtering 'all angiosperms'
+                      } else if (filterKey === 'angiosperms') {
+                         dataNode = findDataNodeByKey(filterKey, enhancedPlantData.vascular_plants?.subgroups?.spermatophytes?.subgroups);
+                         topLevelNodeForDisplay = dataNode;
+                      }
+                     // Top-level Bryophytes view
+                     else if (filterKey === 'bryophytes') {
+                         dataNode = enhancedPlantData.bryophytes;
+                         topLevelNodeForDisplay = dataNode;
+                     }
+                     // Other major groups (Lycophytes, Monilophytes, Gymnosperms) - find within vascular_plants
+                     else {
+                         dataNode = findDataNodeByKey(filterKey, enhancedPlantData.vascular_plants?.subgroups);
+                         topLevelNodeForDisplay = dataNode;
+                     }
+
+
+                     if (dataNode && topLevelNodeForDisplay) {
+                         const groupContainer = document.createElement('div');
+                         groupContainer.className = 'group-section';
+                         // Use the filterKey for the dataset group, aligning with the dropdown
+                         groupContainer.dataset.group = filterKey;
+
+                         const header = document.createElement('h2');
+                         header.textContent = (topLevelNodeForDisplay.name || filterKey.replace(/_/g, ' ')).toLowerCase();
+                         groupContainer.appendChild(header);
+
+                         // Start rendering hierarchy from the 'subgroups' of the found node
+                         if (dataNode.subgroups && typeof dataNode.subgroups === 'object') {
+                             // Start hierarchy at H3 level
+                             renderPhylogeneticHierarchy(groupContainer, dataNode.subgroups, filterKey, 3);
+                         }
+                          // Handle cases like Sabiaceae which have families directly
+                         else if (dataNode.families && Array.isArray(dataNode.families)) {
+                            const cardsContainer = document.createElement('div');
+                            cardsContainer.className = 'family-cards';
+                            renderPhylogeneticHierarchy(cardsContainer, dataNode.families, filterKey, 3); // Render directly
+                            if (cardsContainer.hasChildNodes()) {
+                                groupContainer.appendChild(cardsContainer);
+                            }
+                         }
+
+                         // Append the group container only if it ended up with family cards
+                         if (groupContainer.querySelector('.family-card')) {
+                             listContainer.appendChild(groupContainer);
+                             groupsRendered++;
+                         } else {
+                            // console.log(`Skipping empty section for filter key: ${filterKey}`); // DEBUG
+                         }
+                     } else {
+                        // console.log(`Data node not found for filter key: ${filterKey}`); // DEBUG
+                     }
+                 }); // End forEach filterKey
+
+                 if (groupsRendered === 0) {
+                    console.warn("Phylogenetic view rendered no groups. Check data structure and filter keys.");
+                    listContainer.innerHTML = '<p>no families found for the selected criteria.</p>';
+                 }
+
+                 if (groupFilter) {
+                     filterFamilies(groupFilter.value); // Apply initial filter
+                 }
+             } // End renderPhylogeneticView
+
+            /** Populates the familyCardCache by traversing the entire data structure */
+             function ensureCacheIsBuilt() {
+                 if (Object.keys(familyCardCache).length > 0) return; // Already built
+                 console.log("Building family card cache...");
+
+                 const buildCacheRecursive = (data, currentFilterGroupKey) => {
+                     if (Array.isArray(data)) { // Base case: families array
+                         const uniqueFamilies = new Set();
+                         const processedFamilies = processFamilies(data);
+                         processedFamilies.forEach(familyName => {
+                             createFamilyCard(familyName, currentFilterGroupKey); // Populates cache
+                         });
+                     } else if (typeof data === 'object' && data !== null) { // Recursive step: subgroups object
+                         for (const key in data) {
+                             const item = data[key];
+                             if (item && typeof item === 'object') {
+                                 let nextData = null;
+                                 // Determine the *filter group key* for the *next level*.
+                                 // Usually, it's passed down. But if the 'key' itself matches a filterable group (e.g., 'eudicots'), use that key.
+                                 let nextFilterGroupKey = currentFilterGroupKey;
+                                 const filterOptions = Array.from(groupFilter.options).map(opt => opt.value);
+                                 if(filterOptions.includes(key)) {
+                                     nextFilterGroupKey = key; // Use the more specific key if it's a filter option
+                                     // console.log(`  Using specific filter key for cache: ${key}`); // DEBUG
+                                 }
+
+
+                                 if (item.subgroups && typeof item.subgroups === 'object') {
+                                     nextData = item.subgroups;
+                                 } else if (item.families && Array.isArray(item.families)) {
+                                     nextData = item.families;
+                                 }
+
+                                 if (nextData) {
+                                     // Pass the determined filter key down
+                                     buildCacheRecursive(nextData, nextFilterGroupKey);
+                                 }
+                             }
+                         }
+                     }
+                 };
+
+                 if (!enhancedPlantData || typeof enhancedPlantData !== 'object') {
+                    console.error("Cannot build cache: enhancedPlantData is invalid!");
+                    return;
+                 }
+
+                 // Start cache build from the top levels, passing initial filter keys
+                 if (enhancedPlantData.bryophytes?.subgroups) {
+                    buildCacheRecursive(enhancedPlantData.bryophytes.subgroups, 'bryophytes');
+                 }
+                 if (enhancedPlantData.vascular_plants?.subgroups) {
+                    // Need to pass specific keys for vascular subgroups if they are filterable
+                    buildCacheRecursive(enhancedPlantData.vascular_plants.subgroups, 'vascular_plants'); // Pass generic initially, recursion will refine
+                 }
+
+
+                 const cacheSize = Object.keys(familyCardCache).length;
+                 console.log(`Cache build complete. Size: ${cacheSize}`);
+                 if (cacheSize === 0) {
+                     console.error("CRITICAL WARNING: Cache is empty after build attempt!");
+                 }
+             } // End ensureCacheIsBuilt
+
+            /** Renders the families list alphabetically */
+             function renderAlphabeticalView() {
+                 console.log('Rendering Alphabetical View...');
+                 if (!listContainer) {
+                     console.error("List container not found for alphabetical view.");
+                     return;
+                 }
+                 listContainer.innerHTML = '';
+                 ensureCacheIsBuilt(); // Make sure cache is ready
+
+                 const allCards = Object.values(familyCardCache).map(card => card.cloneNode(true));
+
+                 if (allCards.length === 0) {
+                     console.error("No cards found in cache for alphabetical view!");
+                     listContainer.innerHTML = '<p>no families found to display.</p>';
+                     return;
+                 }
+
+                 allCards.sort((a, b) => {
+                     const nameA = a.dataset.familyName || '';
+                     const nameB = b.dataset.familyName || '';
+                     return nameA.localeCompare(nameB);
+                 });
+
+                 const alphaContainer = document.createElement('div');
+                 alphaContainer.className = 'family-cards alphabetical-cards-container';
+                 allCards.forEach(card => alphaContainer.appendChild(card));
+                 listContainer.appendChild(alphaContainer);
+
+                 if (groupFilter) {
+                     filterFamilies(groupFilter.value); // Apply filter
+                 }
+             } // End renderAlphabeticalView
+
+             /** Filters displayed families based on selected group */
+             function filterFamilies(selectedGroup) {
+                 if (!listContainer) return;
+                 const filterKey = (selectedGroup || 'all').toLowerCase();
+                //  console.log(`Filtering by: ${filterKey}, Current View: ${currentView}`);
+
+                 if (currentView === 'phylogenetic') {
+                    const groupSections = listContainer.querySelectorAll('.group-section');
+                    groupSections.forEach(sec => {
+                        const sectionGroupKey = sec.dataset.group ? sec.dataset.group.toLowerCase() : '';
+                        let matches = false;
+
+                        if (filterKey === 'all') {
+                            matches = true;
+                        } else if (filterKey === 'bryophytes') { // Show all bryophyte subsections
+                            matches = ['bryophytes', 'marchantiophyta', 'bryophyta', 'anthocerotophyta'].includes(sectionGroupKey);
+                        } else if (filterKey === 'angiosperms') { // Show all angiosperm subsections
+                             matches = ['angiosperms', 'basal_angiosperms', 'magnoliids', 'monocots', 'eudicots'].includes(sectionGroupKey);
+                        } else { // Direct match
+                            matches = sectionGroupKey === filterKey;
+                        }
+
+                        sec.style.display = matches ? 'block' : 'none';
+                     });
+                 } else { // Alphabetical View
+                     const allVisibleCards = listContainer.querySelectorAll('.family-card');
+                     if (!allVisibleCards || allVisibleCards.length === 0) return;
+
+                     allVisibleCards.forEach(card => {
+                        const cardGroupKey = card.dataset.familyGroup ? card.dataset.familyGroup.toLowerCase() : '';
+                        let matches = false;
+
+                        if (filterKey === 'all') {
+                            matches = true;
+                        } else if (filterKey === 'bryophytes') {
+                            matches = ['marchantiophyta', 'bryophyta', 'anthocerotophyta'].includes(cardGroupKey); // Match any bryo division
+                         } else if (filterKey === 'angiosperms') {
+                            matches = ['basal_angiosperms', 'magnoliids', 'monocots', 'eudicots'].includes(cardGroupKey); // Match any angio group
+                         } else {
+                            matches = cardGroupKey === filterKey; // Direct match
+                         }
+
+                        // Make sure to use a display value appropriate for your card styling (flex/block/grid etc.)
+                         card.style.display = matches ? 'flex' : 'none'; // Assuming cards use flex display
+                     });
+                 }
+             } // End filterFamilies
+
+             /** Switches between phylogenetic and alphabetical views */
+             function switchView(viewType) {
+                 if (currentView === viewType) return;
+                 currentView = viewType;
+                 console.log(`Switching to ${viewType} view`);
+
+                 if (browseOptions) {
+                     browseOptions.forEach(opt => {
+                         opt.classList.toggle('active', opt.dataset.view === viewType);
+                     });
+                 }
+
+                 if (viewType === 'alphabetical') {
+                     renderAlphabeticalView();
+                 } else {
+                     renderPhylogeneticView();
+                 }
+                 // Note: Rendering functions now call filterFamilies internally
+             } // End switchView
+
+             // Removed duplicate entries for families in the JavaScript logic.
+             const uniqueFamilies = new Set();
+             function processFamilies(families) {
+                 return families.filter(family => {
+                     if (uniqueFamilies.has(family)) {
+                         return false; // Skip duplicates
+                     }
+                     uniqueFamilies.add(family);
+                     return true;
+                 });
+             }
+
+            // --- Event Listeners ---
+             // Browse Options
+             if (browseOptions && browseOptions.length > 0) {
+                 browseOptions.forEach(option => {
+                     option.addEventListener('click', function() {
+                         const view = this.dataset.view;
+                         if (view) switchView(view);
+                     });
+                 });
+             } else { console.warn("Browse option elements not found."); }
+
+             // Group Filter Dropdown
+             if (groupFilter) {
+                 groupFilter.addEventListener('change', function() {
+                     filterFamilies(this.value);
+                 });
+             } else { console.warn("Group filter dropdown element not found."); }
+
+             // Mobile Menu Toggle
+             if (menuToggle && mainNav) {
+                 const mainNavUl = mainNav.querySelector('ul');
+                 if (mainNavUl) {
+                     menuToggle.addEventListener('click', () => {
+                         mainNavUl.classList.toggle('active');
+                         menuToggle.classList.toggle('active');
+                     });
+                 } else { console.warn("Could not find <ul> within .main-nav."); }
+             } else {
+                 if (!menuToggle) console.warn(".mobile-menu-toggle not found.");
+                 if (!mainNav) console.warn(".main-nav not found.");
+             }
+
+            // --- Initial Render ---
+             if (loadingIndicator) {
+                 loadingIndicator.style.display = 'none';
+             } else if (listContainer) {
+                 listContainer.innerHTML = ''; // Ensure clean container
+             }
+
+             renderPhylogeneticView(); // Start with phylogenetic view
+
+        }); // --- End of DOMContentLoaded listener ---
+    </script>
+
+</body>
+</html>

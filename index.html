@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Plant Families Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&family=open+sans:wght@400;600&family=playfair+display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="Plant Families Explorer Logo">
+                    <span>Plant Families Explorer</span>
+                </a>
+            </div>
+            <nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="main-nav">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                    <li><a href="families.html">Plant Families</a></li>
+                    <li><a href="identification.html">Field Identification</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <form class="search-bar" onsubmit="event.preventDefault(); performSearch(document.querySelector('.search-bar input').value.trim().toLowerCase());">
+                <input type="text" placeholder="Search families...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Discover the World of Plant Families</h1>
+                    <p>Explore plant families in phylogenetic order and learn how to identify them in the field. Our comprehensive guide helps botanists, students, and nature enthusiasts understand plant relationships and characteristics.</p>
+                    <div class="hero-buttons">
+                        <a href="phylogenetic-tree.html" class="btn btn-primary">Explore Phylogenetic Tree</a>
+                        <a href="identification.html" class="btn btn-secondary">Field Identification Guide</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="img/here/illistration.png" alt="Stylized plant families illustration">
+                </div>
+            </div>
+        </section>
+
+        <section class="intro animate-on-scroll">
+            <div class="container">
+                <h2>Understanding Plant Phylogeny</h2>
+                <p>Plant phylogeny is the evolutionary history and relationships of plants. Modern classification systems like APG IV organize plant families based on their evolutionary relationships rather than just physical similarities. This approach provides a more accurate understanding of how plants are related to each other and how they evolved over time.</p>
+                <p>The plant kingdom is incredibly diverse, with over 400,000 known species organized into families, orders, and larger groups. By understanding the evolutionary relationships between these groups, we gain insights into plant adaptation, diversification, and the development of key characteristics that define each family.</p>
+                <p>This website presents plant families in their evolutionary order, helping you understand how they're related and how to identify them in nature. Whether you're a student, researcher, or nature enthusiast, our interactive tools and comprehensive guides will enhance your understanding of plant diversity.</p>
+                <div class="phylogeny-preview">
+                    <img src="img/here/phylogen-tree.png" alt="Preview of the interactive phylogenetic tree">
+                    <a href="phylogenetic-tree.html" class="overlay-link">
+                        <span>Explore the Interactive Tree</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-families animate-on-scroll">
+            <div class="container">
+                <h2>Featured Plant Families</h2>
+                <div class="family-cards">
+                    <div class="family-card">
+                        <div class="family-image">
+                            <img src="img/here/asteraceae.png" alt="Asteraceae example">
+                        </div>
+                        <div class="family-content">
+                            <h3>Asteraceae</h3>
+                            <p class="scientific-name">Sunflower Family</p>
+                            <ul class="quick-facts">
+                                <li>Composite flower heads</li>
+                                <li>Often with ray and disc flowers</li>
+                                <li>Largest family of flowering plants</li>
+                            </ul>
+                            <a href="families/asteraceae.html" class="btn btn-small">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="family-card">
+                        <div class="family-image">
+                            <img src="img/here/fabaceae.png" alt="Fabaceae example">
+                        </div>
+                        <div class="family-content">
+                            <h3>Fabaceae</h3>
+                            <p class="scientific-name">Legume Family</p>
+                            <ul class="quick-facts">
+                                <li>Often with compound leaves</li>
+                                <li>Distinctive pea-like flowers</li>
+                                <li>Fruit typically a legume (pod)</li>
+                            </ul>
+                            <a href="families/fabaceae.html" class="btn btn-small">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="family-card">
+                        <div class="family-image">
+                            <img src="img/here/poaceae.png" alt="Poaceae example">
+                        </div>
+                        <div class="family-content">
+                            <h3>Poaceae</h3>
+                            <p class="scientific-name">Grass Family</p>
+                            <ul class="quick-facts">
+                                <li>Hollow stems with nodes</li>
+                                <li>Linear leaves with parallel veins</li>
+                                <li>Reduced flowers in spikelets</li>
+                            </ul>
+                            <a href="families/poaceae.html" class="btn btn-small">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="identification-teaser animate-on-scroll">
+            <div class="container">
+                <div class="id-content">
+                    <h2>Learn to Identify Plants in the Field</h2>
+                    <p>Identifying plant families in the field is a valuable skill for botanists, ecologists, gardeners, and nature enthusiasts. Our comprehensive field identification guides help you recognize plant families using easily observable characteristics without specialized equipment.</p>
+                    <p>Understanding the key features that define each plant family allows you to quickly narrow down identification possibilities and appreciate the incredible diversity of the plant kingdom. Our guides focus on practical, visual characteristics that can be observed in various seasons and growth stages.</p>
+                    <ul class="id-features">
+                        <li>Visual keys for quick identification</li>
+                        <li>Seasonal identification tips</li>
+                        <li>Habitat-based guides</li>
+                        <li>Printable field sheets</li>
+                    </ul>
+                    <a href="identification.html" class="btn btn-primary">Field Guides</a>
+                </div>
+                <div class="id-image">
+                    <img src="img/here/field-id-thumb.png" alt="Field guide illustration">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Plant Families Explorer</h4>
+                    <p>A comprehensive guide to plant families in phylogenetic order with identification features for botanists, students, and nature enthusiasts.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                        <li><a href="families.html">Plant Families</a></li>
+                        <li><a href="identification.html">Field Identification</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="about.html#apg">APG IV System</a></li>
+                        <li><a href="about.html#references">References</a></li>
+                        <li><a href="about.html#glossary">Botanical Glossary</a></li>
+                        <li><a href="about.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plant Families Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function performSearch(searchTerm) {
+            if (!searchTerm) {
+                alert('Please enter a search term.');
+                return;
+            }
+            const searchResultsUrl = `search_results.html?query=${encodeURIComponent(searchTerm)}`;
+            window.location.href = searchResultsUrl;
+        }
+    </script>
+</body>
+</html>

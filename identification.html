@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home - Plant Families Explorer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&family=open+sans:wght@400;600&family=playfair+display:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+    </head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="Plant Families Explorer Logo">
+                    <span>Plant Families Explorer</span>
+                </a>
+            </div>
+            <nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="main-nav">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                    <li><a href="families.html">Plant Families</a></li>
+                    <li><a href="identification.html">Field Identification</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <form class="search-bar" onsubmit="event.preventDefault(); performSearch(document.querySelector('.search-bar input').value.trim().toLowerCase());">
+                <input type="text" placeholder="Search families...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        </div>
+         <ul class="main-nav mobile-menu" style="display: none;">
+             <li><a href="index.html">Home</a></li>
+             <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+             <li><a href="families.html">Plant Families</a></li>
+             <li><a href="identification.html" class="active">Field Identification</a></li>
+             <li><a href="about.html">About</a></li>
+             <li>
+                <div class="search-bar" style="display: flex; margin: 1rem auto; width: 90%;">
+                    <input type="text" placeholder="Search plant families...">
+                    <button type="submit" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path fill="currentColor" d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/></svg>
+                    </button>
+                </div>
+             </li>
+         </ul>
+    </header>
+
+    <main>
+        <section class="page-header" style="background-color: var(--secondary-color); padding: 2rem 0; text-align: center;">
+            <div class="container">
+                <h1 style="color: var(--background-color);">Field Identification Guides</h1>
+                <p style="color: var(--background-color); font-size: 1.1rem;">Learn how to identify plant families in the field using easily observable characteristics. Our comprehensive guides help you recognize key features without specialized equipment, focusing on practical skills for botanists, students, and nature lovers.</p>
+            </div>
+        </section>
+
+        <section class="identification-approaches">
+            <div class="container">
+                <h2>Multiple Approaches to Plant Identification</h2>
+                <p>Effective plant identification often involves integrating information from various sources. Depending on the season, available plant parts (leaves, flowers, fruits, buds), and your familiarity with botanical terms, some approaches may be more useful than others. Our guides provide multiple entry points, exploring vegetative structures, reproductive details, ecological context, and seasonal changes to help you identify plant families regardless of your experience level or the plant material available.</p>
+                <p>If you’re unfamiliar with any botanical terminology, check out our <a href="about.html#glossary">Botanical Glossary</a> for definitions of key terms.</p>
+            </div>
+        </section>
+        <section class="comprehensive-guides" style="padding: 2rem 0; background-color: #f0f0f0;">
+            <div class="container">
+                <h2>Comprehensive Identification Guides</h2>
+                <p>Dive deeper with our detailed guides focusing on specific plant features crucial for accurate family identification. Each guide provides clear explanations of terminology, illustrative examples from diverse plant families, helpful comparisons, and practical field identification tips to build your botanical skills.</p>
+
+                <div class="guide-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div class="guide-card">
+                        <img src="https://placehold.co/400x250/81c784/ffffff?text=leaf+morphology" alt="Leaf morphology guide thumbnail">
+                        <div class="guide-content">
+                            <h3>Leaf Morphology Guide</h3>
+                            <p>Learn about leaf arrangements, shapes, margins, venation patterns, and specialized modifications that can help identify plant families.</p>
+                            <ul>
+                                <li>Leaf arrangements (alternate, opposite, whorled)</li>
+                                <li>Simple vs. compound leaves</li>
+                                <li>Leaf shapes and margins</li>
+                                <li>Venation patterns</li>
+                                <li>Specialized leaf modifications</li>
+                            </ul>
+                            <a href="identification/guides/leaf-morphology.html" class="button btn btn-primary">View Guide</a>
+                        </div>
+                    </div>
+
+                    <div class="guide-card">
+                         <img src="https://placehold.co/400x250/e1bee7/ffffff?text=flower+structure" alt="Flower structure guide thumbnail">
+                        <div class="guide-content">
+                            <h3>Flower Structure Guide</h3>
+                            <p>Explore flower symmetry, floral parts, inflorescence types, and specialized structures that are diagnostic for specific plant families.</p>
+                            <ul>
+                                <li>Flower symmetry (radial vs. bilateral)</li>
+                                <li>Floral parts and their arrangements</li>
+                                <li>Inflorescence types</li>
+                                <li>Specialized floral structures</li>
+                                <li>Pollination syndromes</li>
+                            </ul>
+                            <a href="identification/guides/flower-structure.html" class="button btn btn-primary">View Guide</a>
+                        </div>
+                    </div>
+
+                    <div class="guide-card">
+                         <img src="https://placehold.co/400x250/ffab91/ffffff?text=fruit+types" alt="Fruit types guide thumbnail">
+                        <div class="guide-content">
+                            <h3>Fruit Types Guide</h3>
+                            <p>Discover the diversity of fruit types and how they can be used to identify plant families, even after flowering has ended.</p>
+                            <ul>
+                                <li>Simple fruits (dry and fleshy)</li>
+                                <li>Aggregate fruits</li>
+                                <li>Multiple fruits</li>
+                                <li>Accessory fruits</li>
+                                <li>Dispersal mechanisms</li>
+                            </ul>
+                            <a href="identification/guides/fruit-types.html" class="button btn btn-primary">View Guide</a>
+                        </div>
+                    </div>
+
+                     <div class="guide-card">
+                         <img src="https://placehold.co/400x250/b0bec5/ffffff?text=winter+id" alt="Winter identification guide thumbnail">
+                        <div class="guide-content">
+                            <h3>Winter Identification Guide</h3>
+                            <p>Learn to identify deciduous trees and shrubs during dormancy using bark, buds, twig features, leaf scars, and persistent fruits.</p>
+                            <ul>
+                                <li>Bark textures and patterns</li>
+                                <li>Bud arrangement, shape, and scales</li>
+                                <li>Twig characteristics (pith, lenticels)</li>
+                                <li>Leaf scar shapes and bundle scars</li>
+                                <li>Persistent fruits and seeds</li>
+                            </ul>
+                            <a href="identification/guides/winter-identification.html" class="button btn btn-primary">View Guide</a>
+                        </div>
+                    </div>
+
+                     <div class="guide-card">
+                         <img src="https://placehold.co/400x250/bcaaa4/ffffff?text=geology+%26+plants" alt="Geology and plant indicators guide thumbnail">
+                        <div class="guide-content">
+                            <h3>Geology & Plant Indicators Guide</h3>
+                            <p>Explore how underlying rock types (limestone, serpentine, granite, etc.) influence soil chemistry and support distinct plant communities.</p>
+                            <ul>
+                                <li>Indicator species concepts</li>
+                                <li>Limestone (Calcareous) flora</li>
+                                <li>Serpentine soil specialists</li>
+                                <li>Granite (Acidic) flora</li>
+                                <li>Plants of sandy or wetland soils</li>
+                            </ul>
+                            <a href="identification/guides/geology-plant-guide.html" class="button btn btn-primary">View Guide</a>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <img src="https://placehold.co/400x250/81c784/ffffff?text=Roadside+Botany" alt="Roadside Botany guide thumbnail showing various roadside plants">
+                        <div class="guide-content">
+                            <h3>Roadside Botany Guide</h3>
+                            <p>Discover the surprising diversity of resilient plants thriving along America's roadsides, ditches, and disturbed verges. This guide covers identification tips, common families, widespread species, invasive alerts, and crucial safety advice for exploring these unique habitats.</p>
+                            <ul>
+                                <li>Explore diverse roadside microhabitats (ditches, banks, edges).</li>
+                                <li>Identify key plant families common nationwide (Asters, Grasses, Legumes).</li>
+                                <li>Recognize widespread roadside weeds & wildflowers.</li>
+                                <li>Learn about invasive species spread and identification.</li>
+                                <li>Master essential safety practices for roadside exploration.</li>
+                            </ul>
+                            <a href="identification/guides/roadside-botany.html" class="button btn btn-primary">View Guide</a>
+                        </div>
+                    </div>
+                </div> </div>
+        </section>
+
+        <section class="field-tips">
+            <div class="container">
+                <h2>Field Identification Tips</h2>
+                <p>Successful plant identification in the field requires more than just botanical knowledge. It involves careful observation, pattern recognition, and considering the plant within its environment. Here are some practical tips to enhance your identification skills:</p>
+
+                <div class="tips-columns" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem;">
+                    <div class="tips-column" style="flex: 1; min-width: 250px;">
+                        <h3>Essential Equipment</h3>
+                        <ul>
+                            <li>Carry a hand lens (10x or 15x) for examining small features like hairs, glands, and bud scales.</li>
+                            <li>Use a field notebook and pencil to sketch features and record observations (location, date, habitat, associated species).</li>
+                            <li>Take clear photographs from multiple angles: overall habit, close-ups of leaves (top & bottom), flowers, fruits, buds, bark. Include an object for scale if possible.</li>
+                            <li>Consider a small ruler for measuring parts.</li>
+                            <li>Bring relevant field guides or utilize reliable identification apps (but always verify app suggestions).</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-column" style="flex: 1; min-width: 250px;">
+                        <h3>Observation Techniques</h3>
+                        <ul>
+                            <li>Examine the entire plant: overall size and shape (habit), branching pattern, bark texture.</li>
+                            <li>Note the habitat precisely: Is it a wet ditch, dry ridgetop, shady forest floor, open prairie? What is the soil like?</li>
+                            <li>Look for patterns: Observe multiple individuals if possible to understand variation within the species.</li>
+                            <li>Use your senses: Check for distinctive smells when leaves are crushed (mints, spicebush). Note presence of milky sap or colored juice. Feel leaf textures (smooth, rough, hairy, sticky).</li>
+                            <li>Observe plant associations: What other plants are growing nearby? This can provide clues about the habitat and potential identity.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-column" style="flex: 1; min-width: 250px;">
+                        <h3>Ethical Considerations</h3>
+                        <ul>
+                            <li>Respect property rights: Obtain permission before entering private land.</li>
+                            <li>Minimize impact: Stay on trails where possible. Avoid trampling sensitive vegetation.</li>
+                            <li>Collect responsibly: Only collect specimens if necessary for identification and permitted. Take only what you need, and never collect rare or endangered species.</li>
+                            <li>Leave no trace: Pack out everything you pack in.</li>
+                            <li>Be aware of local regulations regarding plant collection.</li>
+                         </ul>
+                    </div>
+                </div>
+                 <p style="margin-top: 2rem;">Remember, plant identification is a skill that improves with practice. Don't be discouraged by challenges! Focus on learning key features of common families in your area first.</p>
+            </div>
+        </section>
+        <section class="family-quick-guides" style="padding: 2rem 0; background-color: #f0f0f0;">
+            <div class="container">
+            <h2>Family Quick Guides</h2>
+            <p>Looking for quick identification tips for specific plant families? Our family quick guides provide concise information on the most distinctive features of major plant families found worldwide.</p>
+
+            <div class="family-guide-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div class="family-guide-card">
+                 <img src="img/here/asteraceae.png" alt="Asteraceae icon" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h3>Asteraceae</h3>
+                <p>Composite flower heads, often with ray and disc florets; inferior ovary; pappus often present.</p>
+                <a href="families/asteraceae.html" class="button btn-small">Family Details</a>
+                </div>
+                <div class="family-guide-card">
+                 <img src="img/here/fabaceae.png" alt="Fabaceae icon" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h3>Fabaceae</h3>
+                <p>Compound leaves often with stipules; papilionaceous flowers; legume fruits; often with nitrogen-fixing nodules.</p>
+                <a href="families/fabaceae.html" class="button btn-small">Family Details</a>
+                </div>
+                 <div class="family-guide-card">
+                 <img src="img/here/poaceae.png" alt="Poaceae icon" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h3>Poaceae</h3>
+                <p>Hollow stems (culms) with nodes; parallel-veined leaves with sheaths; ligules present; flowers in spikelets.</p>
+                <a href="families/poaceae.html" class="button btn-small">Family Details</a>
+                </div>
+                 <div class="family-guide-card">
+                 <img src="img/here/lamiaceae.png" alt="Lamiaceae icon" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h3>Lamiaceae</h3>
+                <p>Square stems; opposite leaves; aromatic; bilabiate flowers; gynobasic style; nutlet fruits.</p>
+                <a href="families/lamiaceae.html" class="button btn-small">Family Details</a>
+                </div>
+            </div>
+            </div>
+        </section>
+
+                <div class="view-all-button" style="text-align: center; margin-top: 2rem;">
+                    <a href="families.html" class="button btn btn-primary">View All Families</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Plant Families Explorer</h4>
+                    <p>A comprehensive guide to plant families in phylogenetic order with identification features for botanists, students, and nature enthusiasts.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                        <li><a href="families.html">Plant Families</a></li>
+                        <li><a href="identification.html">Field Identification</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="about.html#apg">APG IV System</a></li>
+                        <li><a href="about.html#references">References</a></li>
+                        <li><a href="about.html#glossary">Botanical Glossary</a></li>
+                        <li><a href="about.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plant Families Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

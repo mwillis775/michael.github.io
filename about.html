@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home - Plant Families Explorer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&family=open+sans:wght@400;600&family=playfair+display:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+    </head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.svg" alt="Plant Families Explorer Logo">
+                    <span>Plant Families Explorer</span>
+                </a>
+            </div>
+            <nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="main-nav">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                    <li><a href="families.html">Plant Families</a></li>
+                    <li><a href="identification.html">Field Identification</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <form class="search-bar" onsubmit="event.preventDefault(); performSearch(document.querySelector('.search-bar input').value.trim().toLowerCase());">
+                <input type="text" placeholder="Search families...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>About Plant Families Explorer</h1>
+                <p>Learn about our mission to make plant family identification accessible and engaging for everyone, from students to professional botanists.</p>
+            </div>
+        </section>
+
+        <section class="about-content animate-on-scroll">
+            <div class="container">
+                <h2>Our Mission</h2>
+                <p>Plant Families Explorer was created to help people understand and appreciate the diversity of plant families and their evolutionary relationships. By presenting plant families in phylogenetic order with intuitive identification guides, we aim to make botanical knowledge more accessible to students, educators, researchers, and nature enthusiasts.</p>
+                <p>Our goals include:</p>
+                <ul>
+                    <li>Providing accurate, up-to-date information on plant family classification based on modern phylogenetic research</li>
+                    <li>Creating intuitive, visual tools for exploring plant evolutionary relationships</li>
+                    <li>Offering practical guides for identifying plant families in the field</li>
+                    <li>Making botanical knowledge accessible to people of all backgrounds and experience levels</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="apg" class="apg-system animate-on-scroll">
+            <div class="container">
+                <h2>The APG IV Classification System</h2>
+                <p>This website uses the Angiosperm Phylogeny Group IV (APG IV) classification system, which is the most current and widely accepted system for organizing flowering plants based on their evolutionary relationships.</p>
+                <h3>What is APG IV?</h3>
+                <p>The Angiosperm Phylogeny Group (APG) is an international group of systematic botanists who collaborate to establish a consensus on the taxonomy of flowering plants (angiosperms) based on phylogenetic data. The APG IV system, published in 2016, is the fourth iteration of their classification system.</p>
+                <p>Unlike traditional classification systems that relied heavily on morphological similarities, the APG system is based primarily on genetic evidence, particularly DNA sequences. This approach provides a more accurate representation of evolutionary relationships between plant groups.</p>
+                <h3>Key Features of APG IV</h3>
+                <p>The APG IV system organizes flowering plants into the following major groups:</p>
+                <ul>
+                    <li><strong>Angiosperms</strong> (flowering plants) - The largest group of land plants</li>
+                    <li><strong>Amborellales</strong> - The most basal lineage of extant angiosperms</li>
+                    <li><strong>Nymphaeales</strong> - Water lilies and related plants</li>
+                    <li><strong>Austrobaileyales</strong> - A small group of woody plants</li>
+                    <li><strong>Magnoliids:</strong> - An ancient lineage including magnolias, laurels, and black pepper</li>
+                    <li><strong>Monocots</strong> - Plants with a single seed leaf, including grasses, orchids, and palms</li>
+                    <li><strong>Eudicots</strong> - Plants with two seed leaves, including most familiar flowering plants</li>
+                </ul>
+                <p>Within these major groups, plants are further organized into orders and families based on their evolutionary relationships.</p>
+                <h3>Changes in APG IV</h3>
+                <p>The APG IV system introduced several changes from previous classifications, including:</p>
+                <ul>
+                    <li>Recognition of additional orders and families</li>
+                    <li>Merging of some previously separate families</li>
+                    <li>Refinement of relationships between major plant groups</li>
+                </ul>
+                <p>These changes reflect ongoing research in plant systematics and our evolving understanding of plant evolution.</p>
+            </div>
+        </section>
+
+        <section id="references" class="references animate-on-scroll">
+            <div class="container">
+                <h2>References and Resources</h2>
+                <p>This website draws on numerous scientific resources to provide accurate information about plant families and their characteristics. Key references include:</p>
+                <h3>Primary References</h3>
+                <ul class="reference-list">
+                    <li>The Angiosperm Phylogeny Group. (2016). An update of the Angiosperm Phylogeny Group classification for the orders and families of flowering plants: APG IV. <em>Botanical Journal of the Linnean Society</em>, 181(1), 1-20.</li>
+                    <li>Judd, W. S., Campbell, C. S., Kellogg, E. A., Stevens, P. F., & Donoghue, M. J. (2016). <em>Plant Systematics: A Phylogenetic Approach</em> (4th ed.). Sinauer Associates.</li>
+                    <li>Simpson, M. G. (2019). <em>Plant Systematics</em> (3rd ed.). Academic Press.</li>
+                    <li>Stevens, P. F. (2001 onwards). Angiosperm Phylogeny Website. Version 14, July 2017 [and more or less continuously updated since]. <a href="http://www.mobot.org/mobot/research/apweb/" target="_blank" rel="noopener noreferrer">http://www.mobot.org/MOBOT/research/APweb/</a></li>
+                </ul>
+                <h3>Additional Resources</h3>
+                <ul class="reference-list">
+                    <li>Christenhusz, M. J. M., Fay, M. F., & Chase, M. W. (2017). <em>Plants of the World: An Illustrated Encyclopedia of Vascular Plants</em>. Kew Publishing.</li>
+                    <li>Heywood, V. H., Brummitt, R. K., Culham, A., & Seberg, O. (2007). <em>Flowering Plant Families of the World</em>. Royal Botanic Gardens, Kew.</li>
+                    <li>Mabberley, D. J. (2017). <em>Mabberley's Plant-Book: A Portable Dictionary of Plants, their Classification and Uses</em> (4th ed.). Cambridge University Press.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="glossary" class="glossary animate-on-scroll">
+            <div class="container">
+                <h2>Botanical Glossary</h2>
+                <p>Understanding botanical terminology is essential for plant identification. Here are some key terms used throughout this website:</p>
+                <div class="glossary-list">
+                    <div class="glossary-item"><h3>Angiosperm</h3><p>A flowering plant that produces seeds enclosed within a fruit (ovary).</p></div>
+                    <div class="glossary-item"><h3>Compound Leaf</h3><p>A leaf whose blade is divided to the midrib or base, with each division forming a distinct leaflet.</p></div>
+                    <div class="glossary-item"><h3>Eudicot</h3><p>A major clade (monophyletic group) of flowering plants characterized by having two seed leaves (cotyledons), flower parts typically in multiples of four or five, and net-like leaf venation.</p></div>
+                    <div class="glossary-item"><h3>Family</h3><p>A taxonomic rank in biological classification between order and genus. Family names typically end in "-aceae".</p></div>
+                    <div class="glossary-item"><h3>Gymnosperm</h3><p>A group of seed-producing plants that includes conifers, cycads, Ginkgo, and gnetophytes. Their seeds are "naked" – not enclosed within an ovary or fruit.</p></div>
+                    <div class="glossary-item"><h3>Inflorescence</h3><p>The complete flower head of a plant including stems, stalks, bracts, and flowers; the arrangement of flowers on a floral axis.</p></div>
+                    <div class="glossary-item"><h3>Monocot</h3><p>A major clade (monophyletic group) of flowering plants characterized by having a single seed leaf (cotyledon), flower parts typically in multiples of three, and parallel leaf venation.</p></div>
+                    <div class="glossary-item"><h3>Phylogeny</h3><p>The evolutionary history and relationships among individuals or groups of organisms (e.g., species, families).</p></div>
+                    <div class="glossary-item"><h3>Simple Leaf</h3><p>A leaf with a single, undivided blade (though the blade may be lobed or cleft).</p></div>
+                    <div class="glossary-item"><h3>Stipule</h3><p>A small, often leaf-like appendage typically found in pairs at the base of the petiole (leaf stalk).</p></div>
+                    <div class="glossary-item"><h3>Alternate Leaves</h3><p>Leaves arranged singly at different heights along the stem, not opposite or whorled.</p></div>
+                    <div class="glossary-item"><h3>Axil</h3><p>The upper angle between a leaf stalk or branch and the stem from which it grows.</p></div>
+                    <div class="glossary-item"><h3>Basal Leaves</h3><p>Leaves arising from the base of the stem, often forming a rosette.</p></div>
+                    <div class="glossary-item"><h3>Bract</h3><p>A modified or specialized leaf, especially one associated with a reproductive structure such as a flower, inflorescence axis, or cone scale.</p></div>
+                    <div class="glossary-item"><h3>Calyx</h3><p>The collective term for the sepals of a flower; the outermost whorl of floral leaves.</p></div>
+                    <div class="glossary-item"><h3>Corolla</h3><p>The collective term for the petals of a flower; the whorl of floral leaves typically inside the calyx.</p></div>
+                    <div class="glossary-item"><h3>Cotyledon</h3><p>An embryonic leaf in seed-bearing plants, one or more of which are the first leaves to appear from a germinating seed.</p></div>
+                    <div class="glossary-item"><h3>Deciduous</h3><p>Falling off at maturity or tending to fall off; typically used to describe trees or shrubs that seasonally shed leaves.</p></div>
+                    <div class="glossary-item"><h3>Dioecious</h3><p>Having male and female reproductive organs in separate individuals (separate male and female plants).</p></div>
+                    <div class="glossary-item"><h3>Drupe</h3><p>A fleshy fruit with thin skin and a central stone containing the seed, e.g., a plum, cherry, almond, or olive.</p></div>
+                    <div class="glossary-item"><h3>Entire Margin</h3><p>Referring to a leaf margin (edge) that is smooth, without teeth or lobes.</p></div>
+                    <div class="glossary-item"><h3>Epiphyte</h3><p>A plant that grows on another plant but is not parasitic, such as the numerous ferns, bromeliads, air plants, and orchids growing on tree trunks in tropical rainforests.</p></div>
+                    <div class="glossary-item"><h3>Evergreen</h3><p>A plant that has leaves throughout the year, always green.</p></div>
+                    <div class="glossary-item"><h3>Genus</h3><p>A taxonomic rank above species and below family. A group of closely related species.</p></div>
+                    <div class="glossary-item"><h3>Herbaceous</h3><p>Having non-woody stems that die back to the ground each year.</p></div>
+                    <div class="glossary-item"><h3>Inferior Ovary</h3><p>An ovary situated below the point of attachment of the calyx and corolla.</p></div>
+                    <div class="glossary-item"><h3>Leaflet</h3><p>One of the separate blade-like divisions of a compound leaf.</p></div>
+                    <div class="glossary-item"><h3>Lobe</h3><p>A partial division of a leaf, petal, or other organ, usually rounded.</p></div>
+                    <div class="glossary-item"><h3>Margin</h3><p>The edge of a leaf blade.</p></div>
+                    <div class="glossary-item"><h3>Monoecious</h3><p>Having both male and female reproductive organs on the same individual plant.</p></div>
+                    <div class="glossary-item"><h3>Node</h3><p>The point on a stem where a leaf, bud, or branch arises.</p></div>
+                    <div class="glossary-item"><h3>Opposite Leaves</h3><p>Leaves arranged in pairs at the same height on opposite sides of the stem.</p></div>
+                    <div class="glossary-item"><h3>Ovary</h3><p>The enlarged basal portion of the pistil (female organ) where ovules are produced. Develops into the fruit after fertilization.</p></div>
+                    <div class="glossary-item"><h3>Palmate</h3><p>Lobed, veined, or divided from a common point, like the fingers of a hand (e.g., palmate leaf venation or a palmately compound leaf).</p></div>
+                    <div class="glossary-item"><h3>Pedicel</h3><p>The stalk supporting a single flower in an inflorescence.</p></div>
+                    <div class="glossary-item"><h3>Perennial</h3><p>A plant that lives for more than two years.</p></div>
+                    <div class="glossary-item"><h3>Petal</h3><p>A modified leaf that surrounds the reproductive parts of flowers. Often brightly colored to attract pollinators.</p></div>
+                    <div class="glossary-item"><h3>Petiole</h3><p>The stalk that attaches the leaf blade to the stem.</p></div>
+                    <div class="glossary-item"><h3>Pinnate</h3><p>Resembling a feather, as in a compound leaf with leaflets arranged on opposite sides of an elongated axis.</p></div>
+                    <div class="glossary-item"><h3>Pistil</h3><p>The female reproductive part of a flower, typically consisting of stigma, style, and ovary.</p></div>
+                    <div class="glossary-item"><h3>Rhizome</h3><p>A modified subterranean plant stem that sends out roots and shoots from its nodes.</p></div>
+                    <div class="glossary-item"><h3>Sepal</h3><p>A leaf-like structure that forms part of the outer whorl (calyx) of a flower, typically enclosing the petals in bud.</p></div>
+                    <div class="glossary-item"><h3>Serrate Margin</h3><p>Referring to a leaf margin that is toothed, like the edge of a saw.</p></div>
+                    <div class="glossary-item"><h3>Sessile</h3><p>Attached directly by the base without a stalk or petiole (e.g., a sessile leaf).</p></div>
+                    <div class="glossary-item"><h3>Shrub</h3><p>A woody plant smaller than a tree, usually with several permanent stems branching from or near the ground.</p></div>
+                    <div class="glossary-item"><h3>Species</h3><p>The basic unit of classification, ranking below genus. A group of organisms capable of interbreeding.</p></div>
+                    <div class="glossary-item"><h3>Stamen</h3><p>The male fertilizing organ of a flower, typically consisting of a pollen-containing anther and a filament.</p></div>
+                    <div class="glossary-item"><h3>Stigma</h3><p>The receptive tip of a carpel, or of several fused carpels, in the gynoecium of a flower, where pollen germinates.</p></div>
+                    <div class="glossary-item"><h3>Style</h3><p>A stalk-like structure connecting the stigma to the ovary in the pistil of a flower.</p></div>
+                    <div class="glossary-item"><h3>Superior Ovary</h3><p>An ovary attached to the receptacle above the attachment of other floral parts (sepals, petals, stamens).</p></div>
+                    <div class="glossary-item"><h3>Taxonomy</h3><p>The science of classification of organisms into an ordered system that indicates natural relationships.</p></div>
+                    <div class="glossary-item"><h3>Tendril</h3><p>A slender, thread-like appendage of a climbing plant, often growing in a spiral form, that stretches out and twines around any suitable support.</p></div>
+                    <div class="glossary-item"><h3>Tepal</h3><p>A segment of the outer whorl (perianth) of a flower that cannot be easily differentiated into sepals or petals.</p></div>
+                    <div class="glossary-item"><h3>Tree</h3><p>A woody perennial plant, typically having a single stem or trunk growing to a considerable height and bearing lateral branches at some distance from the ground.</p></div>
+                    <div class="glossary-item"><h3>Venation</h3><p>The arrangement or pattern of veins in a leaf blade.</p></div>
+                    <div class="glossary-item"><h3>Whorled Leaves</h3><p>Leaves arranged in a circle of three or more around the stem at the same node.</p></div>
+                    <div class="glossary-item"><h3>Woody</h3><p>Containing wood or xylem; having hard, lignified stems.</p></div>
+
+                    <div class="glossary-item"><h3>Achene</h3><p>A small, dry, one-seeded fruit that does not open to release the seed.</p></div>
+                    <div class="glossary-item"><h3>Adventitious Root</h3><p>A root that arises from an organ other than the primary root, typically a stem or leaf.</p></div>
+                    <div class="glossary-item"><h3>Androecium</h3><p>The collective term for the stamens (male reproductive organs) of a flower.</p></div>
+                    <div class="glossary-item"><h3>Annual</h3><p>A plant that completes its life cycle (germination to seed production) within a single year or growing season.</p></div>
+                    <div class="glossary-item"><h3>Anther</h3><p>The part of a stamen that contains the pollen.</p></div>
+                    <div class="glossary-item"><h3>Apical Meristem</h3><p>A region of actively dividing cells at the tip of a root or shoot, responsible for primary growth (increase in length).</p></div>
+                    <div class="glossary-item"><h3>Berry</h3><p>A simple fleshy fruit that usually has many seeds, like a tomato or grape.</p></div>
+                    <div class="glossary-item"><h3>Biennial</h3><p>A plant that takes two years to complete its life cycle, typically growing vegetatively the first year and flowering/fruiting the second.</p></div>
+                    <div class="glossary-item"><h3>Blade</h3><p>The broad, flat part of a leaf.</p></div>
+                    <div class="glossary-item"><h3>Bulb</h3><p>A modified underground bud consisting of a short stem base with fleshy leaves or leaf bases that store food.</p></div>
+                    <div class="glossary-item"><h3>Capsule</h3><p>A dry fruit that develops from multiple carpels and typically opens (dehisces) in various ways to release seeds.</p></div>
+                    <div class="glossary-item"><h3>Carpel</h3><p>The female reproductive organ of a flower, consisting of the stigma, style, and ovary. One or more carpels form the pistil/gynoecium.</p></div>
+                    <div class="glossary-item"><h3>Clade</h3><p>A group of organisms believed to have evolved from a common ancestor, according to the principles of cladistics.</p></div>
+                    <div class="glossary-item"><h3>Corm</h3><p>A rounded underground storage organ present in some plants, consisting of a swollen stem base covered with scale leaves.</p></div>
+                    <div class="glossary-item"><h3>Crenate Margin</h3><p>Referring to a leaf margin with rounded teeth.</p></div>
+                    <div class="glossary-item"><h3>Cuticle</h3><p>A waxy layer covering the epidermis of leaves and stems, helping to prevent water loss.</p></div>
+                    <div class="glossary-item"><h3>Cyme</h3><p>A type of inflorescence where the central or terminal flower opens first, halting the main axis growth, with subsequent flowers developing on lateral branches.</p></div>
+                    <div class="glossary-item"><h3>Dehiscent</h3><p>Splitting open at maturity along a built-in line of weakness to release contents (e.g., fruits releasing seeds, anthers releasing pollen).</p></div>
+                    <div class="glossary-item"><h3>Dentate Margin</h3><p>Referring to a leaf margin with teeth pointing outwards, perpendicular to the edge.</p></div>
+                    <div class="glossary-item"><h3>Endosperm</h3><p>Nutritive tissue surrounding the embryo within seeds of flowering plants.</p></div>
+                    <div class="glossary-item"><h3>Epidermis</h3><p>The outermost layer of cells of a plant.</p></div>
+                    <div class="glossary-item"><h3>Filament</h3><p>The stalk-like part of a stamen that supports the anther.</p></div>
+                    <div class="glossary-item"><h3>Follicle</h3><p>A dry, dehiscent fruit derived from a single carpel that splits open along one seam.</p></div>
+                    <div class="glossary-item"><h3>Fruit</h3><p>The mature ovary of a flowering plant, enclosing the seed or seeds.</p></div>
+                    <div class="glossary-item"><h3>Gynoecium</h3><p>The collective term for the carpels or pistils (female reproductive organs) of a flower.</p></div>
+                    <div class="glossary-item"><h3>Habit</h3><p>The characteristic form or mode of growth of a plant (e.g., tree, shrub, herb, vine).</p></div>
+                    <div class="glossary-item"><h3>Head (Capitulum)</h3><p>A dense inflorescence of small, often sessile flowers, typical of the Asteraceae family (e.g., sunflower).</p></div>
+                    <div class="glossary-item"><h3>Indehiscent</h3><p>Not splitting open at maturity to release seeds (e.g., achenes, nuts).</p></div>
+                    <div class="glossary-item"><h3>Internode</h3><p>The section of a plant stem between two nodes.</p></div>
+                    <div class="glossary-item"><h3>Latex</h3><p>A milky fluid found in many plants, such as poppies and spurges, that exudes when the plant is cut.</p></div>
+                    <div class="glossary-item"><h3>Legume</h3><p>A type of simple, dry fruit that develops from a simple carpel and usually dehisces (opens along a seam) on two sides. Also refers to a member of the Fabaceae family.</p></div>
+                    <div class="glossary-item"><h3>Lenticel</h3><p>A pore in the bark of woody stems, allowing gas exchange between the internal tissues and the atmosphere.</p></div>
+                    <div class="glossary-item"><h3>Midrib</h3><p>The central, main vein of a leaf.</p></div>
+                    <div class="glossary-item"><h3>Nectar</h3><p>A sugary fluid secreted by plants, especially within flowers, to encourage pollination by animals.</p></div>
+                    <div class="glossary-item"><h3>Nut</h3><p>A dry, indehiscent fruit with a hard shell, usually containing a single seed (e.g., acorn, hazelnut).</p></div>
+                    <div class="glossary-item"><h3>Order</h3><p>A taxonomic rank used in the classification of organisms, between class and family.</p></div>
+                    <div class="glossary-item"><h3>Ovate</h3><p>Egg-shaped, especially referring to a leaf shape, with the broader end at the base.</p></div>
+                    <div class="glossary-item"><h3>Ovule</h3><p>The structure within the ovary that contains the female gamete (egg cell) and develops into a seed after fertilization.</p></div>
+                    <div class="glossary-item"><h3>Panicle</h3><p>A branched, indeterminate inflorescence with flowers on pedicels.</p></div>
+                    <div class="glossary-item"><h3>Pappus</h3><p>Modified calyx consisting of scales, bristles, or feather-like hairs at the apex of the achene in Asteraceae family members (e.g., dandelion "parachute").</p></div>
+                    <div class="glossary-item"><h3>Parallel Venation</h3><p>Veins running parallel to each other for the length of the leaf blade, typical of monocots.</p></div>
+                    <div class="glossary-item"><h3>Parasite</h3><p>An organism that lives on or in a host organism and gets its food from or at the expense of its host.</p></div>
+                    <div class="glossary-item"><h3>Peduncle</h3><p>The main stalk supporting an entire inflorescence or a solitary flower.</p></div>
+                    <div class="glossary-item"><h3>Perianth</h3><p>The outer part of a flower, consisting of the calyx (sepals) and corolla (petals) collectively.</p></div>
+                    <div class="glossary-item"><h3>Phloem</h3><p>The vascular tissue in plants that conducts sugars downward from the leaves.</p></div>
+                    <div class="glossary-item"><h3>Photosynthesis</h3><p>The process used by plants and other organisms to convert light energy into chemical energy, through a process that converts water and carbon dioxide into sugars and oxygen.</p></div>
+                    <div class="glossary-item"><h3>Pollen</h3><p>A fine powdery substance, typically yellow, consisting of microscopic grains discharged from the male part of a flower (anther), containing the male gametes.</p></div>
+                    <div class="glossary-item"><h3>Pollination</h3><p>The transfer of pollen from the anther to the stigma of a plant.</p></div>
+                    <div class="glossary-item"><h3>Pubescent</h3><p>Covered with short, soft hairs; downy.</p></div>
+                    <div class="glossary-item"><h3>Raceme</h3><p>An unbranched, indeterminate inflorescence with flowers on short stalks (pedicels) along the axis.</p></div>
+                    <div class="glossary-item"><h3>Receptacle</h3><p>The part of a flower stalk where the parts of the flower are attached.</p></div>
+                    <div class="glossary-item"><h3>Reticulate Venation</h3><p>Veins arranged in a net-like pattern, typical of eudicots.</p></div>
+                    <div class="glossary-item"><h3>Root Cap</h3><p>A section of tissue at the tip of a plant root that protects the apical meristem.</p></div>
+                    <div class="glossary-item"><h3>Rosette</h3><p>A circular arrangement of leaves, typically basal and close to the ground.</p></div>
+                    <div class="glossary-item"><h3>Samara</h3><p>A dry, indehiscent fruit in which the ovary wall develops into a wing-like structure to aid dispersal (e.g., maple fruit).</p></div>
+                    <div class="glossary-item"><h3>Seed</h3><p>A flowering plant's unit of reproduction, capable of developing into another such plant. Contains the embryo and stored food, enclosed in a protective coat.</p></div>
+                    <div class="glossary-item"><h3>Spadix</h3><p>A type of spike inflorescence having small flowers borne on a fleshy stem, typical of the Araceae family (e.g., Jack-in-the-pulpit).</p></div>
+                    <div class="glossary-item"><h3>Spathe</h3><p>A large bract enclosing the spadix inflorescence.</p></div>
+                    <div class="glossary-item"><h3>Spike</h3><p>An unbranched, indeterminate inflorescence bearing sessile flowers (attached directly without stalks).</p></div>
+                    <div class="glossary-item"><h3>Spine</h3><p>A modified, sharp-pointed leaf or part of a leaf.</p></div>
+                    <div class="glossary-item"><h3>Stolon (Runner)</h3><p>A creeping horizontal plant stem or runner that takes root at points along its length to form new plants.</p></div>
+                    <div class="glossary-item"><h3>Stoma (plural: Stomata)</h3><p>A pore, surrounded by guard cells, in the epidermis of leaves and stems that controls the rate of gas exchange.</p></div>
+                    <div class="glossary-item"><h3>Taproot</h3><p>A large, central, and dominant root from which other roots sprout laterally.</p></div>
+                    <div class="glossary-item"><h3>Thorn</h3><p>A modified, sharp-pointed stem.</p></div>
+                    <div class="glossary-item"><h3>Tomentose</h3><p>Covered with densely interwoven, matted, woolly hairs.</p></div>
+                    <div class="glossary-item"><h3>Transpiration</h3><p>The process where moisture is carried through plants from roots to small pores (stomata) on the underside of leaves, where it changes to vapor and is released to the atmosphere.</p></div>
+                    <div class="glossary-item"><h3>Tuber</h3><p>A much thickened underground part of a stem or rhizome, e.g., in the potato, serving as a food reserve and bearing buds from which new plants arise.</p></div>
+                    <div class="glossary-item"><h3>Umbel</h3><p>An inflorescence in which a number of short flower stalks (pedicels) spread from a common point, somewhat like umbrella ribs.</p></div>
+                    <div class="glossary-item"><h3>Vascular Tissue</h3><p>Plant tissue consisting of cells joined into tubes that transport water (xylem) and nutrients (phloem) throughout the plant body.</p></div>
+                    <div class="glossary-item"><h3>Vine</h3><p>A climbing or trailing woody-stemmed plant.</p></div>
+                    <div class="glossary-item"><h3>Xerophyte</h3><p>A plant adapted to survive in an environment with little liquid water, such as a desert.</p></div>
+                    <div class="glossary-item"><h3>Xylem</h3><p>The vascular tissue in plants that conducts water and dissolved nutrients upward from the root and also helps to form the woody element of the stem.</p></div>
+                    <div class="glossary-item"><h3>Zygomorphic</h3><p>Bilaterally symmetrical, referring to a flower that can be divided into two equal halves by only one plane (e.g., orchid, snapdragon).</p></div>
+
+                    <div class="glossary-item"><h3>Acuminate</h3><p>Tapering gradually to a long, narrow point.</p></div>
+                    <div class="glossary-item"><h3>Falcate</h3><p>Sickle-shaped; curved like the blade of a sickle.</p></div>
+                    <div class="glossary-item"><h3>Glabrous</h3><p>Lacking hairs or pubescence; smooth.</p></div>
+                    <div class="glossary-item"><h3>Glaucous</h3><p>Covered with a bluish-green or whitish waxy bloom that can be rubbed off.</p></div>
+                    <div class="glossary-item"><h3>Perfoliate</h3><p>Having the base of the leaf surrounding the stem so that the stem appears to pass through the leaf.</p></div>
+                    <div class="glossary-item"><h3>Pinnatifid</h3><p>Having lobed or cleft leaves with the divisions extending halfway or less toward the midrib.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact animate-on-scroll">
+            <div class="container">
+                <h2>Contact Information</h2>
+                <p>We welcome feedback, corrections, and suggestions to improve Plant Families Explorer. Please feel free to reach out to us with any questions or comments.</p>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> <a href="mailto:info@plantfamiliesexplorer.org">info@plantfamiliesexplorer.org</a></p>
+                    <p><strong>Social Media:</strong> Follow us on <a href="#">Twitter</a>, <a href="#">Instagram</a>, and <a href="#">Facebook</a> for updates and botanical content.</p>
+                </div>
+                <div class="feedback-form">
+                    <h3>Feedback Form</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <select id="subject" name="subject">
+                                <option value="feedback">General Feedback</option>
+                                <option value="correction">Content Correction</option>
+                                <option value="suggestion">Feature Suggestion</option>
+                                <option value="question">Question</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    <div id="form-message" class="form-message"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Plant Families Explorer</h4>
+                    <p>A comprehensive guide to plant families in phylogenetic order with identification features for botanists, students, and nature enthusiasts.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                        <li><a href="families.html">Plant Families</a></li>
+                        <li><a href="identification.html">Field Identification</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#apg">APG IV System</a></li>
+                        <li><a href="#references">References</a></li>
+                        <li><a href="#glossary">Botanical Glossary</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plant Families Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', () => {
+                    // Toggle a class that your CSS can use to show/hide the menu
+                    mainNav.classList.toggle('is-active'); 
+                });
+            }
+
+            // Simple Scroll Animation (Relies on CSS definitions for .animate-on-scroll and .is-visible)
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            if ('IntersectionObserver' in window) { // Check if IntersectionObserver is supported
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        }
+                        // Optional: Remove class when element leaves viewport
+                        // else {
+                        //     entry.target.classList.remove('is-visible');
+                        // }
+                    });
+                }, {
+                    threshold: 0.1 // Trigger when 10% of the element is visible
+                });
+
+                animatedElements.forEach(el => {
+                    observer.observe(el);
+                });
+            } else {
+                // Fallback for older browsers: just make elements visible
+                animatedElements.forEach(el => {
+                    el.classList.add('is-visible');
+                });
+            }
+
+
+            // Contact Form Submission (Placeholder)
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message'); // Use the specific ID
+            if (contactForm && formMessage) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // In a real implementation, this would send data via fetch/AJAX
+                    
+                    // Display success message (style with CSS)
+                    formMessage.textContent = 'Thank you for your feedback! (This is a demo)';
+                    formMessage.className = 'form-message success'; // Use classes for styling
+                    formMessage.style.display = 'block'; // Make it visible
+                    
+                    contactForm.reset();
+
+                    // Hide message after a few seconds
+                    setTimeout(() => {
+                         formMessage.style.display = 'none'; // Hide it again
+                         formMessage.className = 'form-message'; // Reset classes
+                    }, 5000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

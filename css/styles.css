@@ -1,0 +1,597 @@
+/* --- Reset & Base Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: #2e2e2e; /* Darker natural text color */
+  background-color: #eae4d3; /* Match header background color */
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  color: #2e5939; /* Dark green for headings */
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; margin-top: 2rem; }
+h3 { font-size: 1.75rem; margin-top: 1.5rem; }
+h4 { font-size: 1.25rem; } /* Used in cards */
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #4a7c59; /* Earthy green for links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2e5939; /* Darker green on hover */
+}
+
+/* --- Layout --- */
+.container {
+  width: 90%;
+  max-width: 1200px; /* Max width for content */
+  margin: 0 auto; /* Center container */
+  padding: 0 15px;
+}
+
+/* --- Header & Navigation --- */
+header {
+  background-color: #2e5939; /* Dark green for header */
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Keep header visible */
+  top: 0;
+  z-index: 1000;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+header .logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #f4f1e9; /* Light beige for logo text */
+}
+
+header .logo img {
+  height: 40px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+header .logo span {
+   vertical-align: middle;
+}
+
+header .main-nav {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+header .main-nav a {
+  text-decoration: none;
+  color: #f4f1e9; /* Light beige for navigation links */
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+header .main-nav a:hover,
+header .main-nav a.active {
+  color: #d9d2c5; /* Softer beige for active links */
+  border-bottom-color: #d9d2c5;
+}
+
+/* Basic Search Bar */
+header .search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Rounded corners */
+  padding: 0.25rem 0.5rem;
+}
+
+header .search-bar input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 0.25rem 0.5rem;
+  flex-grow: 1;
+  background: transparent;
+}
+
+header .search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+header .search-bar svg {
+  width: 18px;
+  height: 18px;
+  fill: #555;
+}
+
+/* Mobile Menu Toggle (Hidden by default on larger screens) */
+.mobile-menu-toggle {
+  display: none; /* Hide on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.mobile-menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* --- Main Content --- */
+main {
+  padding: 2rem 0;
+}
+
+.page-header {
+  background-color: #e9ecef; /* Light grey header background */
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: #2c3e50;
+}
+
+/* --- Browse Controls --- */
+.family-browse-controls {
+  margin-bottom: 2rem;
+}
+
+.family-browse-controls .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.browse-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.browse-option {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  color: #555;
+}
+
+.browse-option:hover {
+  color: #007bff;
+}
+
+.browse-option.active {
+  color: #333;
+  font-weight: 700;
+  border-bottom-color: #007bff;
+}
+
+.filter-dropdown label {
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+.filter-dropdown select {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* --- Family List & Cards --- */
+.families-list-container .container p { /* Style the 'Loading...' or 'No families...' message */
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}
+
+.group-section {
+  margin-bottom: 3rem; /* More space between major groups */
+}
+
+/* Indentation for phylogenetic levels */
+.phylogenetic-level-3,
+.phylogenetic-level-4,
+.phylogenetic-level-5,
+.phylogenetic-level-6 {
+  margin-top: 1.5rem;
+  padding-left: 1.5rem; /* Indent nested groups */
+  border-left: 2px solid #e9ecef; /* Subtle visual hierarchy */
+}
+
+/* --- Updated Family Cards Layout --- */
+.family-cards {
+  display: flex; /* Use flexbox for natural organization */
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+  gap: 1.5rem; /* Space between cards */
+  justify-content: flex-start; /* Align cards to the start */
+}
+
+.family-card {
+  flex: 1 1 calc(100% - 1.5rem); /* Default to full width */
+  max-width: 300px; /* Limit maximum width for cards */
+}
+
+/* --- Specific Styles for Nested Cards (e.g., Mosses) --- */
+/* Target card containers inside level 4 and deeper */
+.phylogenetic-level-4 .family-cards,
+.phylogenetic-level-5 .family-cards,
+.phylogenetic-level-6 .family-cards {
+  display: flex; /* Switch to flexbox */
+  flex-wrap: wrap; /* Allow cards to wrap */
+  justify-content: flex-start; /* Align cards to the start */
+  gap: 1rem; /* Adjust gap for flex */
+  /* Override grid-template-columns from the default rule */
+  grid-template-columns: none;
+}
+
+/* Target cards inside level 4 and deeper */
+.phylogenetic-level-4 .family-card,
+.phylogenetic-level-5 .family-card,
+.phylogenetic-level-6 .family-card {
+   /* Set a consistent width or basis */
+   width: 200px; /* Example fixed width */
+   /* Or use flex-basis:
+   flex-grow: 0;
+   flex-shrink: 0;
+   flex-basis: 200px; */
+}
+/* --- End Specific Nested Styles --- */
+
+
+/* Individual Family Card Styling (Applies everywhere) */
+.family-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden; /* Keep image corners rounded */
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Stack image and content */
+}
+
+.family-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.family-card .family-image img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the entire image fits within the box */
+  display: block; /* Remove extra space below image */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.family-card .family-content {
+  padding: 1rem;
+  flex-grow: 1; /* Ensure content area fills card */
+  display: flex;
+  flex-direction: column;
+}
+
+.family-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem; /* More space below heading */
+  font-size: 1.15rem; /* Slightly larger heading */
+  color: #34495e; /* Slightly softer dark blue */
+  text-transform: capitalize; /* Capitalize family names */
+}
+
+.family-card .btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #1a950c;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: auto; /* Push button to bottom */
+  align-self: flex-start; /* Align to left */
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.family-card .btn:hover {
+  background-color: #00b33c;
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Added styles to ensure images like pulchrinodaceae.png fit nicely within the page */
+.family-header-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Adjusted styles for related family card images to position them an inch from the right of the screen */
+.related-family-card img {
+  width: auto; /* Allow the image to scale naturally */
+  height: 180px; /* Maintain a taller height for better visibility */
+  object-fit: contain; /* Ensure the entire image is visible within the space */
+  margin-right: 1in; /* Position the image an inch from the right of the screen */
+  border-radius: 8px 8px 0 0; /* Rounded corners for the top of the card */
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #343a40; /* Dark footer */
+  color: #f8f9fa; /* Light text */
+  padding: 3rem 0 1rem 0;
+  margin-top: 3rem;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px; /* Ensure columns don't get too narrow */
+}
+
+.footer-column h4 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-column p {
+  color: #adb5bd; /* Lighter grey for text */
+  font-size: 0.9rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul a {
+  color: #adb5bd;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-column ul a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #495057; /* Separator line */
+  font-size: 0.85rem;
+  color: #adb5bd;
+}
+
+
+/* --- Responsiveness --- */
+
+/* Mobile Menu Handling */
+@media (max-width: 992px) {
+  header .main-nav {
+    display: none; /* Hide nav links by default */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Position below header */
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    gap: 0; /* Remove gap for vertical layout */
+  }
+
+  header .main-nav.active {
+    display: flex; /* Show when active */
+  }
+
+  header .main-nav li {
+     width: 100%;
+     text-align: center;
+  }
+
+  header .main-nav a {
+     display: block;
+     padding: 0.75rem 1rem;
+     border-bottom: 1px solid #eee; /* Separator for mobile */
+  }
+   header .main-nav a:hover,
+   header .main-nav a.active {
+     background-color: #f8f9fa;
+     border-bottom-color: #eee; /* Keep separator consistent */
+   }
+
+
+  .mobile-menu-toggle {
+    display: block; /* Show hamburger */
+    order: 3; /* Move toggle button potentially */
+  }
+  .search-bar {
+    order: 2; /* Adjust order as needed */
+    margin-top: 0.5rem; /* Add space if wrapping */
+    width: 100%; /* Take full width if wrapping */
+    justify-content: center;
+  }
+  header nav {
+     gap: 0.5rem; /* Reduce gap on smaller screens */
+  }
+}
+
+/* Adjust grid columns for smaller screens (already handled by auto-fill, but keeping for reference/fine-tuning if needed) */
+/* @media (max-width: 768px) { ... } */
+/* @media (max-width: 576px) { ... } */
+
+/* --- Additional Updates for Earthy Vibe --- */
+
+/* --- Buttons --- */
+button, .btn {
+  background-color: #4a7c59; /* Earthy green */
+  color: #f4f1e9; /* Light beige text */
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: #2e5939; /* Darker green */
+  transform: scale(1.05);
+}
+
+/* --- Inputs and Forms --- */
+input, select, textarea {
+  border: 1px solid #d9d2c5; /* Soft beige border */
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #ffffff; /* White background */
+  color: #2e2e2e; /* Neutral dark text */
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #4a7c59; /* Earthy green focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 124, 89, 0.5);
+}
+
+/* --- Cards --- */
+.card {
+  background-color: #ffffff; /* White background */
+  border: 1px solid #d9d2c5; /* Soft beige border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(74, 124, 89, 0.2); /* Greenish shadow */
+}
+
+.card-header {
+  background-color: #eae4d3; /* Soft beige */
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2e5939; /* Dark green */
+}
+
+.card-body {
+  padding: 1rem;
+  color: #2e2e2e; /* Neutral dark text */
+}
+
+.card-footer {
+  background-color: #f4f1e9; /* Light beige */
+  padding: 0.75rem;
+  text-align: right;
+}
+
+/* --- Tables --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+table th, table td {
+  border: 1px solid #d9d2c5; /* Soft beige border */
+  padding: 0.75rem;
+  text-align: left;
+}
+
+table th {
+  background-color: #eae4d3; /* Soft beige */
+  color: #2e5939; /* Dark green */
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f4f1e9; /* Light beige */
+}
+
+table tr:hover {
+  background-color: #eae4d3; /* Soft beige hover */
+}
+
+/* --- Additional Animations --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+

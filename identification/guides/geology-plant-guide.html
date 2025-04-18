@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geological Feature Identification Guide - Plant Families Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&family=open+sans:wght@400;600&family=playfair+display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewbox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛰️</text></svg>">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewbox='0 0 100 100'%3e%3ctext y='.9em' font-size='90'%3e🌿%3c/text%3e%3c/svg%3e" alt="Plant Families Explorer Logo" style="max-height: 50px; display: inline-block; vertical-align: middle;">
+                    <span style="vertical-align: middle; margin-left: 10px;">Plant Families Explorer</span>
+                </a>
+            </div>
+            <nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="main-nav">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                    <li><a href="../../families.html">Plant Families</a></li>
+                    <li><a href="../../identification.html" class="active">Field Identification</a></li>
+                    <li><a href="../../about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search plants or geology...">
+                <button type="submit" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path fill="currentColor" d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/></svg>
+                </button>
+            </div>
+        </div>
+         <ul class="main-nav mobile-menu" style="display: none;"> <li><a href="../../index.html">Home</a></li>
+             <li><a href="../../phylogenetic-tree.html">Phylogenetic Tree</a></li>
+             <li><a href="../../families.html">Plant Families</a></li>
+             <li><a href="../../identification.html" class="active">Field Identification</a></li>
+             <li><a href="../../about.html">About</a></li>
+             <li>
+                <div class="search-bar" style="display: flex; margin: 1rem auto; width: 90%;">
+                    <input type="text" placeholder="Search plants or geology...">
+                    <button type="submit" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path fill="currentColor" d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/></svg>
+                    </button>
+                </div>
+             </li>
+         </ul>
+    </header>
+
+    <main>
+        <section class="guide-header">
+            <div class="container">
+                <div class="guide-header-content">
+                    <h1>Reading the Rocks: A Plant-Based Geology Guide</h1>
+                    <p class="guide-description">
+                        Plants are deeply connected to the ground beneath them. Certain species thrive only on specific types of rock and soil, acting as living indicators of the underlying geology. This guide explores how observing plant communities can offer clues about geological features.
+                    </p>
+                </div>
+                <div class="guide-image">
+                    <img src="https://placehold.co/800x400/bcaaa4/ffffff?text=plants+on+rocky+outcrop" alt="Plants growing on a rocky outcrop indicating specific geology">
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-navigation">
+             <div class="container">
+                 <div class="guide-nav-links">
+                     <a href="#introduction">Introduction</a>
+                     <a href="#limestone">Limestone</a>
+                     <a href="#serpentine">Serpentine</a>
+                     <a href="#granite">Granite/Acidic</a>
+                     <a href="#sandstone">Sandstone</a>
+                     <a href="#wetlands">Wetlands</a>
+                     <a href="#conclusion">Conclusion</a>
+                 </div>
+             </div>
+         </section>
+
+        <section id="introduction" class="guide-section">
+            <div class="container">
+                <h2>Plants as Geological Indicators</h2>
+
+                <p>The type of rock underlying an area profoundly influences the soil's characteristics (edaphic factors), including its pH (acidity/alkalinity), mineral content, texture, and water drainage. Many plants have specific tolerances and requirements related to these factors. Some are generalists, but others are specialists, found only where conditions are just right – conditions often dictated by geology.</p>
+
+                <p>These specialist plants, known as indicator species, can signal the presence of specific rock types or soil conditions. For example, plants thriving in high pH, calcium-rich soils might indicate limestone, while those tolerating heavy metals and low calcium might point to serpentine rock. Observing dominant plant species or unique plant communities can be a valuable tool for interpreting the landscape's geological history.</p>
+
+                <div class="guide-illustration">
+                     <img src="https://placehold.co/600x400/a1887f/ffffff?text=soil+profile+diagram" alt="Diagram showing rock weathering into soil layers">
+                    <p class="caption">Bedrock weathers to form parent material, which develops into soil horizons with distinct chemical and physical properties influencing plant life.</p>
+                </div>
+
+                 <p>However, using plants as indicators requires caution. Factors like climate, elevation, disturbance history (fire, logging, agriculture), and local microclimates also shape plant communities. An indicator species might be absent even if the geology is suitable, or a generalist might dominate. It's best to look for patterns and multiple indicator species rather than relying on a single plant.</p>
+
+                <div class="identification-tip">
+                    <h3>Field Observation Tip</h3>
+                    <p>When trying to link plants to geology, look for abrupt changes in vegetation that might correspond to geological contacts (boundaries between different rock types). Note not just individual species but the overall character of the plant community – are the plants lush or sparse? Are there many species or just a few dominant ones?</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="limestone" class="guide-section">
+            <div class="container">
+                <h2>Limestone and Calcareous Soils (High pH)</h2>
+                <p>Limestone, dolomite, chalk, and marble weather to form soils rich in calcium carbonate, resulting in alkaline (high pH) conditions. These soils are often fertile but can limit the availability of certain nutrients like phosphorus and iron.</p>
+
+                <p>Features often associated with limestone areas include karst topography (caves, sinkholes, springs), shallow soils on slopes, and outcrops of whitish or gray rock. Water draining from these areas is typically "hard" (high in dissolved calcium and magnesium).</p>
+
+                <div class="guide-content-columns">
+                     <div class="guide-content-column">
+                        <h3>Plant Indicators (Calciphiles - "Lime Lovers")</h3>
+                        <ul>
+                            <li><strong>Certain Ferns:</strong> Walking Fern (<span class="scientific-name">Asplenium rhizophyllum</span>), Maidenhair Spleenwort (<span class="scientific-name">Asplenium trichomanes</span>).</li>
+                            <li><strong>Orchids:</strong> Many terrestrial orchids prefer calcareous soils, e.g., some Lady's Slippers (<span class="scientific-name">Cypripedium</span> spp.).</li>
+                            <li><strong>Specific Trees/Shrubs:</strong> Eastern Red Cedar (<span class="scientific-name">Juniperus virginiana</span>) often colonizes limestone glades, some Viburnums.</li>
+                            <li><strong>Wildflowers:</strong> Pasqueflower (<span class="scientific-name">Pulsatilla</span> spp.), Prairie Smoke (<span class="scientific-name">Geum triflorum</span>), Bird's-foot Violet (<span class="scientific-name">Viola pedata</span>), many species in the mint family (Lamiaceae).</li>
+                            <li><strong>Grasses/Sedges:</strong> Certain sedges (<span class="scientific-name">Carex</span> spp.) are specific to calcareous fens or rocks.</li>
+                        </ul>
+                        <p>(Note: Specific indicators vary greatly by region.)</p>
+                     </div>
+                     <div class="guide-content-column">
+                         <div class="guide-illustration">
+                              <img src="https://placehold.co/400x300/cfd8dc/37474f?text=limestone+glade+flora" alt="Plants growing on a limestone glade or outcrop">
+                             <p class="caption">Limestone glades often host unique plant communities adapted to thin, dry, alkaline soils.</p>
+                         </div>
+                          <div class="guide-illustration" style="margin-top: 1rem;">
+                              <img src="https://placehold.co/400x300/b0bec5/37474f?text=maidenhair+spleenwort" alt="Maidenhair Spleenwort fern">
+                             <p class="caption">Maidenhair Spleenwort (<span class="scientific-name">Asplenium trichomanes</span>) is often found on limestone rocks.</p>
+                         </div>
+                     </div>
+                 </div>
+
+                <div class="identification-tip">
+                    <h3>Field Identification Tip</h3>
+                    <p>Look for exposed whitish/gray rock, sinkholes, or caves. Check soil pH if possible (test kits available). Observe if plants common on nearby acidic soils (like blueberries or mountain laurel) are absent here. Note the presence of cedar trees, specific ferns in rock crevices, or a high diversity of spring wildflowers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="serpentine" class="guide-section">
+            <div class="container">
+                <h2>Serpentine Soils (Ultramafic)</h2>
+                <p>Serpentine rocks (serpentinite, peridotite) weather into soils with a challenging chemistry for most plants: low levels of essential nutrients (calcium, potassium, phosphorus), high levels of magnesium, and potentially toxic concentrations of heavy metals (nickel, chromium, cobalt). They are often thin, rocky, and drought-prone.</p>
+
+                <p>These harsh conditions lead to unique, often sparse plant communities with many endemic species (found nowhere else) and specially adapted ecotypes. Serpentine barrens often appear as openings in forests with stunted trees and unusual grasses and wildflowers.</p>
+
+                 <div class="guide-content-columns">
+                     <div class="guide-content-column">
+                        <h3>Plant Indicators (Serpentine Specialists)</h3>
+                         <ul>
+                            <li><strong>Specific Pines/Conifers:</strong> Jeffrey Pine (<span class="scientific-name">Pinus jeffreyi</span>) on western US serpentine, specific Cypress (<span class="scientific-name">Cupressus/Hesperocyparis</span>) species.</li>
+                            <li><strong>Grasses & Sedges:</strong> Various endemic bunchgrasses and sedges adapted to low nutrients and heavy metals.</li>
+                            <li><strong>Shrubs:</strong> Often stunted versions of common shrubs or specialized species like certain Manzanitas (<span class="scientific-name">Arctostaphylos</span> spp.) or Ceanothus.</li>
+                            <li><strong>Wildflowers:</strong> Many endemic species in genera like <span class="scientific-name">Streptanthus</span> (jewelflowers), <span class="scientific-name">Castilleja</span> (paintbrush), <span class="scientific-name">Phacelia</span>, <span class="scientific-name">Allium</span> (onions).</li>
+                            <li><strong>Ferns:</strong> Some ferns like Serpentine Fern (<span class="scientific-name">Adiantum aleuticum</span> var. <span class="scientific-name">subpumilum</span>).</li>
+                        </ul>
+                         <p>(Note: Serpentine floras are highly localized and specific.)</p>
+                     </div>
+                     <div class="guide-content-column">
+                         <div class="guide-illustration">
+                              <img src="https://placehold.co/400x300/80cbc4/004d40?text=serpentine+barren" alt="Sparse vegetation on a rocky serpentine barren">
+                             <p class="caption">Serpentine barrens often have reddish or greenish rock, thin soil, and sparse, unique vegetation.</p>
+                         </div>
+                          <div class="guide-illustration" style="margin-top: 1rem;">
+                              <img src="https://placehold.co/400x300/a5d6a7/004d40?text=streptanthus+(jewelflower)" alt="Jewelflower, a common serpentine indicator">
+                             <p class="caption">Jewelflowers (<span class="scientific-name">Streptanthus</span> spp.) are often indicators of serpentine soils.</p>
+                         </div>
+                     </div>
+                 </div>
+
+                <div class="identification-tip">
+                    <h3>Field Identification Tip</h3>
+                    <p>Look for areas with stunted vegetation, unusual plant species not found nearby, and often reddish-brown or greenish-gray rocky soil. The transition between serpentine and non-serpentine vegetation can be very sharp. Note the general lack of calcium-loving plants.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="granite" class="guide-section">
+            <div class="container">
+                <h2>Granite, Gneiss, and Acidic Soils (Low pH)</h2>
+                <p>Rocks like granite, gneiss, schist, and quartzite are rich in silica and weather slowly into acidic (low pH), often coarse-textured, sandy or gravelly soils. These soils are typically nutrient-poor, especially in calcium and magnesium.</p>
+
+                <p>Landscapes dominated by these rocks often feature large, rounded boulders, exposed bedrock, and thin soils. Mountainous regions frequently have granitic cores.</p>
+
+                 <div class="guide-content-columns">
+                     <div class="guide-content-column">
+                        <h3>Plant Indicators (Acidophiles - "Acid Lovers")</h3>
+                        <ul>
+                            <li><strong>Ericaceous Plants:</strong> Blueberries, Huckleberries (<span class="scientific-name">Vaccinium</span> spp.), Mountain Laurel (<span class="scientific-name">Kalmia latifolia</span>), Rhododendrons/Azaleas (<span class="scientific-name">Rhododendron</span> spp.), Heaths & Heathers. This family (Ericaceae) is strongly associated with acidic soils.</li>
+                            <li><strong>Conifers:</strong> Many pines (<span class="scientific-name">Pinus</span> spp.), Spruces (<span class="scientific-name">Picea</span> spp.), Firs (<span class="scientific-name">Abies</span> spp.), Hemlocks (<span class="scientific-name">Tsuga</span> spp.).</li>
+                            <li><strong>Oaks:</strong> Especially species in the "Red Oak" group like Northern Red Oak (<span class="scientific-name">Quercus rubra</span>) and Scarlet Oak (<span class="scientific-name">Quercus coccinea</span>). Chestnut Oak (<span class="scientific-name">Quercus montana</span>) is common on rocky acidic slopes.</li>
+                            <li><strong>Ferns:</strong> Bracken Fern (<span class="scientific-name">Pteridium aquilinum</span>), Hay-scented Fern (<span class="scientific-name">Dennstaedtia punctilobula</span>).</li>
+                            <li><strong>Other:</strong> Wintergreen (<span class="scientific-name">Gaultheria procumbens</span>), Trailing Arbutus (<span class="scientific-name">Epigaea repens</span>), Mosses (especially <span class="scientific-name">Sphagnum</span> in wet acidic areas).</li>
+                        </ul>
+                     </div>
+                     <div class="guide-content-column">
+                         <div class="guide-illustration">
+                              <img src="https://placehold.co/400x300/b0bec5/455a64?text=granite+landscape+with+pines" alt="Pines and shrubs growing on a granite outcrop">
+                             <p class="caption">Granitic landscapes often support pine forests and ericaceous shrubs.</p>
+                         </div>
+                          <div class="guide-illustration" style="margin-top: 1rem;">
+                              <img src="https://placehold.co/400x300/ce93d8/6a1b9a?text=mountain+laurel+(kalmia)" alt="Mountain Laurel flowers">
+                             <p class="caption">Mountain Laurel (<span class="scientific-name">Kalmia latifolia</span>) is a classic indicator of acidic soils.</p>
+                         </div>
+                     </div>
+                 </div>
+
+                <div class="identification-tip">
+                    <h3>Field Identification Tip</h3>
+                    <p>Look for the dominance of plants in the heath family (Ericaceae). Check for the absence of plants known to prefer limestone. Exposed rock is often light-colored (gray, pinkish) with visible crystals (quartz, feldspar, mica). Soil may feel gritty or sandy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sandstone" class="guide-section">
+            <div class="container">
+                <h2>Sandstone and Sandy Soils</h2>
+                <p>Sandstone consists of cemented sand grains (primarily quartz). It weathers into sandy soils that are typically well-drained, low in nutrients, and drought-prone. Soil pH can vary depending on the cementing material but is often acidic to neutral.</p>
+
+                <p>Sandstone formations often create cliffs, bluffs, or flat sandy plains. The rock itself may show distinct layering (bedding planes).</p>
+
+                 <div class="guide-content-columns">
+                     <div class="guide-content-column">
+                        <h3>Plant Indicators</h3>
+                         <ul>
+                            <li><strong>Pines:</strong> Pitch Pine (<span class="scientific-name">Pinus rigida</span>), Virginia Pine (<span class="scientific-name">Pinus virginiana</span>), Jack Pine (<span class="scientific-name">Pinus banksiana</span>) are often found on sandy soils.</li>
+                            <li><strong>Oaks:</strong> Scrub oaks like Blackjack Oak (<span class="scientific-name">Quercus marilandica</span>) and Post Oak (<span class="scientific-name">Quercus stellata</span>) tolerate dry, sandy conditions.</li>
+                            <li><strong>Grasses:</strong> Little Bluestem (<span class="scientific-name">Schizachyrium scoparium</span>), Indiangrass (<span class="scientific-name">Sorghastrum nutans</span>), various Panic grasses (<span class="scientific-name">Panicum</span> spp.).</li>
+                            <li><strong>Other:</strong> Bearberry (<span class="scientific-name">Arctostaphylos uva-ursi</span>) on acidic sand, Sand Cherry (<span class="scientific-name">Prunus pumila</span>), various legumes adapted to low nitrogen.</li>
+                            <li><strong>Desert/Dryland Flora:</strong> In arid regions, sandstones support unique desert flora including specific cacti, yuccas, and ephemerals.</li>
+                        </ul>
+                     </div>
+                     <div class="guide-content-column">
+                         <div class="guide-illustration">
+                              <img src="https://placehold.co/400x300/ffe0b2/e65100?text=sandstone+cliff+vegetation" alt="Plants growing on a sandstone cliff or sandy area">
+                             <p class="caption">Sandstone areas often support drought-tolerant species like pines, scrub oaks, and grasses.</p>
+                         </div>
+                          <div class="guide-illustration" style="margin-top: 1rem;">
+                              <img src="https://placehold.co/400x300/ffccbc/bf360c?text=little+bluestem+grass" alt="Little Bluestem grass">
+                             <p class="caption">Little Bluestem (<span class="scientific-name">Schizachyrium scoparium</span>) is common in sandy prairies and barrens.</p>
+                         </div>
+                     </div>
+                 </div>
+
+                <div class="identification-tip">
+                    <h3>Field Identification Tip</h3>
+                    <p>Feel the soil – is it predominantly sandy? Look for exposed rock showing sand grains or layering. Vegetation may be sparse or dominated by drought-tolerant species. In humid regions, sandstone areas might still support forests, but often with species adapted to drier, nutrient-poor conditions compared to surrounding areas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="wetlands" class="guide-section">
+            <div class="container">
+                <h2>Wetlands and Hydric Soils</h2>
+                <p>While not a rock type, wetlands represent distinct geological settings characterized by prolonged water saturation, leading to anaerobic (low oxygen) hydric soils like peat and muck. These conditions exclude most plants but support specialized species (hydrophytes).</p>
+
+                <p>Wetlands include marshes, swamps, bogs, and fens. Bogs are typically acidic and nutrient-poor (often associated with Sphagnum moss), while fens are often fed by groundwater and can be neutral to alkaline (sometimes associated with calcareous areas).</p>
+
+                 <div class="guide-content-columns">
+                     <div class="guide-content-column">
+                        <h3>Plant Indicators (Hydrophytes)</h3>
+                        <ul>
+                            <li><strong>Obligate Wetland Plants:</strong> Cattails (<span class="scientific-name">Typha</span> spp.), Bulrushes (<span class="scientific-name">Scirpus</span> spp.), Water Lilies (<span class="scientific-name">Nymphaea</span>, <span class="scientific-name">Nuphar</span>).</li>
+                            <li><strong>Sedges & Rushes:</strong> Many species of <span class="scientific-name">Carex</span>, <span class="scientific-name">Juncus</span>, <span class="scientific-name">Eleocharis</span> are wetland specialists.</li>
+                            <li><strong>Trees & Shrubs:</strong> Willows (<span class="scientific-name">Salix</span> spp.), Alders (<span class="scientific-name">Alnus</span> spp.), Bald Cypress (<span class="scientific-name">Taxodium distichum</span>), Buttonbush (<span class="scientific-name">Cephalanthus occidentalis</span>), Swamp Rose (<span class="scientific-name">Rosa palustris</span>).</li>
+                            <li><strong>Carnivorous Plants:</strong> Pitcher Plants (<span class="scientific-name">Sarracenia</span> spp.), Sundews (<span class="scientific-name">Drosera</span> spp.), Bladderworts (<span class="scientific-name">Utricularia</span> spp.) often grow in nutrient-poor bogs.</li>
+                            <li><strong>Mosses:</strong> Sphagnum moss is characteristic of bogs.</li>
+                        </ul>
+                     </div>
+                     <div class="guide-content-column">
+                         <div class="guide-illustration">
+                              <img src="https://placehold.co/400x300/b2dfdb/00695c?text=wetland+vegetation+(cattails)" alt="Cattails and other plants in a marsh">
+                             <p class="caption">Wetlands support distinct plant communities adapted to waterlogged soils.</p>
+                         </div>
+                          <div class="guide-illustration" style="margin-top: 1rem;">
+                              <img src="https://placehold.co/400x300/c8e6c9/1b5e20?text=sphagnum+moss+bog" alt="Sphagnum moss in a bog environment">
+                             <p class="caption">Sphagnum moss dominates acidic bog ecosystems.</p>
+                         </div>
+                     </div>
+                 </div>
+
+                <div class="identification-tip">
+                    <h3>Field Identification Tip</h3>
+                    <p>Look for standing water or saturated soil, even during drier periods. Observe plants with adaptations like hollow stems, shallow roots, or structures growing above the water. Note the presence of obligate wetland species. Soil may be dark, organic muck or fibrous peat.</p>
+                </div>
+            </div>
+        </section>
+
+         <section id="conclusion" class="guide-section">
+            <div class="container">
+                <h2>Conclusion: Plants Tell a Story</h2>
+                <p>The plant life of an area is a visible expression of the invisible conditions below ground. By learning to recognize plants and plant communities associated with different geological substrates, you can gain a deeper understanding of the landscape and its history. While not an exact science, observing the flora provides valuable clues for interpreting geology in the field.</p>
+                <p>Combine plant observations with looking at rock outcrops, soil texture, and topography for a more complete picture. Happy exploring!</p>
+            </div>
+        </section>
+
+
+        <section class="guide-navigation">
+            <div class="container">
+                <div class="guide-nav-links">
+                     <a href="#introduction">Introduction</a>
+                     <a href="#limestone">Limestone</a>
+                     <a href="#serpentine">Serpentine</a>
+                     <a href="#granite">Granite/Acidic</a>
+                     <a href="#sandstone">Sandstone</a>
+                     <a href="#wetlands">Wetlands</a>
+                     <a href="#conclusion">Conclusion</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-guides">
+            <div class="container">
+                <h2>Related Identification Guides</h2>
+                <div class="related-guides-grid">
+                    <a href="../leaf-morphology.html" class="related-guide-card"> <img src="https://placehold.co/400x250/81c784/ffffff?text=leaf+morphology" alt="Leaf Morphology Guide">
+                        <h3>Leaf Morphology Guide</h3>
+                        <p>Understanding leaf forms, arrangements, and specialized features.</p>
+                    </a>
+                    <a href="winter-identification.html" class="related-guide-card"> <img src="https://placehold.co/400x250/a0aec0/ffffff?text=winter+id" alt="Winter Identification Guide">
+                        <h3>Winter Identification Guide</h3>
+                        <p>Recognizing plants without leaves using buds, bark, and other features.</p>
+                    </a>
+                    <a href="../soil-types.html" class="related-guide-card"> <img src="https://placehold.co/400x250/a1887f/ffffff?text=soil+types" alt="Soil Types Guide">
+                        <h3>Soil Types Guide</h3>
+                        <p>Identifying different soil types based on texture and structure.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Plant Families Explorer</h4>
+                    <p>A comprehensive guide to plant families with identification features for botanists, students, and nature enthusiasts.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                        <li><a href="../../families.html">Plant Families</a></li>
+                        <li><a href="../../identification.html">Field Identification</a></li>
+                        <li><a href="../../about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../../about.html#apg">APG IV System</a></li>
+                        <li><a href="../../about.html#references">References</a></li>
+                        <li><a href="../../about.html#glossary">Botanical Glossary</a></li>
+                        <li><a href="../../about.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plant Families Explorer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

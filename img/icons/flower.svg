@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Flower Icon -->
+  <g id="flower-icon">
+    <!-- Petals -->
+    <path d="M100,70 L100,30 Q110,40 120,30 Q110,50 100,70 Z" fill="#FF69B4" transform="rotate(0 100 100)"/>
+    <path d="M100,70 L100,30 Q110,40 120,30 Q110,50 100,70 Z" fill="#FF69B4" transform="rotate(45 100 100)"/>
+    <path d="M100,70 L100,30 Q110,40 120,30 Q110,50 100,70 Z" fill="#FF69B4" transform="rotate(90 100 100)"/>
+    <path d="M100,70 L100,30 Q110,40 120,30 Q110,50 100,70 Z" fill="#FF69B4" transform="rotate(135 100 100)"/>
+    <path d="M100,70 L100,30 Q110,40 120,30 Q110,50 100,70 Z" fill="#FF69B4" transform="rotate(180 100 100)"/>
+    <path d="M100,70 L100,30 Q110,40 120,30 Q110,50 100,70 Z" fill="#FF69B4" transform="rotate(225 100 100)"/>
+    <path d="M100,70 L100,30 Q110,40 120,30 Q110,50 100,70 Z" fill="#FF69B4" transform="rotate(270 100 100)"/>
+    <path d="M100,70 L100,30 Q110,40 120,30 Q110,50 100,70 Z" fill="#FF69B4" transform="rotate(315 100 100)"/>
+    
+    <!-- Center of flower -->
+    <circle cx="100" cy="100" r="20" fill="#FFFF00"/>
+    
+    <!-- Stem -->
+    <path d="M100,130 L100,190" stroke="#228B22" stroke-width="6" fill="none"/>
+    
+    <!-- Leaf -->
+    <path d="M100,160 Q130,150 140,170 Q130,180 100,170 Z" fill="#228B22"/>
+    <path d="M100,140 Q70,130 60,150 Q70,160 100,150 Z" fill="#228B22"/>
+  </g>
+</svg>
