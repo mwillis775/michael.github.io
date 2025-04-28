@@ -1,0 +1,38 @@
+import os
+import re
+
+root_dir = "/home/michael/plant_families_website"
+
+# Your exact nav HTML (no leading/trailing whitespace)
+standard_nav = '''<ul class="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="phylogenetic-tree.html">Phylogenetic Tree</a></li>
+                    <li><a href="families.html">Plant Families</a></li>
+                    <li><a href="identification.html">Field Identification</a></li>
+                    <li><a href="dicotkey.html" class="active">Dichotomous Key</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>'''
+
+# Regex to match the entire nav list, non-greedy, with any whitespace/attributes
+nav_regex = re.compile(
+    r'<ul\s+class=["\']main-nav["\'][^>]*>.*?</ul>',
+    re.DOTALL | re.IGNORECASE
+)
+
+def process_file(filepath):
+    with open(filepath, "r", encoding="utf-8") as f:
+        content = f.read()
+    new_content, n = nav_regex.subn(standard_nav, content)
+    if n > 0:
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(new_content)
+        print(f"Updated nav in: {filepath}")
+
+def main():
+    for dirpath, _, filenames in os.walk(root_dir):
+        for filename in filenames:
+            if filename.endswith(".html"):
+                process_file(os.path.join(dirpath, filename))
+
+if __name__ == "__main__":
+    main()
