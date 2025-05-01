@@ -9,13 +9,11 @@ This website provides information and resources about plant families, including 
 - `identification.html` — Plant identification resources
 - `phylogenetic-tree.html` — Phylogenetic tree visualization
 - `css/` — Main stylesheets
-- `data/` — Data files
 - `design/` — Wireframes, design documents, and scripts
 - `families/` — Individual HTML pages for each plant family
 - `identification/` — Identification resources
 - `img/` — Images
 - `js/` — JavaScript files
-- `research/` — Research materials
 
 ## Getting Started
 1. Clone this repository.
