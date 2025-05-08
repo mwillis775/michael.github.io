@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dichotomous Key - Plant Families Explorer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&family=open+sans:wght@400;600&family=playfair+display:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dichotomous Key - Plant Families Explorer</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=montserrat:wght@400;500;700&amp;family=open+sans:wght@400;600&amp;family=playfair+display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="../css/styles.css" rel="stylesheet"/>
+<link href="../img/logo.svg" rel="icon" type="image/svg+xml"/>
+<style>
         /* Basic highlighting style for search results - move to styles.css */
         .highlight {
             background-color: yellow;
@@ -35,273 +36,255 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="../index.html">
-                    <img src="../img/logo.svg" alt="Plant Families Explorer Logo">
-                    <span>Plant Families Explorer</span>
-                </a>
-            </div>
-            <nav>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span><span></span><span></span>
-                </button>
-                <ul class="main-nav">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../phylogenetic-tree.html">Phylogenetic Tree</a></li>
-                    <li><a href="../families.html">Plant Families</a></li>
-                    <li><a href="../identification.html">Field Identification</a></li>
-                    <li><a href="../dicotkey.html" >Dichotomous Key</a></li>
-                    <li><a href="../about.html">About</a></li>
-                </ul>
-            </nav>
-            <form class="search-bar" onsubmit="event.preventDefault(); performSearch(this.querySelector('input').value);">
-                <input type="text" placeholder="Search key content...">
-                <button type="submit">Search</button>
-            </form>
-             <div id="search-feedback" style="color: var(--primary-color); text-align: right; margin-top: 5px;"></div>
-        </div>
-    </header>
-    <main>
-        <section class="page-header page-header-custom">
-            <div class="container">
-                <h1>Dichotomous Key for the Identification of Major Vascular Plant Families Globally</h1>
-                <p>A simplified guide to using dichotomous keys, understanding diagnostic characters, and the challenges of global plant family identification.</p>
-            </div>
-        </section>
-
-        <section class="dicotkey-content dicotkey-content-custom">
-            <div class="container">
-                <h2 id="introduction">1. Introduction: What is a Dichotomous Key?</h2>
-                <p>A dichotomous key is a tool used for identifying organisms, including plants, based on a series of choices between two alternative characteristics. Starting with a broad category, each step presents a pair of contrasting statements (e.g., "leaves needle-like" vs. "leaves broad"). By choosing the statement that best describes the specimen and following the indicated path, the user progressively narrows down the possibilities until a final identification (in this case, a plant family or group) is reached. This key provides a simplified overview for identifying major vascular plant groups and families worldwide.</p>
-
-                <h2 id="challenges-identification">2. Challenges of Plant Family Identification</h2>
-                <p>Accurately identifying vascular plant families on a global scale involves navigating multiple complexities that can impact the reliability of dichotomous keys:</p>
-                <ul class="key-challenges">
-                    <li><strong>Morphological Variation:</strong> Intra-family variation driven by environmental factors or developmental stages can obscure key diagnostic characters, increasing the risk of misidentification.</li>
-                    <li><strong>Convergent Evolution:</strong> Unrelated taxa may evolve similar features (<a href="about.html#glossary-homoplasy" title="Glossary: Homoplasy">homoplasy</a>), misleading users who rely solely on morphological traits without molecular confirmation.</li>
-                    <li><strong>Incomplete Specimens:</strong> Field-collected samples may lack essential structures (flowers, fruits, or fully developed leaves), preventing a complete keying process.</li>
-                    <li><strong>Phenological Shifts:</strong> Seasonal or ontogenetic changes (e.g., deciduous vs. evergreen foliage, juvenile vs. adult form) can alter appearance, complicating character assessment.</li>
-                    <li><strong>Taxonomic Revisions:</strong> Ongoing phylogenetic research frequently redefines family boundaries and names, rendering existing keys potentially outdated without regular updates.</li>
-                    <li><strong>Geographic Scope:</strong> Regional keys often omit global diversity, while attempts to cover all vascular families (like this simplified one) must sacrifice local specificity, nuance, and completeness.</li>
-                    <li><strong>Technical Expertise:</strong> Accurate use of keys demands familiarity with specialized botanical terminology (like <a href="about.html#glossary-sporangia" title="Glossary: Sporangia">sporangia</a> or <a href="about.html#glossary-indusium" title="Glossary: Indusium">indusium</a>) and sometimes microscopic examination of minute features.</li>
-                </ul>
-
-                <h2 id="high-level-key">3. High-Level Key to Major Vascular Plant Divisions</h2>
-                <ul class="key-high-level">
-                    <li><strong>1a.</strong> Plants reproducing by spores dispersed from sporangia; true seeds absent → Go to <strong><a href="#section-seedless">Section 4</a></strong> (Lycophytes &amp; Monilophytes)</li>
-                    <li><strong>1b.</strong> Plants reproducing by seeds (<a href="about.html#glossary-ovule" title="Glossary: Ovule">ovules</a> developing into seeds after fertilization) → Go to <strong><a href="#section-seed-plants">Section 7</a></strong> (Gymnosperms &amp; Angiosperms)</li>
-                </ul>
-
-                <h2 id="section-seedless">4. Section I: Seedless Vascular Plant Families (Lycophytes &amp; Ferns/Allies)</h2>
-                <p>This group reproduces via spores and lacks true seeds. Includes clubmosses, spikemosses, quillworts, and ferns.</p>
-                <h3>Preliminary Division:</h3>
-                 <ul class="key-high-level">
-                     <li><strong>1a.</strong> Leaves typically small (microphylls, usually < 1 cm), simple with a single unbranched vein (or leaves absent) → Go to <strong><a href="#section-lycophytes">Section 5</a></strong> (Lycophytes)</li>
-                     <li><strong>1b.</strong> Leaves typically larger (megaphylls), often complex with branched venation (fronds), or stems jointed with whorled scale-leaves → Go to <strong><a href="#section-monilophytes">Section 6</a></strong> (Monilophytes - Ferns &amp; Allies)</li>
-                 </ul>
-
-
-                <h3 id="section-lycophytes">5. Identifying Lycophyte Families</h3>
-                 <p>Characterized by microphylls or absence of leaves, and spore production often in strobili (cones) or specialized structures.</p>
-                <ul class="key">
-                    <li><strong>1a.</strong> Stems green, photosynthetic, dichotomously branched; true leaves absent or scale-like; sporangia fused into a 3-lobed <a href="about.html#glossary-synangium" title="Glossary: Synangium">synangium</a> borne on short lateral branches → <strong><em>Psilotaceae</em></strong> (Whisk Ferns - Note: Sometimes placed within Monilophytes)</li>
-                    <li><strong>1b.</strong> True leaves (microphylls) present → Go to <strong>2</strong></li>
-                    <li><strong>2a.</strong> Plants aquatic or amphibious, with a basal corm-like structure bearing linear, quill-like leaves; <a href="about.html#glossary-heterosporous" title="Glossary: Heterosporous">heterosporous</a> (producing two types of spores) → <strong><em>Isoetaceae</em></strong> (Quillworts)</li>
-                    <li><strong>2b.</strong> Plants terrestrial or epiphytic, stems creeping or erect, covered in small leaves → Go to <strong>3</strong></li>
-                    <li><strong>3a.</strong> Heterosporous; leaves often possess a small flap of tissue (ligule) on the upper surface near the base; spores typically produced in four-sided strobili → <strong><em>Selaginellaceae</em></strong> (Spikemosses)</li>
-                    <li><strong>3b.</strong> <a href="about.html#glossary-homosporous" title="Glossary: Homosporous">Homosporous</a> (producing one type of spore); leaves lack ligules → Go to <strong>4</strong></li>
-                    <li><strong>4a.</strong> Sporangia borne in axils of specialized leaves (sporophylls) typically clustered into distinct terminal cones (strobili); stems often creeping with erect branches → <strong><em>Lycopodiaceae</em></strong> (Clubmosses)</li>
-                    <li><strong>4b.</strong> Sporangia borne in axils of unmodified leaves or only slightly modified ones, often not forming distinct terminal strobili (or strobili indistinct); stems often erect or pendant; often produces gemmae for asexual reproduction → <strong><em>Huperziaceae</em></strong> (Fir Mosses - Note: Sometimes included within Lycopodiaceae)</li>
-                </ul>
-
-                <h3 id="section-monilophytes">6. Identifying Monilophyte (Fern &amp; Ally) Families</h3>
-                 <p>This diverse group includes horsetails and various fern lineages, mostly characterized by megaphylls (fronds). <em>Note: Fern classification is complex and dynamic; this key is highly simplified and covers major, distinct groups. Many families require microscopic examination of sporangia and spores.</em></p>
-                <ul class="key">
-                    <li><strong>1a.</strong> Stems conspicuously jointed, hollow, ribbed, photosynthetic; leaves reduced to small, dark, non-photosynthetic scales whorled at nodes; sporangia borne in a terminal cone-like strobilus → <strong><em>Equisetaceae</em></strong> (Horsetails)</li>
-                    <li><strong>1b.</strong> Stems not jointed (though rhizomes may be segmented); leaves typically larger, recognizable as fronds (or absent in some aquatic forms); sporangia not in Equisetum-like strobili → Go to <strong>2</strong></li>
-                    <li><strong>2a.</strong> Plants producing <a href="about.html#glossary-eusporangium" title="Glossary: Eusporangium">eusporangia</a> (sporangia develop from multiple cells, wall is thick, produce many spores) → Go to <strong>3</strong></li>
-                    <li><strong>2b.</strong> Plants producing <a href="about.html#glossary-leptosporangium" title="Glossary: Leptosporangium">leptosporangia</a> (sporangia develop from a single cell, wall is thin, typically stalked, produce fewer spores, often with an <a href="about.html#glossary-annulus" title="Glossary: Annulus">annulus</a> for spore dispersal) → Go to <strong>4</strong></li>
-                    <li><strong>3a.</strong> Fronds usually fleshy; sporangia large, fused together side-by-side into complex structures (<a href="about.html#glossary-synangium" title="Glossary: Synangium">synangia</a>), borne on underside of fronds or modified pinnae → <strong><em>Marattiaceae</em></strong> (Giant Ferns)</li>
-                    <li><strong>3b.</strong> Fronds not typically fleshy; often producing a single sterile, leaf-like frond and a separate, distinct fertile spike or stalk bearing the sporangia → <strong><em>Ophioglossaceae</em></strong> (Adder's-tongues, Grape Ferns)</li>
-                    <li><strong>4a.</strong> Heterosporous ferns; typically aquatic or semi-aquatic → Go to <strong>5</strong></li>
-                    <li><strong>4b.</strong> Homosporous ferns; typically terrestrial or epiphytic (most common ferns) → Go to <strong>6</strong></li>
-                    <li><strong>5a.</strong> Small, floating plants; leaves small, often in 2 or 3 rows, sometimes pouch-like (Azolla) or bilobed (Salvinia); sporangia contained within hardened structures called sporocarps → <strong><em>Salviniaceae</em></strong> (Floating Ferns, including Azolla)</li>
-                    <li><strong>5b.</strong> Rooted aquatic or amphibious plants; leaves resembling a four-leaf clover (Marsilea) or grass-like; sporangia contained within hardened sporocarps borne near the base → <strong><em>Marsileaceae</em></strong> (Water Clovers, Pillworts)</li>
-                    <li><strong>6a.</strong> Large ferns; sporangia large for leptosporangia, lacking a typical vertical annulus (annulus is lateral or apical), not clustered into distinct sori; often with dimorphic fronds (separate sterile and fertile fronds) → <strong><em>Osmundaceae</em></strong> (Royal Ferns)</li>
-                    <li><strong>6b.</strong> Sporangia typically smaller, clustered in groups called <a href="about.html#glossary-sorus" title="Glossary: Sorus">sori</a> (sing. sorus) on the underside or margin of fronds; annulus usually vertical, aiding in spore dispersal → Go to <strong>7</strong> (Core Leptosporangiate Ferns)</li>
-                    <li><strong>7a.</strong> Tree ferns; trunk typically present, sometimes massive; sori located near the frond margin → Go to <strong>8</strong></li>
-                    <li><strong>7b.</strong> Ferns not typically tree-like (rhizome creeping or erect, but not forming a tall trunk) → Go to <strong>9</strong></li>
-                    <li><strong>8a.</strong> Sori marginal or submarginal, protected by a cup-shaped or two-valved (clam-like) <a href="about.html#glossary-indusium" title="Glossary: Indusium">indusium</a> (covering over sorus) → <strong><em>Dicksoniaceae</em></strong> (includes Cibotium)</li>
-                    <li><strong>8b.</strong> Sori round, submarginal; indusium present (cup-like or scale-like beneath sorus) or absent → <strong><em>Cyatheaceae</em></strong> (Scaly Tree Ferns)</li>
-                    <li><strong>9a.</strong> Sori located along or very near the frond margin, often protected by the in-rolled margin (false indusium) or by a true indusium → Go to <strong>10</strong></li>
-                    <li><strong>9b.</strong> Sori located away from the margin (on the veins or surface of the frond underside) → Go to <strong>11</strong></li>
-                    <li><strong>10a.</strong> Sori typically continuous along the margin or on commissures connecting vein tips; false indusium common, or true indusium opening outwards → <strong><em>Pteridaceae</em></strong> (a large and diverse family including maidenhair ferns, brakes; often characterized by marginal sori without true indusia or linear indusia opening outwards)</li>
-                    <li><strong>10b.</strong> Sori typically discrete, marginal or submarginal; often protected by cup-shaped or flap-like indusia; often large, coarse ferns → <strong><em>Dennstaedtiaceae</em></strong> (includes bracken fern)</li>
-                    <li><strong>11a.</strong> Sori typically round or oblong; indusium completely absent → <strong><em>Polypodiaceae</em></strong> (Polypody Ferns; often epiphytic, fronds often simple or pinnatifid)</li>
-                    <li><strong>11b.</strong> Sori round, linear, J-shaped, or kidney-shaped; indusium present (may be small, hidden, or fall off early) → Go to <strong>12</strong></li>
-                    <li><strong>12a.</strong> Sori elongated along the veins (linear or sometimes J-shaped) → Go to <strong>13</strong></li>
-                    <li><strong>12b.</strong> Sori round or kidney-shaped → Go to <strong>14</strong></li>
-                    <li><strong>13a.</strong> Sori typically linear, parallel and close to the midrib (costa) of pinnae or segments; indusium flap-like, opening towards the midrib → <strong><em>Blechnaceae</em></strong> (Chain Ferns)</li>
-                    <li><strong>13b.</strong> Sori typically linear along the side veins; indusium flap-like, opening away from the midrib (towards margin); rhizome scales often dark and <a href="about.html#glossary-clathrate" title="Glossary: Clathrate">clathrate</a> (lattice-like cell walls) → <strong><em>Aspleniaceae</em></strong> (Spleenworts)</li>
-                    <li><strong>14a.</strong> Indusium attached underneath the sorus, often cup-shaped, star-shaped, or splitting into segments → <strong><em>Woodsiaceae</em></strong> (Cliff Ferns; broadly defined here, includes Cystopteris, Athyrium by some classifications - a complex group)</li>
-                    <li><strong>14b.</strong> Indusium attached at one side or center of the sorus, typically kidney-shaped (reniform) or round, covering the sorus from above → Go to <strong>15</strong></li>
-                    <li><strong>15a.</strong> Fronds often bearing needle-like (<a href="about.html#glossary-acicular" title="Glossary: Acicular">acicular</a>) hairs, especially on axes and veins; sori round to oblong, indusia often kidney-shaped and hairy (or absent) → <strong><em>Thelypteridaceae</em></strong> (Marsh Ferns)</li>
-                    <li><strong>15b.</strong> Fronds typically lacking acicular hairs (may have scales or other hair types); sori round or kidney-shaped, indusium typically kidney-shaped, glabrous (smooth) → <strong><em>Dryopteridaceae</em></strong> (Wood Ferns; a very large family, often with scaly rhizomes and petioles)</li>
-                     <li><em>Note: Families like Onocleaceae (Sensitive Fern) with strongly dimorphic fronds and bead-like fertile segments key out poorly here but might be placed near Woodsiaceae or Blechnaceae depending on characters emphasized.</em></li>
-                </ul>
-
-                <h2 id="section-seed-plants">7. Section II: Seed Plants (Gymnosperms &amp; Angiosperms)</h2>
-                <p>This group reproduces via seeds, which contain an embryo and nutritive tissue, protected by a seed coat.</p>
-                <h3>Preliminary Division:</h3>
-                 <ul class="key-high-level">
-                     <li><strong>1a.</strong> Seeds "naked," not enclosed within a protective ovary wall; typically borne on scales of cones or on stalks; flowers absent → Go to <strong><a href="#section-gymnosperms">Section 8</a></strong> (Gymnosperms)</li>
-                     <li><strong>1b.</strong> Seeds enclosed within a protective ovary, which matures into a fruit; flowers typically present → Go to <strong><a href="#section-angiosperms">Section 9</a></strong> (Angiosperms - Flowering Plants)</li>
-                 </ul>
-
-                <h3 id="section-gymnosperms">8. Identifying Gymnosperm Groups/Families</h3>
-                <p>Gymnosperms include cycads, Ginkgo, conifers, and gnetophytes. They lack flowers and fruits.</p>
-                <ul class="key">
-                    <li><strong>1a.</strong> Leaves large, pinnately compound, frond-like; stem typically thick, woody, unbranched or sparsely branched; plants dioecious (separate male and female individuals) → Go to <strong>2</strong> (Cycads)</li>
-                    <li><strong>1b.</strong> Leaves simple (needle-like, scale-like, fan-shaped, or strap-like), not pinnately compound → Go to <strong>3</strong></li>
-                    <li><strong>2a.</strong> Leaflets with a prominent central midrib, lacking lateral veins → <strong><em>Cycadaceae</em></strong> (One genus: Cycas)</li>
-                    <li><strong>2b.</strong> Leaflets lacking a prominent midrib, veins dichotomously branched or parallel → <strong><em>Zamiaceae</em></strong> (Includes Zamia, Dioon, Encephalartos, etc.)</li>
-                    <li><strong>3a.</strong> Leaves deciduous, distinctively fan-shaped with dichotomous venation; trees dioecious; seeds borne in pairs on long stalks, becoming fleshy and foul-smelling when mature → <strong><em>Ginkgoaceae</em></strong> (One species: Ginkgo biloba)</li>
-                    <li><strong>3b.</strong> Leaves evergreen or deciduous, needle-like, scale-like, linear, or strap-shaped; ovules/seeds typically borne in cones or associated structures → Go to <strong>4</strong> (Conifers & Gnetophytes)</li>
-                    <li><strong>4a.</strong> Wood contains vessels (like angiosperms); leaves opposite or whorled; reproductive structures somewhat flower-like; plants often adapted to arid environments or tropics → Go to <strong>5</strong> (Gnetophytes)</li>
-                    <li><strong>4b.</strong> Wood lacks vessels (except Gnetophytes); leaves typically needle-like or scale-like (sometimes linear/broad), alternate or whorled or clustered; reproductive structures are distinct cones (or modified cones) → Go to <strong>6</strong> (Conifers)</li>
-                    <li><strong>5a.</strong> Stems jointed and photosynthetic; leaves reduced to small scales at nodes; mostly shrubs or vines → <strong><em>Ephedraceae</em></strong> (Ephedra)</li>
-                    <li><strong>5b.</strong> Leaves broad and net-veined (Gnetum) OR two enormous, strap-like leaves persisting through life (Welwitschia); not jointed photosynthetic stems → <strong><em>Gnetaceae</em></strong> / <strong><em>Welwitschiaceae</em></strong></li>
-                    <li><strong>6a.</strong> Seeds solitary or paired, partially or wholly surrounded by a fleshy structure (an <a href="about.html#glossary-aril" title="Glossary: Aril">aril</a> derived from the stalk, or an <a href="about.html#glossary-epimatium" title="Glossary: Epimatium">epimatium</a> derived from an ovuliferous scale); distinct woody ovulate cones absent → Go to <strong>7</strong></li>
-                    <li><strong>6b.</strong> Seeds borne on the surface of woody, leathery, or berry-like cone scales (ovuliferous scales), typically aggregated into distinct ovulate cones → Go to <strong>8</strong></li>
-                    <li><strong>7a.</strong> Seed partially enclosed by a typically brightly colored, fleshy aril; leaves often linear, flattened, appearing 2-ranked; mostly dioecious shrubs or trees → <strong><em>Taxaceae</em></strong> (Yews - Note: Sometimes includes Cephalotaxaceae)</li>
-                    <li><strong>7b.</strong> Seed completely enclosed by a fleshy structure (epimatium), often drab-colored; leaves scale-like, needle-like, or broadly linear; mostly Southern Hemisphere trees or shrubs → <strong><em>Podocarpaceae</em></strong> (Podocarps)</li>
-                    <li><strong>8a.</strong> Leaves needle-like, typically arranged in bundles (fascicles of 1-many needles) on short shoots, OR borne singly on peg-like bases (Picea, Tsuga); ovulate cones typically woody, with distinct bract scales and seed-bearing ovuliferous scales (bract may be hidden or exserted); resin canals present in wood and leaves → <strong><em>Pinaceae</em></strong> (Pine, Fir, Spruce, Larch, Hemlock, etc.)</li>
-                    <li><strong>8b.</strong> Leaves scale-like (appressed or spreading), awl-shaped, OR flattened and linear/broad but not in fascicles or on pegs; ovulate cones woody, leathery, or fleshy and berry-like, bract scale usually fused to the ovuliferous scale; resin canals may be absent → Go to <strong>9</strong></li>
-                    <li><strong>9a.</strong> Leaves typically scale-like (often overlapping) or awl-shaped, sometimes needle-like; cones generally small, woody (e.g., Thuja), leathery, or fleshy and berry-like (e.g., Juniperus); trees or shrubs → <strong><em>Cupressaceae</em></strong> (Cypress, Juniper, Redwood, Cedar - includes former Taxodiaceae)</li>
-                    <li><strong>9b.</strong> Leaves typically flattened, linear, lanceolate, or broadly ovate, often tough and leathery; cones generally large, globose or ovoid, woody, often breaking apart at maturity; mostly large trees of the Southern Hemisphere → <strong><em>Araucariaceae</em></strong> (Monkey Puzzle, Norfolk Island Pine, Kauri)</li>
-                </ul>
-
-                <h3 id="section-angiosperms">9. Identifying Major Angiosperm Groups & Families</h3>
-                 <p>Angiosperms (flowering plants) are the most diverse group. This key covers only major divisions and a small selection of common or large families. Identification often relies heavily on floral characteristics.</p>
-
-                <h4>Preliminary Division:</h4>
-                 <ul class="key-high-level">
-                     <li><strong>1a.</strong> Embryo with one cotyledon; flower parts typically in multiples of 3; leaf venation usually parallel; vascular bundles scattered in stem → Go to <strong><a href="#section-monocots">9.1 Monocots</a></strong></li>
-                     <li><strong>1b.</strong> Embryo with two cotyledons; flower parts typically in multiples of 4 or 5; leaf venation usually net-like (reticulate); vascular bundles typically arranged in a ring in stem → Go to <strong><a href="#section-eudicots">9.2 Eudicots</a></strong> (Includes basal angiosperms not covered here)</li>
-                 </ul>
-
-                <h4 id="section-monocots">9.1 Monocots</h4>
-                <ul class="key">
-                    <li><strong>1a.</strong> Flowers small, inconspicuous, typically wind-pollinated, arranged in spikelets subtended by specialized bracts (<a href="about.html#glossary-glume" title="Glossary: Glume">glumes</a>, lemmas, paleas); perianth absent or reduced to bristles or scales; leaves usually linear with sheathing bases → Go to <strong>2</strong> (Grasses & Sedges)</li>
-                    <li><strong>1b.</strong> Flowers usually larger and more conspicuous, often insect-pollinated (or water-pollinated); perianth typically present, often petaloid (tepals); flowers not typically in grass-like spikelets → Go to <strong>3</strong></li>
-                    <li><strong>2a.</strong> Stems usually hollow (culms), round in cross-section; leaf sheaths usually open; flowers (florets) enclosed by two bracts (lemma and palea) → <strong><em>Poaceae</em></strong> (Grass family)</li>
-                    <li><strong>2b.</strong> Stems usually solid, often triangular in cross-section; leaf sheaths usually closed; flowers subtended by a single bract → <strong><em>Cyperaceae</em></strong> (Sedge family)</li>
-                     <li><em>Note: <strong>Juncaceae</strong> (Rush family) also fits near here, often with round, solid stems and 6 small, non-showy tepals.</em></li>
-                    <li><strong>3a.</strong> Flowers densely packed onto a fleshy spike (<a href="about.html#glossary-spadix" title="Glossary: Spadix">spadix</a>), usually subtended or partially enclosed by a large bract (<a href="about.html#glossary-spathe" title="Glossary: Spathe">spathe</a>); plants often herbaceous, sometimes aquatic → <strong><em>Araceae</em></strong> (Arum family, incl. Lemna - Duckweeds)</li>
-                    <li><strong>3b.</strong> Inflorescence various, but not typically a spadix-and-spathe combination (except palms, Arecaceae, not keyed here) → Go to <strong>4</strong></li>
-                    <li><strong>4a.</strong> Flowers highly modified, strongly <a href="about.html#glossary-zygomorphic" title="Glossary: Zygomorphic">zygomorphic</a> (bilaterally symmetrical); stamens (usually 1 or 2) fused with style and stigma to form a central column; ovary inferior; pollen often aggregated into pollinia → <strong><em>Orchidaceae</em></strong> (Orchid family)</li>
-                    <li><strong>4b.</strong> Flowers typically <a href="about.html#glossary-actinomorphic" title="Glossary: Actinomorphic">actinomorphic</a> (radially symmetrical), sometimes zygomorphic but without a column structure as above; stamens usually 3 or 6, distinct from pistil → Go to <strong>5</strong></li>
-                    <li><strong>5a.</strong> Ovary inferior; flower parts in 3s (typically 6 petaloid tepals, 3 or 6 stamens); plants often herbaceous perennials from bulbs, corms, or rhizomes → Go to <strong>6</strong></li>
-                    <li><strong>5b.</strong> Ovary superior; flower parts in 3s (typically 6 petaloid tepals, 6 stamens); plants often herbaceous perennials from bulbs, rhizomes, or succulents → Go to <strong>7</strong></li>
-                    <li><strong>6a.</strong> Leaves usually equitant (flattened in one plane, overlapping at base, like a fan); flowers actinomorphic or zygomorphic; stamens 3 → <strong><em>Iridaceae</em></strong> (Iris family)</li>
-                    <li><strong>6b.</strong> Leaves not equitant; flowers actinomorphic, often borne in an umbel-like inflorescence subtended by bracts; stamens 6 → <strong><em>Amaryllidaceae</em></strong> (Amaryllis family - includes former Alliaceae like onions/garlic)</li>
-                    <li><strong>7a.</strong> Plants typically succulent herbs or shrubs; leaves often in basal rosettes; flowers often showy, actinomorphic → <strong><em>Asphodelaceae</em></strong> (Aloe family - includes former Xanthorrhoeaceae, Hemerocallidaceae)</li>
-                    <li><strong>7b.</strong> Habit various, including rosette herbs, vines, shrubs, trees (e.g. Agave, Yucca), or plants with cladodes (flattened stems, e.g. Asparagus); flowers often smaller → <strong><em>Asparagaceae</em></strong> (Asparagus family - very diverse, includes former Agavaceae, Hyacinthaceae, Ruscaceae)</li>
-                     <li><em>Note: <strong>Liliaceae</strong> (Lily family), now much smaller, fits here: superior ovary, 6 stamens, often bulbs/rhizomes, non-succulent leaves, often spotted tepals.</em></li>
-                </ul>
-
-                <h4 id="section-eudicots">9.2 Key to Major Eudicot Groups & Example Families</h4>
-                 <p>Eudicots are characterized by <a href="about.html#glossary-tricolpate" title="Glossary: Tricolpate">tricolpate</a> pollen (or derived types) and flower parts often in 4s or 5s. This is the largest group of angiosperms. <em>Note: This key simplifies complex relationships. Petal fusion (sympetaly vs. polypetaly) is a useful but not absolute distinction.</em></p>
-                <ul class="key">
-                    <li><strong>1a.</strong> Pollen often with a single aperture (<a href="about.html#glossary-monosulcate" title="Glossary: Monosulcate">monosulcate</a>) or derived types, but not typically tricolpate; flowers often with numerous, spirally arranged parts (sometimes whorled); carpels usually free (<a href="about.html#glossary-apocarpous" title="Glossary: Apocarpous">apocarpous</a>) → <strong>Basal Eudicots</strong> (Examples below)
+<header>
+<div class="container">
+<div class="logo">
+<a href="../index.html">
+<img alt="Plant Families Explorer Logo" src="../img/logo.svg"/>
+<span>Plant Families Explorer</span>
+</a>
+</div>
+<nav>
+<button aria-label="Toggle menu" class="mobile-menu-toggle">
+<span></span><span></span><span></span>
+</button>
+<ul class="main-nav">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/phylogenetic-tree.html">Phylogenetic Tree</a></li>
+<li><a href="/families.html">Plant Families</a></li>
+<li><a href="/identification.html">Field Identification</a></li>
+<li><a href="/dicotkey.html">Dichotomous Key</a></li>
+<li><a href="/about.html">About</a></li>
+</ul>
+</nav>
+<form class="search-bar" onsubmit="event.preventDefault(); performSearch(this.querySelector('input').value);">
+<input placeholder="Search key content..." type="text"/>
+<button type="submit">Search</button>
+</form>
+<div id="search-feedback" style="color: var(--primary-color); text-align: right; margin-top: 5px;"></div>
+</div>
+</header>
+<main>
+<section class="page-header page-header-custom">
+<div class="container">
+<h1>Dichotomous Key for the Identification of Major Vascular Plant Families Globally</h1>
+<p>A simplified guide to using dichotomous keys, understanding diagnostic characters, and the challenges of global plant family identification.</p>
+</div>
+</section>
+<section class="dicotkey-content dicotkey-content-custom">
+<div class="container">
+<h2 id="introduction">1. Introduction: What is a Dichotomous Key?</h2>
+<p>A dichotomous key is a tool used for identifying organisms, including plants, based on a series of choices between two alternative characteristics. Starting with a broad category, each step presents a pair of contrasting statements (e.g., "leaves needle-like" vs. "leaves broad"). By choosing the statement that best describes the specimen and following the indicated path, the user progressively narrows down the possibilities until a final identification (in this case, a plant family or group) is reached. This key provides a simplified overview for identifying major vascular plant groups and families worldwide.</p>
+<h2 id="challenges-identification">2. Challenges of Plant Family Identification</h2>
+<p>Accurately identifying vascular plant families on a global scale involves navigating multiple complexities that can impact the reliability of dichotomous keys:</p>
+<ul class="key-challenges">
+<li><strong>Morphological Variation:</strong> Intra-family variation driven by environmental factors or developmental stages can obscure key diagnostic characters, increasing the risk of misidentification.</li>
+<li><strong>Convergent Evolution:</strong> Unrelated taxa may evolve similar features (<a href="about.html#glossary-homoplasy" title="Glossary: Homoplasy">homoplasy</a>), misleading users who rely solely on morphological traits without molecular confirmation.</li>
+<li><strong>Incomplete Specimens:</strong> Field-collected samples may lack essential structures (flowers, fruits, or fully developed leaves), preventing a complete keying process.</li>
+<li><strong>Phenological Shifts:</strong> Seasonal or ontogenetic changes (e.g., deciduous vs. evergreen foliage, juvenile vs. adult form) can alter appearance, complicating character assessment.</li>
+<li><strong>Taxonomic Revisions:</strong> Ongoing phylogenetic research frequently redefines family boundaries and names, rendering existing keys potentially outdated without regular updates.</li>
+<li><strong>Geographic Scope:</strong> Regional keys often omit global diversity, while attempts to cover all vascular families (like this simplified one) must sacrifice local specificity, nuance, and completeness.</li>
+<li><strong>Technical Expertise:</strong> Accurate use of keys demands familiarity with specialized botanical terminology (like <a href="about.html#glossary-sporangia" title="Glossary: Sporangia">sporangia</a> or <a href="about.html#glossary-indusium" title="Glossary: Indusium">indusium</a>) and sometimes microscopic examination of minute features.</li>
+</ul>
+<h2 id="high-level-key">3. High-Level Key to Major Vascular Plant Divisions</h2>
+<ul class="key-high-level">
+<li><strong>1a.</strong> Plants reproducing by spores dispersed from sporangia; true seeds absent → Go to <strong><a href="#section-seedless">Section 4</a></strong> (Lycophytes &amp; Monilophytes)</li>
+<li><strong>1b.</strong> Plants reproducing by seeds (<a href="about.html#glossary-ovule" title="Glossary: Ovule">ovules</a> developing into seeds after fertilization) → Go to <strong><a href="#section-seed-plants">Section 7</a></strong> (Gymnosperms &amp; Angiosperms)</li>
+</ul>
+<h2 id="section-seedless">4. Section I: Seedless Vascular Plant Families (Lycophytes &amp; Ferns/Allies)</h2>
+<p>This group reproduces via spores and lacks true seeds. Includes clubmosses, spikemosses, quillworts, and ferns.</p>
+<h3>Preliminary Division:</h3>
+<ul class="key-high-level">
+<li><strong>1a.</strong> Leaves typically small (microphylls, usually &lt; 1 cm), simple with a single unbranched vein (or leaves absent) → Go to <strong><a href="#section-lycophytes">Section 5</a></strong> (Lycophytes)</li>
+<li><strong>1b.</strong> Leaves typically larger (megaphylls), often complex with branched venation (fronds), or stems jointed with whorled scale-leaves → Go to <strong><a href="#section-monilophytes">Section 6</a></strong> (Monilophytes - Ferns &amp; Allies)</li>
+</ul>
+<h3 id="section-lycophytes">5. Identifying Lycophyte Families</h3>
+<p>Characterized by microphylls or absence of leaves, and spore production often in strobili (cones) or specialized structures.</p>
+<ul class="key">
+<li><strong>1a.</strong> Stems green, photosynthetic, dichotomously branched; true leaves absent or scale-like; sporangia fused into a 3-lobed <a href="about.html#glossary-synangium" title="Glossary: Synangium">synangium</a> borne on short lateral branches → <strong><em>Psilotaceae</em></strong> (Whisk Ferns - Note: Sometimes placed within Monilophytes)</li>
+<li><strong>1b.</strong> True leaves (microphylls) present → Go to <strong>2</strong></li>
+<li><strong>2a.</strong> Plants aquatic or amphibious, with a basal corm-like structure bearing linear, quill-like leaves; <a href="about.html#glossary-heterosporous" title="Glossary: Heterosporous">heterosporous</a> (producing two types of spores) → <strong><em>Isoetaceae</em></strong> (Quillworts)</li>
+<li><strong>2b.</strong> Plants terrestrial or epiphytic, stems creeping or erect, covered in small leaves → Go to <strong>3</strong></li>
+<li><strong>3a.</strong> Heterosporous; leaves often possess a small flap of tissue (ligule) on the upper surface near the base; spores typically produced in four-sided strobili → <strong><em>Selaginellaceae</em></strong> (Spikemosses)</li>
+<li><strong>3b.</strong> <a href="about.html#glossary-homosporous" title="Glossary: Homosporous">Homosporous</a> (producing one type of spore); leaves lack ligules → Go to <strong>4</strong></li>
+<li><strong>4a.</strong> Sporangia borne in axils of specialized leaves (sporophylls) typically clustered into distinct terminal cones (strobili); stems often creeping with erect branches → <strong><em>Lycopodiaceae</em></strong> (Clubmosses)</li>
+<li><strong>4b.</strong> Sporangia borne in axils of unmodified leaves or only slightly modified ones, often not forming distinct terminal strobili (or strobili indistinct); stems often erect or pendant; often produces gemmae for asexual reproduction → <strong><em>Huperziaceae</em></strong> (Fir Mosses - Note: Sometimes included within Lycopodiaceae)</li>
+</ul>
+<h3 id="section-monilophytes">6. Identifying Monilophyte (Fern &amp; Ally) Families</h3>
+<p>This diverse group includes horsetails and various fern lineages, mostly characterized by megaphylls (fronds). <em>Note: Fern classification is complex and dynamic; this key is highly simplified and covers major, distinct groups. Many families require microscopic examination of sporangia and spores.</em></p>
+<ul class="key">
+<li><strong>1a.</strong> Stems conspicuously jointed, hollow, ribbed, photosynthetic; leaves reduced to small, dark, non-photosynthetic scales whorled at nodes; sporangia borne in a terminal cone-like strobilus → <strong><em>Equisetaceae</em></strong> (Horsetails)</li>
+<li><strong>1b.</strong> Stems not jointed (though rhizomes may be segmented); leaves typically larger, recognizable as fronds (or absent in some aquatic forms); sporangia not in Equisetum-like strobili → Go to <strong>2</strong></li>
+<li><strong>2a.</strong> Plants producing <a href="about.html#glossary-eusporangium" title="Glossary: Eusporangium">eusporangia</a> (sporangia develop from multiple cells, wall is thick, produce many spores) → Go to <strong>3</strong></li>
+<li><strong>2b.</strong> Plants producing <a href="about.html#glossary-leptosporangium" title="Glossary: Leptosporangium">leptosporangia</a> (sporangia develop from a single cell, wall is thin, typically stalked, produce fewer spores, often with an <a href="about.html#glossary-annulus" title="Glossary: Annulus">annulus</a> for spore dispersal) → Go to <strong>4</strong></li>
+<li><strong>3a.</strong> Fronds usually fleshy; sporangia large, fused together side-by-side into complex structures (<a href="about.html#glossary-synangium" title="Glossary: Synangium">synangia</a>), borne on underside of fronds or modified pinnae → <strong><em>Marattiaceae</em></strong> (Giant Ferns)</li>
+<li><strong>3b.</strong> Fronds not typically fleshy; often producing a single sterile, leaf-like frond and a separate, distinct fertile spike or stalk bearing the sporangia → <strong><em>Ophioglossaceae</em></strong> (Adder's-tongues, Grape Ferns)</li>
+<li><strong>4a.</strong> Heterosporous ferns; typically aquatic or semi-aquatic → Go to <strong>5</strong></li>
+<li><strong>4b.</strong> Homosporous ferns; typically terrestrial or epiphytic (most common ferns) → Go to <strong>6</strong></li>
+<li><strong>5a.</strong> Small, floating plants; leaves small, often in 2 or 3 rows, sometimes pouch-like (Azolla) or bilobed (Salvinia); sporangia contained within hardened structures called sporocarps → <strong><em>Salviniaceae</em></strong> (Floating Ferns, including Azolla)</li>
+<li><strong>5b.</strong> Rooted aquatic or amphibious plants; leaves resembling a four-leaf clover (Marsilea) or grass-like; sporangia contained within hardened sporocarps borne near the base → <strong><em>Marsileaceae</em></strong> (Water Clovers, Pillworts)</li>
+<li><strong>6a.</strong> Large ferns; sporangia large for leptosporangia, lacking a typical vertical annulus (annulus is lateral or apical), not clustered into distinct sori; often with dimorphic fronds (separate sterile and fertile fronds) → <strong><em>Osmundaceae</em></strong> (Royal Ferns)</li>
+<li><strong>6b.</strong> Sporangia typically smaller, clustered in groups called <a href="about.html#glossary-sorus" title="Glossary: Sorus">sori</a> (sing. sorus) on the underside or margin of fronds; annulus usually vertical, aiding in spore dispersal → Go to <strong>7</strong> (Core Leptosporangiate Ferns)</li>
+<li><strong>7a.</strong> Tree ferns; trunk typically present, sometimes massive; sori located near the frond margin → Go to <strong>8</strong></li>
+<li><strong>7b.</strong> Ferns not typically tree-like (rhizome creeping or erect, but not forming a tall trunk) → Go to <strong>9</strong></li>
+<li><strong>8a.</strong> Sori marginal or submarginal, protected by a cup-shaped or two-valved (clam-like) <a href="about.html#glossary-indusium" title="Glossary: Indusium">indusium</a> (covering over sorus) → <strong><em>Dicksoniaceae</em></strong> (includes Cibotium)</li>
+<li><strong>8b.</strong> Sori round, submarginal; indusium present (cup-like or scale-like beneath sorus) or absent → <strong><em>Cyatheaceae</em></strong> (Scaly Tree Ferns)</li>
+<li><strong>9a.</strong> Sori located along or very near the frond margin, often protected by the in-rolled margin (false indusium) or by a true indusium → Go to <strong>10</strong></li>
+<li><strong>9b.</strong> Sori located away from the margin (on the veins or surface of the frond underside) → Go to <strong>11</strong></li>
+<li><strong>10a.</strong> Sori typically continuous along the margin or on commissures connecting vein tips; false indusium common, or true indusium opening outwards → <strong><em>Pteridaceae</em></strong> (a large and diverse family including maidenhair ferns, brakes; often characterized by marginal sori without true indusia or linear indusia opening outwards)</li>
+<li><strong>10b.</strong> Sori typically discrete, marginal or submarginal; often protected by cup-shaped or flap-like indusia; often large, coarse ferns → <strong><em>Dennstaedtiaceae</em></strong> (includes bracken fern)</li>
+<li><strong>11a.</strong> Sori typically round or oblong; indusium completely absent → <strong><em>Polypodiaceae</em></strong> (Polypody Ferns; often epiphytic, fronds often simple or pinnatifid)</li>
+<li><strong>11b.</strong> Sori round, linear, J-shaped, or kidney-shaped; indusium present (may be small, hidden, or fall off early) → Go to <strong>12</strong></li>
+<li><strong>12a.</strong> Sori elongated along the veins (linear or sometimes J-shaped) → Go to <strong>13</strong></li>
+<li><strong>12b.</strong> Sori round or kidney-shaped → Go to <strong>14</strong></li>
+<li><strong>13a.</strong> Sori typically linear, parallel and close to the midrib (costa) of pinnae or segments; indusium flap-like, opening towards the midrib → <strong><em>Blechnaceae</em></strong> (Chain Ferns)</li>
+<li><strong>13b.</strong> Sori typically linear along the side veins; indusium flap-like, opening away from the midrib (towards margin); rhizome scales often dark and <a href="about.html#glossary-clathrate" title="Glossary: Clathrate">clathrate</a> (lattice-like cell walls) → <strong><em>Aspleniaceae</em></strong> (Spleenworts)</li>
+<li><strong>14a.</strong> Indusium attached underneath the sorus, often cup-shaped, star-shaped, or splitting into segments → <strong><em>Woodsiaceae</em></strong> (Cliff Ferns; broadly defined here, includes Cystopteris, Athyrium by some classifications - a complex group)</li>
+<li><strong>14b.</strong> Indusium attached at one side or center of the sorus, typically kidney-shaped (reniform) or round, covering the sorus from above → Go to <strong>15</strong></li>
+<li><strong>15a.</strong> Fronds often bearing needle-like (<a href="about.html#glossary-acicular" title="Glossary: Acicular">acicular</a>) hairs, especially on axes and veins; sori round to oblong, indusia often kidney-shaped and hairy (or absent) → <strong><em>Thelypteridaceae</em></strong> (Marsh Ferns)</li>
+<li><strong>15b.</strong> Fronds typically lacking acicular hairs (may have scales or other hair types); sori round or kidney-shaped, indusium typically kidney-shaped, glabrous (smooth) → <strong><em>Dryopteridaceae</em></strong> (Wood Ferns; a very large family, often with scaly rhizomes and petioles)</li>
+<li><em>Note: Families like Onocleaceae (Sensitive Fern) with strongly dimorphic fronds and bead-like fertile segments key out poorly here but might be placed near Woodsiaceae or Blechnaceae depending on characters emphasized.</em></li>
+</ul>
+<h2 id="section-seed-plants">7. Section II: Seed Plants (Gymnosperms &amp; Angiosperms)</h2>
+<p>This group reproduces via seeds, which contain an embryo and nutritive tissue, protected by a seed coat.</p>
+<h3>Preliminary Division:</h3>
+<ul class="key-high-level">
+<li><strong>1a.</strong> Seeds "naked," not enclosed within a protective ovary wall; typically borne on scales of cones or on stalks; flowers absent → Go to <strong><a href="#section-gymnosperms">Section 8</a></strong> (Gymnosperms)</li>
+<li><strong>1b.</strong> Seeds enclosed within a protective ovary, which matures into a fruit; flowers typically present → Go to <strong><a href="#section-angiosperms">Section 9</a></strong> (Angiosperms - Flowering Plants)</li>
+</ul>
+<h3 id="section-gymnosperms">8. Identifying Gymnosperm Groups/Families</h3>
+<p>Gymnosperms include cycads, Ginkgo, conifers, and gnetophytes. They lack flowers and fruits.</p>
+<ul class="key">
+<li><strong>1a.</strong> Leaves large, pinnately compound, frond-like; stem typically thick, woody, unbranched or sparsely branched; plants dioecious (separate male and female individuals) → Go to <strong>2</strong> (Cycads)</li>
+<li><strong>1b.</strong> Leaves simple (needle-like, scale-like, fan-shaped, or strap-like), not pinnately compound → Go to <strong>3</strong></li>
+<li><strong>2a.</strong> Leaflets with a prominent central midrib, lacking lateral veins → <strong><em>Cycadaceae</em></strong> (One genus: Cycas)</li>
+<li><strong>2b.</strong> Leaflets lacking a prominent midrib, veins dichotomously branched or parallel → <strong><em>Zamiaceae</em></strong> (Includes Zamia, Dioon, Encephalartos, etc.)</li>
+<li><strong>3a.</strong> Leaves deciduous, distinctively fan-shaped with dichotomous venation; trees dioecious; seeds borne in pairs on long stalks, becoming fleshy and foul-smelling when mature → <strong><em>Ginkgoaceae</em></strong> (One species: Ginkgo biloba)</li>
+<li><strong>3b.</strong> Leaves evergreen or deciduous, needle-like, scale-like, linear, or strap-shaped; ovules/seeds typically borne in cones or associated structures → Go to <strong>4</strong> (Conifers &amp; Gnetophytes)</li>
+<li><strong>4a.</strong> Wood contains vessels (like angiosperms); leaves opposite or whorled; reproductive structures somewhat flower-like; plants often adapted to arid environments or tropics → Go to <strong>5</strong> (Gnetophytes)</li>
+<li><strong>4b.</strong> Wood lacks vessels (except Gnetophytes); leaves typically needle-like or scale-like (sometimes linear/broad), alternate or whorled or clustered; reproductive structures are distinct cones (or modified cones) → Go to <strong>6</strong> (Conifers)</li>
+<li><strong>5a.</strong> Stems jointed and photosynthetic; leaves reduced to small scales at nodes; mostly shrubs or vines → <strong><em>Ephedraceae</em></strong> (Ephedra)</li>
+<li><strong>5b.</strong> Leaves broad and net-veined (Gnetum) OR two enormous, strap-like leaves persisting through life (Welwitschia); not jointed photosynthetic stems → <strong><em>Gnetaceae</em></strong> / <strong><em>Welwitschiaceae</em></strong></li>
+<li><strong>6a.</strong> Seeds solitary or paired, partially or wholly surrounded by a fleshy structure (an <a href="about.html#glossary-aril" title="Glossary: Aril">aril</a> derived from the stalk, or an <a href="about.html#glossary-epimatium" title="Glossary: Epimatium">epimatium</a> derived from an ovuliferous scale); distinct woody ovulate cones absent → Go to <strong>7</strong></li>
+<li><strong>6b.</strong> Seeds borne on the surface of woody, leathery, or berry-like cone scales (ovuliferous scales), typically aggregated into distinct ovulate cones → Go to <strong>8</strong></li>
+<li><strong>7a.</strong> Seed partially enclosed by a typically brightly colored, fleshy aril; leaves often linear, flattened, appearing 2-ranked; mostly dioecious shrubs or trees → <strong><em>Taxaceae</em></strong> (Yews - Note: Sometimes includes Cephalotaxaceae)</li>
+<li><strong>7b.</strong> Seed completely enclosed by a fleshy structure (epimatium), often drab-colored; leaves scale-like, needle-like, or broadly linear; mostly Southern Hemisphere trees or shrubs → <strong><em>Podocarpaceae</em></strong> (Podocarps)</li>
+<li><strong>8a.</strong> Leaves needle-like, typically arranged in bundles (fascicles of 1-many needles) on short shoots, OR borne singly on peg-like bases (Picea, Tsuga); ovulate cones typically woody, with distinct bract scales and seed-bearing ovuliferous scales (bract may be hidden or exserted); resin canals present in wood and leaves → <strong><em>Pinaceae</em></strong> (Pine, Fir, Spruce, Larch, Hemlock, etc.)</li>
+<li><strong>8b.</strong> Leaves scale-like (appressed or spreading), awl-shaped, OR flattened and linear/broad but not in fascicles or on pegs; ovulate cones woody, leathery, or fleshy and berry-like, bract scale usually fused to the ovuliferous scale; resin canals may be absent → Go to <strong>9</strong></li>
+<li><strong>9a.</strong> Leaves typically scale-like (often overlapping) or awl-shaped, sometimes needle-like; cones generally small, woody (e.g., Thuja), leathery, or fleshy and berry-like (e.g., Juniperus); trees or shrubs → <strong><em>Cupressaceae</em></strong> (Cypress, Juniper, Redwood, Cedar - includes former Taxodiaceae)</li>
+<li><strong>9b.</strong> Leaves typically flattened, linear, lanceolate, or broadly ovate, often tough and leathery; cones generally large, globose or ovoid, woody, often breaking apart at maturity; mostly large trees of the Southern Hemisphere → <strong><em>Araucariaceae</em></strong> (Monkey Puzzle, Norfolk Island Pine, Kauri)</li>
+</ul>
+<h3 id="section-angiosperms">9. Identifying Major Angiosperm Groups &amp; Families</h3>
+<p>Angiosperms (flowering plants) are the most diverse group. This key covers only major divisions and a small selection of common or large families. Identification often relies heavily on floral characteristics.</p>
+<h4>Preliminary Division:</h4>
+<ul class="key-high-level">
+<li><strong>1a.</strong> Embryo with one cotyledon; flower parts typically in multiples of 3; leaf venation usually parallel; vascular bundles scattered in stem → Go to <strong><a href="#section-monocots">9.1 Monocots</a></strong></li>
+<li><strong>1b.</strong> Embryo with two cotyledons; flower parts typically in multiples of 4 or 5; leaf venation usually net-like (reticulate); vascular bundles typically arranged in a ring in stem → Go to <strong><a href="#section-eudicots">9.2 Eudicots</a></strong> (Includes basal angiosperms not covered here)</li>
+</ul>
+<h4 id="section-monocots">9.1 Monocots</h4>
+<ul class="key">
+<li><strong>1a.</strong> Flowers small, inconspicuous, typically wind-pollinated, arranged in spikelets subtended by specialized bracts (<a href="about.html#glossary-glume" title="Glossary: Glume">glumes</a>, lemmas, paleas); perianth absent or reduced to bristles or scales; leaves usually linear with sheathing bases → Go to <strong>2</strong> (Grasses &amp; Sedges)</li>
+<li><strong>1b.</strong> Flowers usually larger and more conspicuous, often insect-pollinated (or water-pollinated); perianth typically present, often petaloid (tepals); flowers not typically in grass-like spikelets → Go to <strong>3</strong></li>
+<li><strong>2a.</strong> Stems usually hollow (culms), round in cross-section; leaf sheaths usually open; flowers (florets) enclosed by two bracts (lemma and palea) → <strong><em>Poaceae</em></strong> (Grass family)</li>
+<li><strong>2b.</strong> Stems usually solid, often triangular in cross-section; leaf sheaths usually closed; flowers subtended by a single bract → <strong><em>Cyperaceae</em></strong> (Sedge family)</li>
+<li><em>Note: <strong>Juncaceae</strong> (Rush family) also fits near here, often with round, solid stems and 6 small, non-showy tepals.</em></li>
+<li><strong>3a.</strong> Flowers densely packed onto a fleshy spike (<a href="about.html#glossary-spadix" title="Glossary: Spadix">spadix</a>), usually subtended or partially enclosed by a large bract (<a href="about.html#glossary-spathe" title="Glossary: Spathe">spathe</a>); plants often herbaceous, sometimes aquatic → <strong><em>Araceae</em></strong> (Arum family, incl. Lemna - Duckweeds)</li>
+<li><strong>3b.</strong> Inflorescence various, but not typically a spadix-and-spathe combination (except palms, Arecaceae, not keyed here) → Go to <strong>4</strong></li>
+<li><strong>4a.</strong> Flowers highly modified, strongly <a href="about.html#glossary-zygomorphic" title="Glossary: Zygomorphic">zygomorphic</a> (bilaterally symmetrical); stamens (usually 1 or 2) fused with style and stigma to form a central column; ovary inferior; pollen often aggregated into pollinia → <strong><em>Orchidaceae</em></strong> (Orchid family)</li>
+<li><strong>4b.</strong> Flowers typically <a href="about.html#glossary-actinomorphic" title="Glossary: Actinomorphic">actinomorphic</a> (radially symmetrical), sometimes zygomorphic but without a column structure as above; stamens usually 3 or 6, distinct from pistil → Go to <strong>5</strong></li>
+<li><strong>5a.</strong> Ovary inferior; flower parts in 3s (typically 6 petaloid tepals, 3 or 6 stamens); plants often herbaceous perennials from bulbs, corms, or rhizomes → Go to <strong>6</strong></li>
+<li><strong>5b.</strong> Ovary superior; flower parts in 3s (typically 6 petaloid tepals, 6 stamens); plants often herbaceous perennials from bulbs, rhizomes, or succulents → Go to <strong>7</strong></li>
+<li><strong>6a.</strong> Leaves usually equitant (flattened in one plane, overlapping at base, like a fan); flowers actinomorphic or zygomorphic; stamens 3 → <strong><em>Iridaceae</em></strong> (Iris family)</li>
+<li><strong>6b.</strong> Leaves not equitant; flowers actinomorphic, often borne in an umbel-like inflorescence subtended by bracts; stamens 6 → <strong><em>Amaryllidaceae</em></strong> (Amaryllis family - includes former Alliaceae like onions/garlic)</li>
+<li><strong>7a.</strong> Plants typically succulent herbs or shrubs; leaves often in basal rosettes; flowers often showy, actinomorphic → <strong><em>Asphodelaceae</em></strong> (Aloe family - includes former Xanthorrhoeaceae, Hemerocallidaceae)</li>
+<li><strong>7b.</strong> Habit various, including rosette herbs, vines, shrubs, trees (e.g. Agave, Yucca), or plants with cladodes (flattened stems, e.g. Asparagus); flowers often smaller → <strong><em>Asparagaceae</em></strong> (Asparagus family - very diverse, includes former Agavaceae, Hyacinthaceae, Ruscaceae)</li>
+<li><em>Note: <strong>Liliaceae</strong> (Lily family), now much smaller, fits here: superior ovary, 6 stamens, often bulbs/rhizomes, non-succulent leaves, often spotted tepals.</em></li>
+</ul>
+<h4 id="section-eudicots">9.2 Key to Major Eudicot Groups &amp; Example Families</h4>
+<p>Eudicots are characterized by <a href="about.html#glossary-tricolpate" title="Glossary: Tricolpate">tricolpate</a> pollen (or derived types) and flower parts often in 4s or 5s. This is the largest group of angiosperms. <em>Note: This key simplifies complex relationships. Petal fusion (sympetaly vs. polypetaly) is a useful but not absolute distinction.</em></p>
+<ul class="key">
+<li><strong>1a.</strong> Pollen often with a single aperture (<a href="about.html#glossary-monosulcate" title="Glossary: Monosulcate">monosulcate</a>) or derived types, but not typically tricolpate; flowers often with numerous, spirally arranged parts (sometimes whorled); carpels usually free (<a href="about.html#glossary-apocarpous" title="Glossary: Apocarpous">apocarpous</a>) → <strong>Basal Eudicots</strong> (Examples below)
                         <ul>
-                            <li><strong><em>Ranunculaceae</em></strong> (Buttercup family): Mostly herbs; leaves often lobed or compound, alternate or basal; flowers actinomorphic or zygomorphic, sepals often petaloid, petals present or absent, stamens numerous; carpels usually numerous and free; fruit an aggregate of <a href="about.html#glossary-achene" title="Glossary: Achene">achenes</a> or <a href="about.html#glossary-follicle" title="Glossary: Follicle">follicles</a>.</li>
-                            <li><strong><em>Papaveraceae</em></strong> (Poppy family): Mostly herbs, often with colored latex (sap); leaves alternate, often lobed; flowers usually actinomorphic, large, sepals 2 (falling early), petals 4 (often crumpled in bud), stamens numerous; ovary superior, syncarpous; fruit usually a <a href="about.html#glossary-capsule" title="Glossary: Capsule">capsule</a> opening by pores or valves.</li>
-                            <li><strong><em>Berberidaceae</em></strong> (Barberry family): Shrubs or herbs; leaves alternate, often simple or compound, sometimes spiny; flowers actinomorphic, parts often in 3s or 6s, stamens often sensitive; ovary superior, single carpel; fruit a berry.</li>
-                        </ul>
-                    </li>
-                    <li><strong>1b.</strong> Pollen typically with three apertures (<a href="about.html#glossary-tricolpate" title="Glossary: Tricolpate">tricolpate</a>) or derived types; floral parts usually in definite whorls (sepals, petals, stamens, carpels); carpels often fused (<a href="about.html#glossary-syncarpous" title="Glossary: Syncarpous">syncarpous</a>) → Go to <strong>2</strong> (Core Eudicots)</li>
-
-                    <li><strong>2a.</strong> Petals typically free from each other (<a href="about.html#glossary-polypetalous" title="Glossary: Polypetalous">polypetalous</a>), although sometimes absent; flower parts typically in 4s or 5s → Go to <strong>3</strong> (Represents Rosids & other non-Asterid Core Eudicots like Caryophyllales)</li>
-                    <li><strong>2b.</strong> Petals typically fused together, at least at the base, forming a tube, funnel, or bell shape (<a href="about.html#glossary-sympetalous" title="Glossary: Sympetalous">sympetalous</a>); flower parts typically in 4s or 5s → Go to <strong>4</strong> (Represents Asterids)</li>
-
-                    <li><strong>3. Rosids & Allies (Polypetalous Core Eudicots - Examples):</strong> <em>A large, diverse group; placement of some families varies.</em>
-                        <ul>
-                            <li><strong><em>Rosaceae</em></strong> (Rose family): Herbs, shrubs, or trees; leaves usually alternate, often compound, with stipules; flowers actinomorphic, 5-merous, often with a <a href="about.html#glossary-hypanthium" title="Glossary: Hypanthium">hypanthium</a>, stamens often numerous; fruit highly variable (achene, drupe, pome, follicle, aggregate).</li>
-                            <li><strong><em>Fabaceae</em></strong> (Legume/Pea family): Herbs, shrubs, trees, or vines; leaves usually alternate, compound, with stipules; flowers zygomorphic (papilionaceous 'pea flower') or actinomorphic (Mimosoideae), 5-merous; stamens often 10 (sometimes numerous); single carpel; fruit a <a href="about.html#glossary-legume" title="Glossary: Legume">legume</a> (pod); often with root nodules containing nitrogen-fixing bacteria.</li>
-                            <li><strong><em>Fagaceae</em></strong> (Oak/Beech family): Trees or shrubs; leaves alternate, simple; flowers unisexual (plants monoecious), inconspicuous, wind-pollinated, male flowers often in catkins; fruit a nut (e.g., acorn, chestnut, beechnut) partially or fully enclosed by a cupule.</li>
-                            <li><strong><em>Brassicaceae</em></strong> (Mustard family): Mostly herbs; leaves alternate, often simple or pinnately lobed, often with pungent taste; flowers actinomorphic, 4 sepals, 4 petals (often forming a cross), stamens typically 6, tetradynamous (4 long, 2 short); ovary superior; fruit a <a href="about.html#glossary-silique" title="Glossary: Silique">silique</a> or <a href="about.html#glossary-silicle" title="Glossary: Silicle">silicle</a>.</li>
-                             <li><strong><em>Malvaceae</em></strong> (Mallow family): Herbs, shrubs, or trees, often with stellate (star-shaped) hairs and mucilaginous sap; leaves alternate, simple, often palmately lobed or veined, with stipules; flowers actinomorphic, 5-merous, stamens numerous and fused into a tube around the style (<a href="about.html#glossary-monadelphous" title="Glossary: Monadelphous">monadelphous</a>); fruit usually a capsule or schizocarp. (Includes former Tiliaceae, Sterculiaceae, Bombacaceae).</li>
-                             <li><strong><em>Myrtaceae</em></strong> (Myrtle family): Trees or shrubs; leaves often opposite, simple, entire, dotted with pellucid glands containing aromatic oils; flowers actinomorphic, 4-5 merous, stamens numerous and often showy; ovary inferior or semi-inferior; fruit a berry or capsule. (Eucalyptus, Myrtle, Guava).</li>
-                             <li><strong><em>Caryophyllaceae</em></strong> (Pink/Carnation family): Mostly herbs; stems often with swollen nodes; leaves opposite, simple, entire; flowers actinomorphic, 5-merous (sometimes 4), petals often notched or fringed, stamens 5 or 10; ovary superior; fruit typically a capsule opening by teeth or valves. (Belongs to Caryophyllales, placement relative to Rosids/Asterids complex).</li>
-                             <li><strong><em>Crassulaceae</em></strong> (Stonecrop family): Succulent herbs or shrubs; leaves fleshy, simple, often alternate or opposite, or in rosettes; flowers actinomorphic, usually 5-merous (sometimes 4), carpels usually free (apocarpous) and same number as petals; fruit an aggregate of follicles. (Often placed in Saxifragales).</li>
-                        </ul>
-                    </li>
-
-                    <li><strong>4. Asterids (Sympetalous Core Eudicots):</strong> <em>Large group, often divided into Lamiids and Campanulids.</em>
-                        <ul>
-                           <li><strong>4a.</strong> Ovary typically superior; stamens usually equal in number to corolla lobes or fewer, attached to corolla tube (<a href="about.html#glossary-epipetalous" title="Glossary: Epipetalous">epipetalous</a>) → Go to <strong>5</strong> (Lamiids / Euasterids I - Examples)</li>
-                           <li><strong>4b.</strong> Ovary typically inferior (sometimes superior); flowers often aggregated into dense heads or umbels → Go to <strong>6</strong> (Campanulids / Euasterids II - Examples)</li>
-                        </ul>
-                    </li>
-
-                    <li><strong>5. Lamiids (Euasterids I - Examples):</strong> <em>Often characterized by opposite leaves and regular or irregular flowers.</em>
-                        <ul>
-                             <li><strong><em>Lamiaceae</em></strong> (Mint family): Herbs or shrubs, often aromatic; stems typically square in cross-section; leaves opposite; flowers zygomorphic, usually bilabiate (two-lipped), 5-merous (fused); stamens 4 (didynamous) or 2; ovary superior, deeply 4-lobed; fruit typically composed of 4 nutlets.</li>
-                             <li><strong><em>Solanaceae</em></strong> (Nightshade family): Herbs, shrubs, or trees; leaves alternate, simple or compound; flowers actinomorphic (sometimes slightly zygomorphic), 5-merous, corolla often folded or twisted in bud (plicate/convolute), stamens 5, epipetalous; ovary superior; fruit a berry or capsule. (Potato, Tomato, Petunia).</li>
-                             <li><strong><em>Plantaginaceae</em></strong> (Plantain/Snapdragon family): Highly diverse herbs or shrubs; leaves alternate, opposite, or basal; flowers zygomorphic (e.g., Snapdragon) or actinomorphic (e.g., Plantago), 4-5 merous; ovary superior; fruit typically a capsule. (Includes former Scrophulariaceae in part, Veronicaceae).</li>
-                            <li><strong><em>Ericaceae</em></strong> (Heath/Blueberry family): Shrubs or small trees, often preferring acidic soils; leaves usually alternate, simple, often evergreen and leathery; flowers actinomorphic or slightly zygomorphic, typically 4-5 merous, corolla often urceolate (urn-shaped) or campanulate (bell-shaped), stamens often twice the number of petals, anthers often opening by pores; ovary superior or inferior; fruit a capsule, berry, or drupe. (Blueberry, Rhododendron, Heather).</li>
-                        </ul>
-                    </li>
-                    <li><strong>6. Campanulids (Euasterids II - Examples):</strong> <em>Often characterized by inferior ovaries and flowers clustered in heads or umbels.</em>
-                        <ul>
-                            <li><strong><em>Asteraceae</em></strong> (Sunflower/Composite family): Mostly herbs, some shrubs or trees; flowers (florets) small, densely aggregated into a head (<a href="about.html#glossary-capitulum" title="Glossary: Capitulum">capitulum</a>) surrounded by bracts (<a href="about.html#glossary-involucre" title="Glossary: Involucre">involucre</a>), simulating a single flower; florets tubular (disk) or strap-shaped (ray or ligulate); stamens 5, epipetalous, anthers fused into a tube around the style (<a href="about.html#glossary-syngenesious" title="Glossary: Syngenesious">syngenesious</a>); ovary inferior; fruit an achene, often called a <a href="about.html#glossary-cypsela" title="Glossary: Cypsela">cypsela</a>, frequently topped by a <a href="about.html#glossary-pappus" title="Glossary: Pappus">pappus</a> (modified calyx) of scales, bristles, or hairs.</li>
-                            <li><strong><em>Apiaceae</em></strong> (Carrot/Parsley family): Mostly herbs, often aromatic; stems frequently hollow; leaves alternate, usually compound or highly dissected, with sheathing petioles; inflorescence typically a compound <a href="about.html#glossary-umbel" title="Glossary: Umbel">umbel</a> (umbel of umbels); flowers small, actinomorphic, 5-merous; ovary inferior, 2-carpellate; fruit a <a href="about.html#glossary-schizocarp" title="Glossary: Schizocarp">schizocarp</a> splitting into two one-seeded segments (mericarps).</li>
-                            <li><strong><em>Caprifoliaceae</em></strong> (Honeysuckle family): Shrubs, vines, or herbs; leaves opposite, simple or compound; flowers actinomorphic or zygomorphic, 5-merous, corolla often tubular or funnelform, sometimes bilabiate; ovary inferior; fruit a berry, drupe, or capsule. (Includes former Dipsacaceae, Valerianaceae).</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p style="margin-top:1.5em; font-style: italic;"><strong>Disclaimer:</strong> This key is a highly simplified conceptual framework intended for educational purposes. It covers only selected major groups and families and uses generalized characteristics. Accurate identification, especially to species level, requires detailed examination (often including microscopic features) and consultation of comprehensive regional floras, taxonomic databases, or specialized interactive keys. Plant classification is constantly updated based on phylogenetic research (like APG IV), so family boundaries and names may differ from older sources. Many large and diverse families (e.g., Pteridaceae, Dryopteridaceae, Orchidaceae, Asteraceae) contain significant variation not captured here.</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-columns">
-                <div class="footer-column">
-                    <h4>Plant Families Explorer</h4>
-                    <p>A comprehensive guide to plant families in phylogenetic order for botanists, students, and enthusiasts.</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../phylogenetic-tree.html">Phylogenetic Tree</a></li>
-                        <li><a href="../dicotkey.html">Dicot Tree</a></li>
-                        <li><a href="../families.html">Plant Families</a></li>
-                        <li><a href="../identification.html">Field Identification</a></li>
-                        <li><a href="../about.html">About</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="../about.html#apg">APG IV System</a></li>
-                        <li><a href="../about.html#references">References</a></li>
-                        <li><a href="../about.html#glossary">Botanical Glossary</a></li>
-                        <li><a href="../about.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="copyright-year"></span> Plant Families Explorer. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
+<li><strong><em>Ranunculaceae</em></strong> (Buttercup family): Mostly herbs; leaves often lobed or compound, alternate or basal; flowers actinomorphic or zygomorphic, sepals often petaloid, petals present or absent, stamens numerous; carpels usually numerous and free; fruit an aggregate of <a href="about.html#glossary-achene" title="Glossary: Achene">achenes</a> or <a href="about.html#glossary-follicle" title="Glossary: Follicle">follicles</a>.</li>
+<li><strong><em>Papaveraceae</em></strong> (Poppy family): Mostly herbs, often with colored latex (sap); leaves alternate, often lobed; flowers usually actinomorphic, large, sepals 2 (falling early), petals 4 (often crumpled in bud), stamens numerous; ovary superior, syncarpous; fruit usually a <a href="about.html#glossary-capsule" title="Glossary: Capsule">capsule</a> opening by pores or valves.</li>
+<li><strong><em>Berberidaceae</em></strong> (Barberry family): Shrubs or herbs; leaves alternate, often simple or compound, sometimes spiny; flowers actinomorphic, parts often in 3s or 6s, stamens often sensitive; ovary superior, single carpel; fruit a berry.</li>
+</ul>
+</li>
+<li><strong>1b.</strong> Pollen typically with three apertures (<a href="about.html#glossary-tricolpate" title="Glossary: Tricolpate">tricolpate</a>) or derived types; floral parts usually in definite whorls (sepals, petals, stamens, carpels); carpels often fused (<a href="about.html#glossary-syncarpous" title="Glossary: Syncarpous">syncarpous</a>) → Go to <strong>2</strong> (Core Eudicots)</li>
+<li><strong>2a.</strong> Petals typically free from each other (<a href="about.html#glossary-polypetalous" title="Glossary: Polypetalous">polypetalous</a>), although sometimes absent; flower parts typically in 4s or 5s → Go to <strong>3</strong> (Represents Rosids &amp; other non-Asterid Core Eudicots like Caryophyllales)</li>
+<li><strong>2b.</strong> Petals typically fused together, at least at the base, forming a tube, funnel, or bell shape (<a href="about.html#glossary-sympetalous" title="Glossary: Sympetalous">sympetalous</a>); flower parts typically in 4s or 5s → Go to <strong>4</strong> (Represents Asterids)</li>
+<li><strong>3. Rosids &amp; Allies (Polypetalous Core Eudicots - Examples):</strong> <em>A large, diverse group; placement of some families varies.</em>
+<ul>
+<li><strong><em>Rosaceae</em></strong> (Rose family): Herbs, shrubs, or trees; leaves usually alternate, often compound, with stipules; flowers actinomorphic, 5-merous, often with a <a href="about.html#glossary-hypanthium" title="Glossary: Hypanthium">hypanthium</a>, stamens often numerous; fruit highly variable (achene, drupe, pome, follicle, aggregate).</li>
+<li><strong><em>Fabaceae</em></strong> (Legume/Pea family): Herbs, shrubs, trees, or vines; leaves usually alternate, compound, with stipules; flowers zygomorphic (papilionaceous 'pea flower') or actinomorphic (Mimosoideae), 5-merous; stamens often 10 (sometimes numerous); single carpel; fruit a <a href="about.html#glossary-legume" title="Glossary: Legume">legume</a> (pod); often with root nodules containing nitrogen-fixing bacteria.</li>
+<li><strong><em>Fagaceae</em></strong> (Oak/Beech family): Trees or shrubs; leaves alternate, simple; flowers unisexual (plants monoecious), inconspicuous, wind-pollinated, male flowers often in catkins; fruit a nut (e.g., acorn, chestnut, beechnut) partially or fully enclosed by a cupule.</li>
+<li><strong><em>Brassicaceae</em></strong> (Mustard family): Mostly herbs; leaves alternate, often simple or pinnately lobed, often with pungent taste; flowers actinomorphic, 4 sepals, 4 petals (often forming a cross), stamens typically 6, tetradynamous (4 long, 2 short); ovary superior; fruit a <a href="about.html#glossary-silique" title="Glossary: Silique">silique</a> or <a href="about.html#glossary-silicle" title="Glossary: Silicle">silicle</a>.</li>
+<li><strong><em>Malvaceae</em></strong> (Mallow family): Herbs, shrubs, or trees, often with stellate (star-shaped) hairs and mucilaginous sap; leaves alternate, simple, often palmately lobed or veined, with stipules; flowers actinomorphic, 5-merous, stamens numerous and fused into a tube around the style (<a href="about.html#glossary-monadelphous" title="Glossary: Monadelphous">monadelphous</a>); fruit usually a capsule or schizocarp. (Includes former Tiliaceae, Sterculiaceae, Bombacaceae).</li>
+<li><strong><em>Myrtaceae</em></strong> (Myrtle family): Trees or shrubs; leaves often opposite, simple, entire, dotted with pellucid glands containing aromatic oils; flowers actinomorphic, 4-5 merous, stamens numerous and often showy; ovary inferior or semi-inferior; fruit a berry or capsule. (Eucalyptus, Myrtle, Guava).</li>
+<li><strong><em>Caryophyllaceae</em></strong> (Pink/Carnation family): Mostly herbs; stems often with swollen nodes; leaves opposite, simple, entire; flowers actinomorphic, 5-merous (sometimes 4), petals often notched or fringed, stamens 5 or 10; ovary superior; fruit typically a capsule opening by teeth or valves. (Belongs to Caryophyllales, placement relative to Rosids/Asterids complex).</li>
+<li><strong><em>Crassulaceae</em></strong> (Stonecrop family): Succulent herbs or shrubs; leaves fleshy, simple, often alternate or opposite, or in rosettes; flowers actinomorphic, usually 5-merous (sometimes 4), carpels usually free (apocarpous) and same number as petals; fruit an aggregate of follicles. (Often placed in Saxifragales).</li>
+</ul>
+</li>
+<li><strong>4. Asterids (Sympetalous Core Eudicots):</strong> <em>Large group, often divided into Lamiids and Campanulids.</em>
+<ul>
+<li><strong>4a.</strong> Ovary typically superior; stamens usually equal in number to corolla lobes or fewer, attached to corolla tube (<a href="about.html#glossary-epipetalous" title="Glossary: Epipetalous">epipetalous</a>) → Go to <strong>5</strong> (Lamiids / Euasterids I - Examples)</li>
+<li><strong>4b.</strong> Ovary typically inferior (sometimes superior); flowers often aggregated into dense heads or umbels → Go to <strong>6</strong> (Campanulids / Euasterids II - Examples)</li>
+</ul>
+</li>
+<li><strong>5. Lamiids (Euasterids I - Examples):</strong> <em>Often characterized by opposite leaves and regular or irregular flowers.</em>
+<ul>
+<li><strong><em>Lamiaceae</em></strong> (Mint family): Herbs or shrubs, often aromatic; stems typically square in cross-section; leaves opposite; flowers zygomorphic, usually bilabiate (two-lipped), 5-merous (fused); stamens 4 (didynamous) or 2; ovary superior, deeply 4-lobed; fruit typically composed of 4 nutlets.</li>
+<li><strong><em>Solanaceae</em></strong> (Nightshade family): Herbs, shrubs, or trees; leaves alternate, simple or compound; flowers actinomorphic (sometimes slightly zygomorphic), 5-merous, corolla often folded or twisted in bud (plicate/convolute), stamens 5, epipetalous; ovary superior; fruit a berry or capsule. (Potato, Tomato, Petunia).</li>
+<li><strong><em>Plantaginaceae</em></strong> (Plantain/Snapdragon family): Highly diverse herbs or shrubs; leaves alternate, opposite, or basal; flowers zygomorphic (e.g., Snapdragon) or actinomorphic (e.g., Plantago), 4-5 merous; ovary superior; fruit typically a capsule. (Includes former Scrophulariaceae in part, Veronicaceae).</li>
+<li><strong><em>Ericaceae</em></strong> (Heath/Blueberry family): Shrubs or small trees, often preferring acidic soils; leaves usually alternate, simple, often evergreen and leathery; flowers actinomorphic or slightly zygomorphic, typically 4-5 merous, corolla often urceolate (urn-shaped) or campanulate (bell-shaped), stamens often twice the number of petals, anthers often opening by pores; ovary superior or inferior; fruit a capsule, berry, or drupe. (Blueberry, Rhododendron, Heather).</li>
+</ul>
+</li>
+<li><strong>6. Campanulids (Euasterids II - Examples):</strong> <em>Often characterized by inferior ovaries and flowers clustered in heads or umbels.</em>
+<ul>
+<li><strong><em>Asteraceae</em></strong> (Sunflower/Composite family): Mostly herbs, some shrubs or trees; flowers (florets) small, densely aggregated into a head (<a href="about.html#glossary-capitulum" title="Glossary: Capitulum">capitulum</a>) surrounded by bracts (<a href="about.html#glossary-involucre" title="Glossary: Involucre">involucre</a>), simulating a single flower; florets tubular (disk) or strap-shaped (ray or ligulate); stamens 5, epipetalous, anthers fused into a tube around the style (<a href="about.html#glossary-syngenesious" title="Glossary: Syngenesious">syngenesious</a>); ovary inferior; fruit an achene, often called a <a href="about.html#glossary-cypsela" title="Glossary: Cypsela">cypsela</a>, frequently topped by a <a href="about.html#glossary-pappus" title="Glossary: Pappus">pappus</a> (modified calyx) of scales, bristles, or hairs.</li>
+<li><strong><em>Apiaceae</em></strong> (Carrot/Parsley family): Mostly herbs, often aromatic; stems frequently hollow; leaves alternate, usually compound or highly dissected, with sheathing petioles; inflorescence typically a compound <a href="about.html#glossary-umbel" title="Glossary: Umbel">umbel</a> (umbel of umbels); flowers small, actinomorphic, 5-merous; ovary inferior, 2-carpellate; fruit a <a href="about.html#glossary-schizocarp" title="Glossary: Schizocarp">schizocarp</a> splitting into two one-seeded segments (mericarps).</li>
+<li><strong><em>Caprifoliaceae</em></strong> (Honeysuckle family): Shrubs, vines, or herbs; leaves opposite, simple or compound; flowers actinomorphic or zygomorphic, 5-merous, corolla often tubular or funnelform, sometimes bilabiate; ovary inferior; fruit a berry, drupe, or capsule. (Includes former Dipsacaceae, Valerianaceae).</li>
+</ul>
+</li>
+</ul>
+<p style="margin-top:1.5em; font-style: italic;"><strong>Disclaimer:</strong> This key is a highly simplified conceptual framework intended for educational purposes. It covers only selected major groups and families and uses generalized characteristics. Accurate identification, especially to species level, requires detailed examination (often including microscopic features) and consultation of comprehensive regional floras, taxonomic databases, or specialized interactive keys. Plant classification is constantly updated based on phylogenetic research (like APG IV), so family boundaries and names may differ from older sources. Many large and diverse families (e.g., Pteridaceae, Dryopteridaceae, Orchidaceae, Asteraceae) contain significant variation not captured here.</p>
+</div>
+</section>
+</main>
+<footer>
+<div class="container">
+<div class="footer-columns">
+<div class="footer-column">
+<h4>Plant Families Explorer</h4>
+<p>A comprehensive guide to plant families in phylogenetic order for botanists, students, and enthusiasts.</p>
+</div>
+<div class="footer-column">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../phylogenetic-tree.html">Phylogenetic Tree</a></li>
+<li><a href="../dicotkey.html">Dicot Tree</a></li>
+<li><a href="../families.html">Plant Families</a></li>
+<li><a href="../identification.html">Field Identification</a></li>
+<li><a href="../about.html">About</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Resources</h4>
+<ul>
+<li><a href="../about.html#apg">APG IV System</a></li>
+<li><a href="../about.html#references">References</a></li>
+<li><a href="../about.html#glossary">Botanical Glossary</a></li>
+<li><a href="../about.html#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© <span id="copyright-year"></span> Plant Families Explorer. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
         // Basic script for mobile menu toggle (ensure CSS handles the actual display)
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const mainNav = document.querySelector('.main-nav');
@@ -394,5 +377,5 @@
         // Consider modularizing JS if it becomes complex.
 
     </script>
-    </body>
+</body>
 </html>
