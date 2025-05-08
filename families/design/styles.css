@@ -1,0 +1,513 @@
+/* 
+ * Plant Families Explorer - Main Stylesheet
+ * This is a wireframe CSS file to demonstrate the visual design
+ */
+
+/* Base Styles and Variables */
+:root {
+  --primary-green: #2E7D32;
+  --secondary-green: #81C784;
+  --accent-brown: #795548;
+  --light-beige: #F5F5DC;
+  --dark-text: #212121;
+  --blue-accent: #1565C0;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --medium-gray: #e0e0e0;
+  --shadow: 0 2px 5px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--dark-text);
+  line-height: 1.6;
+  background-color: var(--light-beige);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 1rem;
+  color: var(--primary-green);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--blue-accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-green);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.scientific-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--accent-brown);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--primary-green);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: #1b5e20;
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+}
+
+.btn-secondary:hover {
+  background-color: var(--light-gray);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Header */
+header {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 15px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  color: var(--primary-green);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.main-nav {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav li {
+  margin-left: 1.5rem;
+}
+
+.main-nav a {
+  color: var(--dark-text);
+  font-weight: 500;
+}
+
+.main-nav a:hover, .main-nav a.active {
+  color: var(--primary-green);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-gray);
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  padding: 0.25rem;
+  width: 200px;
+}
+
+.search-bar button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-green);
+}
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* Hero Section */
+.hero {
+  padding: 4rem 0;
+  background-color: var(--secondary-green);
+  color: var(--white);
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-content h1 {
+  color: var(--white);
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Intro Section */
+.intro {
+  padding: 4rem 0;
+  background-color: var(--white);
+}
+
+.phylogeny-preview {
+  margin-top: 2rem;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.phylogeny-preview img {
+  width: 100%;
+  display: block;
+}
+
+.overlay-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 125, 50, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.overlay-link span {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.phylogeny-preview:hover .overlay-link {
+  opacity: 1;
+}
+
+/* Featured Families Section */
+.featured-families {
+  padding: 4rem 0;
+  background-color: var(--light-gray);
+}
+
+.family-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.family-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.family-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.family-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.family-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.family-content {
+  padding: 1.5rem;
+}
+
+.quick-facts {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.quick-facts li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.quick-facts li:before {
+  content: "•";
+  color: var(--secondary-green);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Identification Teaser Section */
+.identification-teaser {
+  padding: 4rem 0;
+  background-color: var(--white);
+}
+
+.identification-teaser .container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.id-content {
+  flex: 1;
+}
+
+.id-features {
+  list-style: none;
+  margin: 1rem 0 2rem;
+}
+
+.id-features li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.id-features li:before {
+  content: "✓";
+  color: var(--primary-green);
+  position: absolute;
+  left: 0;
+}
+
+.id-image {
+  flex: 1;
+  text-align: center;
+}
+
+.id-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-green);
+  color: var(--white);
+  padding: 3rem 0 1rem;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-column h4 {
+  color: var(--white);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  color: var(--light-gray);
+}
+
+.footer-column a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .hero .container, .identification-teaser .container {
+    flex-direction: column;
+  }
+  
+  .hero-image, .id-image {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-green);
+    margin: 5px 0;
+  }
+  
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+  }
+  
+  .main-nav.active {
+    display: flex;
+  }
+  
+  .main-nav li {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .main-nav a {
+    display: block;
+    padding: 0.75rem;
+  }
+  
+  .search-bar {
+    display: none;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}
+
+ .family-guide-card img {
+  display: block;         /* Treat the image as a block element to allow auto margins for centering */
+  width: 60px;            /* Set a specific width for the icon */
+  height: 60px;           /* Set a specific height for the icon */
+  object-fit: contain;    /* Scales the image while preserving aspect ratio, ensuring it fits within 60x60px */
+  margin-left: auto;      /* Works with display:block and margin-right:auto to center horizontally */
+  margin-right: auto;     /* Works with display:block and margin-left:auto to center horizontally */
+  margin-bottom: 1rem;    /* Adds space below the image, adjust as needed (1rem is approx 16px) */
+  border-radius: 4px;     /* Optional: Adds slightly rounded corners to the image */
+}
+
+.family-guide-card {
+  text-align: center;
+}
